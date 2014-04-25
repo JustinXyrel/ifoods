@@ -14,5 +14,6 @@
 		<script src="js/profile.js"></script>
 		
 		<link rel="stylesheet" href="css/stylesheet.css" >
+		
 	</head>
 </html>
