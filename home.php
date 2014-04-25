@@ -194,7 +194,7 @@ $(document).ready(function(){
 			return false;	
 		}		
 	});
-
+	
 });
 
 </script>
@@ -213,7 +213,7 @@ $(document).ready(function(){
 				<td>
 					<div class="col-lg-6" style="width: inherit;">
 						<div class="input-group">
-							<input type="text" class="form-control" id="header_search" name="header_search" placeholder="Search" />
+							<input type="text" class="form-control" id="header_search" name="header_search" placeholder="Search Product" />
 							<span class="input-group-btn">
 								<button class="btn btn-default" type="button">Go!</button>
 							</span>
@@ -270,8 +270,6 @@ $(document).ready(function(){
 		</ul>
 		</div>
 		
-		
-	
 	</div><!-- /content -->
 	
 	<div id="footer">
