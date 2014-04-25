@@ -209,7 +209,7 @@ $(document).ready(function(){
 		 
 		<table id="leftTable" border="0">
 			<tr>
-				<td><img src="../images/ifoods_logo_2.png" /></td>
+				<td><img src="images/ifoods_logo_2.png" /></td>
 				<td>
 					<div class="col-lg-6" style="width: inherit;">
 						<div class="input-group">
@@ -225,7 +225,7 @@ $(document).ready(function(){
 		
 		<table id="rightTable" border="0">
 			<tr>
-				<td style="max-width: 40px; text-align: center;"><img src="../images/brand_logo.png" /></td>
+				<td style="max-width: 40px; text-align: center;"><img src="images/brand_logo.png" /></td>
 				<td style="text-align: left;">
 					<div id="userBox" style="">
 						<span>Name</span></br>
