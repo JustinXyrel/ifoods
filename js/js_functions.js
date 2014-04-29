@@ -8,7 +8,7 @@ author: Justin ^_-
 
 function check_required_fields(required_fields){
   $.each(required_fields, function(key,value){
-    console.log(value.val());
+   // console.log(value.val());
 	if(!value.val()){
 	    $(value).css('background-color', '#FF8073')
 	}    

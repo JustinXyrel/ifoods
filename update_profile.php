@@ -1,7 +1,8 @@
-<?php include('scripts.php');  if(!isset($_SESSION)){
+<?php include('scripts.php'); 
+         if(!isset($_SESSION)){
 			session_start();
 		  }
-		var_dump($_SESSION['auth']);?>
+		//var_dump($_SESSION['auth']);?>
 <style>
 
   .paddedBox {
@@ -219,13 +220,7 @@
       <td class="padding_left">Email Address *</td>
       <td class="padding_right"><input type="text" name="email_add" id="email_add" placeholder="Enter your email"/></td>
     </tr>
-    <tr>
-      <td></td>
-      <td class="padding_right">
-        <input type="text" id="email_add_verify" name="email_add_verify" placeholder="Re-enter your email" />
-        <label style="font-style:italic; font-family:Arial; font-size:small;">For reservation confirmation</label>
-      </td>
-    </tr>
+
     <tr>
    
       <td class="padding_left">Current Password *</td>
@@ -233,7 +228,7 @@
     </tr>
     <tr>
     <tr>
-      <td class="padding_left">New Password *</td>
+      <td class="padding_left">New Password </td>
       <td class="padding_right"><input type="password" id="password" name="password" placeholder="Password"/></td>
     </tr>
     <tr>

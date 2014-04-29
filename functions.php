@@ -137,7 +137,7 @@
 			$query = $conn->query($sql_que);
             $results = $query->fetchAll(PDO::FETCH_ASSOC);
             $json_data = json_encode($results);
-  		   echo $json_data;
+  		    echo $json_data;
 		}
 		 /*
 		  Author : Justin Xyrel 
@@ -178,6 +178,11 @@
 		  if(!isset($_SESSION)){
 			session_start();
 		  }
+		 // var_dump($_SESSION['auth']);die();
+		 if(strpos($_SESSION['auth'][0]['birth_date'],'-') === false){
+			$_SESSION['auth'][0]['birth_date'] =  date("Y-m-d", $_SESSION['auth'][0]['birth_date'] );
+		 }
+		 // echo json_encode($_SESSION['auth'][0]['birth_date'] );
 		  echo json_encode($_SESSION['auth']);
 		}
 		
@@ -209,10 +214,15 @@
 			extract($_POST['params']);
 			$this->table = 'tbl_users';
 			$wh = array('user_id' => $user_id);
-
+         
+			if(!isset($_SESSION)){
+				session_start();
+			} 
+		
 			foreach($form as &$data){     
 				if($data['name'] !== 'email_add_verify' && $data['name'] !== 'current_password' ){
-					if($data['name'] == 'password'){
+					if($data['name'] == 'password' && !empty($data['value']) ){
+					
 						$data['value'] = sha1($data['value']);
 					}
 					if($data['name'] == 'birth_date'){
@@ -221,8 +231,21 @@
 					$arr[$data['name']] = $data['value'];
 				}
 			}
-
+			if(empty($arr['password'])){
+			  unset($arr['password']);
+			}
+			
+			//	var_dump($arr);var_dump($_SESSION['auth']);die();
+			
+			
 			$results =  $this->update($arr,$wh);
+			
+			if($results){
+			 foreach($arr as $key=>&$value){
+			   $_SESSION['auth'][0][$key] = $value;
+			 }
+			}
+			
 			$json_data = json_encode($results);
 			
 			/**/

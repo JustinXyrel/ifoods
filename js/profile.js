@@ -1,4 +1,7 @@
+//console.log($('#update_form').length);
+
 $(document).ready(function(){
+ if($('#update_form').length > 0){
 	$("#validation_msg").hide();
 
 
@@ -58,7 +61,7 @@ $(document).ready(function(){
       var email_add_match =  $('#email_add_verify');
       var pass_match = $('#confpass');
       var accept = $('#accept');
-      var required = [firstname,lastname,street,town_city,country,birth_date,contact_no,email_add,pass,curr_pass];
+      var required = [firstname,lastname,street,town_city,country,birth_date,contact_no,email_add,curr_pass];
        
      jQuery.each( required, function( i, val ) {
        if($(this).val() == ''){
@@ -73,12 +76,21 @@ $(document).ready(function(){
      });
       
       
-      var match = [{ m: [ email_add_match.val(), email_add.val() ] },
-                   { m: [ pass_match.val(), pass.val() ] }];
+      var match = [{ m: [ pass_match.val(), pass.val() ] }];
       
       var count = 0;
-      
-      jQuery.each(match,function(i, val){
+    //  console.log(pass_match.val()); console.log(pass.val());
+	  if(pass_match.val() !==  pass.val()){
+	   	 $(pass_match).parent().find('p').hide();
+         $(pass).css('background-color', '#FF8073');
+         $(pass_match).css('background-color', '#FF8073');   
+		 validation_holder = 1;
+	  }else{
+		 $(pass).css('background-color', '#FFFFFF');   
+	     $(pass_match).css('background-color', '#FFFFFF');
+	  }
+	  
+    /*  jQuery.each(match,function(i, val){
         
           if(((val.m)[0]) != ((val.m)[1]))
           {
@@ -109,7 +121,7 @@ $(document).ready(function(){
         count++;
        
       });
-      
+      */
      
      
     
@@ -122,17 +134,18 @@ $(document).ready(function(){
                          function_name : 'sha1_pass', 
                   },
                   success: function (response){   
-				  console.log(response);
+				//  console.log(response);
                     if($('#cur_p').val() === response ){
-                      console.log($('#update_form').serializeArray() );
+
                       $.ajax({
 						type:'POST',
-                  		url:'../admin/controller.php',
-                        data: { 'params' : {'form' : $('#update_form').serializeArray(),'user_id': $('input#u_id').val(),},
+                  		url:'controller.php',
+                        data: { 'params' : {'form' : $("#update_form").serializeArray(),'user_id': $('input#u_id').val(),},
                    			    'function_name':'update_profile',
                   			  },
 						success: function (response){ 
-						     $.ajax({
+						   // $('ne')
+						/*     $.ajax({
 								type:'POST',
 								url:'controller.php',
 								data: { 'data' : JSON.stringify($('#update_form').serializeArray()),
@@ -146,7 +159,8 @@ $(document).ready(function(){
 									}
 								}
 							});
-							console.log(response);
+							*/
+							console.log(response);console.log('a');
                           if(response){
 						  
 							$('#confirm_add').dialog('open');  
@@ -177,7 +191,8 @@ $(document).ready(function(){
 				},
 		   }
 		  });
-
+	}
+		  
 	});
   
   $('#bannerBox').removeAttr('onclick');
