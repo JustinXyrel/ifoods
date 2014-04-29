@@ -194,7 +194,7 @@ $(document).ready(function(){
 			return false;	
 		}		
 	});
-
+	
 });
 
 </script>
@@ -209,11 +209,11 @@ $(document).ready(function(){
 		 
 		<table id="leftTable" border="0">
 			<tr>
-				<td><img src="../images/ifoods_logo_2.png" /></td>
+				<td><img src="images/ifoods_logo_2.png" /></td>
 				<td>
 					<div class="col-lg-6" style="width: inherit;">
 						<div class="input-group">
-							<input type="text" class="form-control" id="header_search" name="header_search" placeholder="Search" />
+							<input type="text" class="form-control" id="header_search" name="header_search" placeholder="Search Product" />
 							<span class="input-group-btn">
 								<button class="btn btn-default" type="button">Go!</button>
 							</span>
@@ -225,7 +225,7 @@ $(document).ready(function(){
 		
 		<table id="rightTable" border="0">
 			<tr>
-				<td style="max-width: 40px; text-align: center;"><img src="../images/brand_logo.png" /></td>
+				<td style="max-width: 40px; text-align: center;"><img src="images/brand_logo.png" /></td>
 				<td style="text-align: left;">
 					<div id="userBox" style="">
 						<span>Name</span></br>
@@ -270,8 +270,6 @@ $(document).ready(function(){
 		</ul>
 		</div>
 		
-		
-	
 	</div><!-- /content -->
 	
 	<div id="footer">

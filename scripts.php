@@ -11,6 +11,9 @@
 		<script src="js/js_functions.js"></script>
 		<script src="js/jquery-ui.js"></script>
 		<script src="js/login.js"></script>
-		<script src="js/profile.js"></script> 
+		<script src="js/profile.js"></script>
+		
+		<link rel="stylesheet" href="css/stylesheet.css" >
+
 	</head>
 </html>
