@@ -5,7 +5,12 @@ $(document).ready(function(){
 
 	var win_width = window.innerWidth/1.3;
 	var win_height = window.innerHeight/1.05;
-	
+	$('#menu').slicknav({
+		prependTo:'#slickdiv'
+	});
+
+	$('#menu').slicknav();
+		$('.slicknav_menu').attr('style','display:block;');
 	$("#dialog-confirm").dialog({
 		autoOpen: false,
 		height: 200,	 
