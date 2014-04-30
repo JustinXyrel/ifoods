@@ -92,19 +92,27 @@ body {
  
  /*slicknav*/
  .slicknav_menu {
-	display:none;
+	display: none;
+	/*background: #7f7f7f;*/
 }
 
 @media screen and (max-width: 40em) {
 	.js #menu {
-		display:none;
+		display: none;
 	}
 	
 	.js .slicknav_menu {
-		display:block;
+		display: block;
 	}
 }
- 
+
+.slicknav_menu .slicknav_menutxt {
+	visibility: hidden;
+}
+
+.slicknav_btn {
+	background: none;
+}
  /*end slicknav*/
  
  
