@@ -177,13 +177,12 @@
 
 /* STRUCTURE */
 
-
 #contentleft {
 	/*width: 290px;*/
 	width: 47.3em;
 	float: left;
 	padding: 5px 15px;
-	background: antiquewhite;
+	/*background: antiquewhite;*/
 }
 
 #middle {
@@ -191,14 +190,14 @@
 	float: left;
 	padding: 5px 15px;
 	margin: 0px 5px 5px 5px;
-	background: beige;
+	/*background: beige;*/
 }
 
 #right {
 	width: 270px;
 	padding: 5px 15px;
 	float: left;
-	background: burlywood;
+	/*background: burlywood;*/
 }
 
 
@@ -252,20 +251,11 @@ MEDIA QUERIES
 
 }
 
-#contentleft, #middle, #right {
-	border: solid 1px #ccc;
-}
 </style>
 
 <script>
 $(document).ready(function(){
 
-	$('#cssmenu > ul > li ul').each(function(index, e){
-		var count = $(e).find('li').length;
-		var content = '<span class="cnt">' + count + '</span>';
-		$(e).closest('li').children('a').append(content);
-	});
-	
 	$('#cssmenu > ul > li > a').click(function() {
 		$('#cssmenu li').removeClass('active');
 		$(this).closest('li').addClass('active');	
@@ -297,96 +287,45 @@ $(document).ready(function(){
 <div id="homeMainContainer">
 
 	<div id="header">
-	
-			<div id="contentleft">
-				<img src="images/ifoods_logo_2.png" />
-			</div>
-			
-			<div id="middle">
-				<div class="col-lg-6" style="width: inherit;">
-					<div class="input-group">
-						<input type="text" class="form-control" id="header_search" name="header_search" placeholder="Search Product" />
-						<span class="input-group-btn">
-							<button class="btn btn-default" type="button">Go!</button>
-						</span>
-					</div><!-- /input-group -->
-				</div><!-- /.col-lg-6 -->
-			</div>
-
-			<div id="right">
-				<table id="" border="0">
-					<tr>
-						<td style=""><img src="images/brand_logo.png" /></td>
-						<td style="text-align: left;">
-							<div id="userBox" style="">
-								<span>Name</span></br>
-								<span>Last Log in:</span>
-							</div>
-						</td>
-						<td>
-							<span class="slicknav_icon" style="cursor: pointer;">
-								<span class="slicknav_icon-bar"></span>
-								<span class="slicknav_icon-bar"></span>
-								<span class="slicknav_icon-bar"></span>
-							</span>
-
-						</div><!-- /input-group -->
-					</div><!-- /.col-lg-6 -->
-				</td>
-			</tr>
-		</table>
-		
-		<table id="rightTable" border="0">
-			<tr>
-				<!--<td style="max-width: 40px; text-align: center;"><img src="images/brand_logo.png" /></td>-->
-				<td style="text-align: left;">
-					<div id="userBox" style="">
-						<span>User Name: <?php echo $username; ?></span></br>
-						<span><?php echo $account_type; ?></span>
-					</div>
-				</td>
-				<td>
-					<div id="slickdiv">
-						<ul id="menu" style="display:none;">
-							<li><a href="update_profile.php">Profile</a></li>
-							<li><a href="logout.php">Logout</a></li>
-						</ul>
-					</div>
-				<!--	<span class="slicknav_icon" style="cursor: pointer;">
-						<span class="slicknav_icon-bar"></span>
-						<span class="slicknav_icon-bar"></span>
-						<span class="slicknav_icon-bar"></span>
-					</span>-->
-				</td>
-			</tr>
-		</table>
+		<?php include 'includes/header.php'; ?>
 	</div><!-- /header -->
-	
+
 	<div id="content">
 	
 		<div id='cssmenu'>
 			<ul>
-			   <li class='has-sub'><a><span>Restaurant</span></a>
-				  <ul>
-					 <li><a href='#'><span>Restaurant Name/ Main Branch</span></a></li>
-					 <li><a href='#'><span>Manager Information</span></a></li>
+				<li class='has-sub'><a><span>System Admin</span></a>
+					<ul>
+						<li><a href='#'><span>Restaurant Name/ Main Branch</span></a></li>
+						<li><a href='#'><span>Manager Information</span></a></li>
 					 
-				  </ul>
-			   </li>
-			   <li class='has-sub'><a><span>Restaurant Admin</span></a>
-				  <ul>
-					 <li><a href='#'><span>Products</span></a></li>
-					 <li><a href='#'><span>Staff</span></a></li>
-					 <li><a href='#'><span>Brand</span></a></li>
-				  </ul>
-			   </li>
-			   <li class='has-sub'><a><span>Staff/ Manager</span></a>
-				  <ul>
-					 <li><a href='#'><span>Transaction</span></a></li>
-				  </ul>
-			   </li>
+					</ul>
+				</li>
+				<li class='has-sub'><a><span>Restaurant</span></a>
+					<ul>
+						<li><a href='#'><span>Restaurant Name/ Main Branch</span></a></li>
+						<li><a href='#'><span>Manager Information</span></a></li>
+					 
+					</ul>
+				</li>
+				<li class='has-sub'><a><span>Restaurant Admin</span></a>
+					<ul>
+						<li><a href='#'><span>Products</span></a></li>
+						<li><a href='#'><span>Staff</span></a></li>
+						<li><a href='#'><span>Brand</span></a></li>
+					</ul>
+				</li>
+				<li class='has-sub'><a><span>Staff/ Manager</span></a>
+					<ul>
+						<li><a href='#'><span>Transaction</span></a></li>
+					</ul>
+				</li>
 			</ul>
 		</div><!-- /cssmenu -->
+		
+		<div id="content_display" style="border-top: 37px solid #7f7f7f;">
+		
+		</div>
 		
 	</div><!-- /content -->
 	
