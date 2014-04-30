@@ -1,9 +1,10 @@
 <?php
 	include('scripts.php');
 	include('var_functions.php');
+	
 	$var_func = new var_functions();
-	//var_dump($var_func->is_logged_in());
-	if($var_func->is_logged_in()){
+    if($var_func->is_logged_in()){
+
 		echo "<script>  window.location.assign('home.php'); </script>"; 
 		die();
 	}

@@ -90,6 +90,21 @@ body {
  a { color: #e66100 }
  /*****  END: LOGIN STYLE *****/
  
+ /*slicknav*/
+ .slicknav_menu {
+	display:none;
+}
+
+@media screen and (max-width: 40em) {
+	.js #menu {
+		display:none;
+	}
+	
+	.js .slicknav_menu {
+		display:block;
+	}
+}
  
+ /*end slicknav*/
  
  

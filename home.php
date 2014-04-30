@@ -2,12 +2,15 @@
 	include('scripts.php'); 
 	include('var_functions.php'); 
 	$var_func = new var_functions();
-	//var_dump($var_func->is_logged_in());
+	
+	if(!isset($_SESSION)){
+		session_start();
+	}
 	if($var_func->is_logged_in()){
-		echo "Successfully logged in";
-		echo "<button id = 'sign_out'>Sign Out</button>";
+	    $username = ucfirst($_SESSION['auth']['0']['username']);
+		$account_type = ucwords(str_replace('_', ' ' ,$_SESSION['auth']['0']['user_type']));
 	} else {
-		echo "Authentication required";
+		echo "<script>window.location.assign('index.php');</script>";
 	}
 ?>
 
@@ -326,11 +329,37 @@ $(document).ready(function(){
 								<span class="slicknav_icon-bar"></span>
 								<span class="slicknav_icon-bar"></span>
 							</span>
-						</td>
-					</tr>
-				</table>
-			</div>
+
+						</div><!-- /input-group -->
+					</div><!-- /.col-lg-6 -->
+				</td>
+			</tr>
+		</table>
 		
+		<table id="rightTable" border="0">
+			<tr>
+				<!--<td style="max-width: 40px; text-align: center;"><img src="images/brand_logo.png" /></td>-->
+				<td style="text-align: left;">
+					<div id="userBox" style="">
+						<span>User Name: <?php echo $username; ?></span></br>
+						<span><?php echo $account_type; ?></span>
+					</div>
+				</td>
+				<td>
+					<div id="slickdiv">
+						<ul id="menu" style="display:none;">
+							<li><a href="update_profile.php">Profile</a></li>
+							<li><a href="logout.php">Logout</a></li>
+						</ul>
+					</div>
+				<!--	<span class="slicknav_icon" style="cursor: pointer;">
+						<span class="slicknav_icon-bar"></span>
+						<span class="slicknav_icon-bar"></span>
+						<span class="slicknav_icon-bar"></span>
+					</span>-->
+				</td>
+			</tr>
+		</table>
 	</div><!-- /header -->
 	
 	<div id="content">
