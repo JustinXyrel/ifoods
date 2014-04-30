@@ -37,15 +37,15 @@
 	height: 100%;
 }
 
-#header #rightTable {
+#header #right {
 	width: 220px;
 	height: 100%;
-	float: right;
+	
 	color: #fff;
 	background: #7f7f7f;
 }
 
-#header #rightTable .slicknav_icon-bar {
+#header #right .slicknav_icon-bar {
 	background-color: #f5f5f5;
 	display: block;
 	width: 1.125em;
@@ -58,7 +58,7 @@
 	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
 }
 
-#header #rightTable .slicknav_icon-bar + .slicknav_icon-bar {
+#header #right .slicknav_icon-bar + .slicknav_icon-bar {
 	margin-top: 0.188em;
 }
 
@@ -67,6 +67,10 @@
 }
 
 #footer {
+	width: 90%;
+	bottom: 0;
+	position: fixed;
+
 	text-align: center;
 	padding: 10px;
 	color: #fff;
@@ -164,6 +168,90 @@
 #cssmenu ul ul li.even {
   background: #fff;
 }
+
+
+
+
+/* STRUCTURE */
+
+
+#contentleft {
+	/*width: 290px;*/
+	width: 47.3em;
+	float: left;
+	padding: 5px 15px;
+	background: antiquewhite;
+}
+
+#middle {
+	width: 294px; /* Account for margins + border values */
+	float: left;
+	padding: 5px 15px;
+	margin: 0px 5px 5px 5px;
+	background: beige;
+}
+
+#right {
+	width: 270px;
+	padding: 5px 15px;
+	float: left;
+	background: burlywood;
+}
+
+
+/************************************************************************************
+MEDIA QUERIES
+*************************************************************************************/
+/* for 980px or less */
+@media screen and (max-width: 980px) {
+	
+	#pagewrap {
+		width: 90%;
+	}
+	#contentleft {
+		width: 41%;
+		padding: 1% 4%;
+	}
+	#middle {
+		width: 41%;
+		padding: 1% 4%;
+		margin: 0px 0px 5px 5px;
+		float: right;
+	}
+	
+	#right {
+		clear: both;
+		padding: 1% 4%;
+		width: auto;
+		float: none;
+	}
+
+}
+
+/* for 700px or less */
+@media screen and (max-width: 600px) {
+
+	#contentleft {
+		width: auto;
+		float: none;
+	}
+	
+	#middle {
+		width: auto;
+		float: none;
+		margin-left: 0px;
+	}
+	
+	#right {
+		width: auto;
+		float: none;
+	}
+
+}
+
+#contentleft, #middle, #right {
+	border: solid 1px #ccc;
+}
 </style>
 
 <script>
@@ -206,69 +294,70 @@ $(document).ready(function(){
 <div id="homeMainContainer">
 
 	<div id="header">
-		 
-		<table id="leftTable" border="0">
-			<tr>
-				<td><img src="images/ifoods_logo_2.png" /></td>
-				<td>
-					<div class="col-lg-6" style="width: inherit;">
-						<div class="input-group">
-							<input type="text" class="form-control" id="header_search" name="header_search" placeholder="Search Product" />
-							<span class="input-group-btn">
-								<button class="btn btn-default" type="button">Go!</button>
+	
+			<div id="contentleft">
+				<img src="images/ifoods_logo_2.png" />
+			</div>
+			
+			<div id="middle">
+				<div class="col-lg-6" style="width: inherit;">
+					<div class="input-group">
+						<input type="text" class="form-control" id="header_search" name="header_search" placeholder="Search Product" />
+						<span class="input-group-btn">
+							<button class="btn btn-default" type="button">Go!</button>
+						</span>
+					</div><!-- /input-group -->
+				</div><!-- /.col-lg-6 -->
+			</div>
+
+			<div id="right">
+				<table id="" border="0">
+					<tr>
+						<td style=""><img src="images/brand_logo.png" /></td>
+						<td style="text-align: left;">
+							<div id="userBox" style="">
+								<span>Name</span></br>
+								<span>Last Log in:</span>
+							</div>
+						</td>
+						<td>
+							<span class="slicknav_icon" style="cursor: pointer;">
+								<span class="slicknav_icon-bar"></span>
+								<span class="slicknav_icon-bar"></span>
+								<span class="slicknav_icon-bar"></span>
 							</span>
-						</div><!-- /input-group -->
-					</div><!-- /.col-lg-6 -->
-				</td>
-			</tr>
-		</table>
-		
-		<table id="rightTable" border="0">
-			<tr>
-				<td style="max-width: 40px; text-align: center;"><img src="images/brand_logo.png" /></td>
-				<td style="text-align: left;">
-					<div id="userBox" style="">
-						<span>Name</span></br>
-						<span>Last Log in:</span>
-					</div>
-				</td>
-				<td>
-					<span class="slicknav_icon" style="cursor: pointer;">
-						<span class="slicknav_icon-bar"></span>
-						<span class="slicknav_icon-bar"></span>
-						<span class="slicknav_icon-bar"></span>
-					</span>
-				</td>
-			</tr>
-		</table>
+						</td>
+					</tr>
+				</table>
+			</div>
 		
 	</div><!-- /header -->
 	
 	<div id="content">
 	
 		<div id='cssmenu'>
-		<ul>
-		   <li class='has-sub'><a><span>Restaurant</span></a>
-			  <ul>
-				 <li><a href='#'><span>Restaurant Name/ Main Branch</span></a></li>
-				 <li><a href='#'><span>Manager Information</span></a></li>
-				 
-			  </ul>
-		   </li>
-		   <li class='has-sub'><a><span>Restaurant Admin</span></a>
-			  <ul>
-				 <li><a href='#'><span>Products</span></a></li>
-				 <li><a href='#'><span>Staff</span></a></li>
-				 <li><a href='#'><span>Brand</span></a></li>
-			  </ul>
-		   </li>
-		   <li class='has-sub'><a><span>Staff/ Manager</span></a>
-			  <ul>
-				 <li><a href='#'><span>Transaction</span></a></li>
-			  </ul>
-		   </li>
-		</ul>
-		</div>
+			<ul>
+			   <li class='has-sub'><a><span>Restaurant</span></a>
+				  <ul>
+					 <li><a href='#'><span>Restaurant Name/ Main Branch</span></a></li>
+					 <li><a href='#'><span>Manager Information</span></a></li>
+					 
+				  </ul>
+			   </li>
+			   <li class='has-sub'><a><span>Restaurant Admin</span></a>
+				  <ul>
+					 <li><a href='#'><span>Products</span></a></li>
+					 <li><a href='#'><span>Staff</span></a></li>
+					 <li><a href='#'><span>Brand</span></a></li>
+				  </ul>
+			   </li>
+			   <li class='has-sub'><a><span>Staff/ Manager</span></a>
+				  <ul>
+					 <li><a href='#'><span>Transaction</span></a></li>
+				  </ul>
+			   </li>
+			</ul>
+		</div><!-- /cssmenu -->
 		
 	</div><!-- /content -->
 	
