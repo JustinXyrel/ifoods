@@ -135,8 +135,87 @@
 }
   
 </style>
+<div id = 'main_profile' >
+<div id = "view_profile">
+<div id="validation_msg" class="msg_container"><h2 id="val_msg"></h2></div>
+ 
+  <table border="0" style="width:100%; margin-bottom: 25px; text-align: left;">
+    <tr>
+      <td colspan="2" style="text-align:left;"><h2 style="margin-top: 0px;">Personal Information</h2><div style='display:none;background-color:#FF8073;' id = 'err_msg'></div></td>
+      <td style="padding-right: 3px;"><input type="button" id="btn_edit" style="width:50%;height:100%" value="Edit"/></td>
+   </tr>
+    <tr>
+      <td class="padding_left">First Name </td>
+      <td class="padding_right"><label name="fname" id="fname"/></label></td>
+    </tr>
+    <tr>
+      <td class="padding_left">Middle Name</td>
+      <td class="padding_right"><label name="mname" id="mname"/></label></td>
+    </tr>
+    <tr>
+      <td class="padding_left">Last Name </td>
+      <td class="padding_right"><label name="lname" id="lname"/></label></td>
+    </tr>
+    <tr>
+      <td class="padding_left">Gender </td>
+      <td style="padding-left">
+          <label id="gender">
+        
+          </label>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" style="text-align:left;"><h2>Address</h2></td>
+    </tr>
+    <tr>
+      <td class="padding_left">Unit No.</td>
+      <td class="padding_right"><label name="unit_no" id="unit_no"/></label></td>
+    </tr>
+    <tr>
+      <td class="padding_left">Building No./ Name</td>
+      <td class="padding_right"><label name="building_name" id="building_name"/></label></td>
+    </tr>
+    <tr>
+      <td class="padding_left">Street</td>
+      <td class="padding_right"><label name="street" id="street"/></label></td>
+    </tr>
+    <tr>
+      <td class="padding_left">City/ Town</td>
+      <td class="padding_right"><label name="town_city" id="town_city"/></label></td>
+    </tr>
+    <tr>
+      <td class="padding_left">State/Province</td>
+      <td class="padding_right"><label name="state_province" id="state_province"/></label></td>
+    </tr>
+    <tr>
+      <td class="padding_left">Country</td>
+      <td class="padding_right">
+    		<label  id = "country" name="country">
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td class="padding_left">Date of Birth</td>
+      <td class="padding_right"><label class='form_date'  style="" name="birth_date" id="birth_date"/></label></td>
+    </tr>
+    <tr>
+      <td colspan="2" style="text-align:left;"><h2>Contact Information</h2></td>
+    </tr>
+    <tr>
+      <td class="padding_left">Contact No.</td>
+      <td class="padding_right"><label name="contact_no" id="contact_no"/></label></td>
+    </tr>
+    <tr>
+      <td class="padding_left">Email Address</td>
+      <td class="padding_right"><label name="email_add" id="email_add" /></label></td>
+    </tr>
 
+  </table>
+	
 
+</div>
+
+<div id = "update_profile" style="display:none;" >
 <form id="update_form" class="ac-login" action="?" method="post" id="">
 
 <div id="validation_msg" class="msg_container"><h2 id="val_msg"></h2></div>
@@ -144,10 +223,11 @@
   <table border="0" style="width:100%; margin-bottom: 25px; text-align: left;">
     <tr>
       <td colspan="2" style="text-align:left;"><h2 style="margin-top: 0px;">Personal Information</h2><div style='display:none;background-color:#FF8073;' id = 'err_msg'></div></td>
-    </tr>
+	  <td style="padding-right: 3px;"><input type="button" id="btn_close" style="width:50%;height:100%" value="Close"/></td>
+	</tr>
     <tr>
       <td class="padding_left">First Name *</td>
-      <td class="padding_right"><input type="text" name="fname" id="fname"/><p id="fname">Filled the required field.</p></td>
+      <td class="padding_right"><input type="text" name="fname" id="fname"/></td>
     </tr>
     <tr>
       <td class="padding_left">Middle Name</td>
@@ -155,7 +235,7 @@
     </tr>
     <tr>
       <td class="padding_left">Last Name *</td>
-      <td class="padding_right"><input type="text" name="lname" id="lname"/><p id="lname">Filled the required field.</p></td>
+      <td class="padding_right"><input type="text" name="lname" id="lname"/></td>
     </tr>
     <tr>
       <td class="padding_left">Gender *</td>
@@ -261,10 +341,8 @@
 </tr>
 </table>
 </div>
-
-
-
-
+</div>
+</div>
 
 
 

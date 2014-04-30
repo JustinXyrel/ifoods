@@ -4,7 +4,14 @@ $(document).ready(function(){
  if($('#update_form').length > 0){
 	$("#validation_msg").hide();
 
-
+    $('#btn_edit').click(function(){
+	   show_hide($('div#update_profile'),$('div#view_profile'));
+	});
+	
+    $('#btn_close').click(function(){
+	   show_hide($('div#view_profile'),$('div#update_profile'));
+	});
+	
     $.ajax({
 		type:'POST',
         url:'controller.php',
@@ -33,9 +40,12 @@ $(document).ready(function(){
 
              $.each(arr,function(key,value){
                 if(key == 'gender'){
+				    console.log(value);
  					$('input[name=gender]').filter('[value='+value+']').prop('checked',true);
+                    $('label#'+key).text((value == 'f') ? 'Female' : 'Male');
 				}else{
-                    $('#'+key).val(value);
+                    $('input#'+key).val(value);
+					$('label#'+key).text(value);
 				}                              
              });
 		}			 

@@ -14,3 +14,8 @@ function check_required_fields(required_fields){
 	}    
   });
 }
+
+function show_hide(show,hide){
+  $(show).slideToggle();
+  $(hide).slideToggle();
+}
