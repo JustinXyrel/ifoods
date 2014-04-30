@@ -201,6 +201,7 @@ $('html').find("#inp_menu_image").change(function()	{	readImage( this );	});
 	$('.rad').click(function(){	$('#inp_menu_status').val($(this).attr('id'));	});
 	setTimeout(function(){$('form').find('#btn_search').click();},500);
 	
+	
 });
 
 

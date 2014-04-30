@@ -2,17 +2,15 @@
 	include('scripts.php'); 
 	include('var_functions.php'); 
 	$var_func = new var_functions();
-	//var_dump($var_func->is_logged_in());
+	
+	if(!isset($_SESSION)){
+		session_start();
+	}
 	if($var_func->is_logged_in()){
 	    $username = ucfirst($_SESSION['auth']['0']['username']);
 		$account_type = ucwords(str_replace('_', ' ' ,$_SESSION['auth']['0']['user_type']));
-		echo "Successfully logged in";
-		echo "<button id = 'sign_out'>Sign Out</button>";
-		
-		//echo "<pre>",print_r($_SESSION),"</pre>";
-		//echo $_SESSION['auth']['0']['username'];
 	} else {
-		echo "Authentication required";
+		echo "<script>window.location.assign('index.php');</script>";
 	}
 ?>
 
@@ -241,7 +239,7 @@ $(document).ready(function(){
 					<div id="slickdiv">
 						<ul id="menu" style="display:none;">
 							<li><a href="update_profile.php">Profile</a></li>
-							<li><a href="#">Logout</a></li>
+							<li><a href="logout.php">Logout</a></li>
 						</ul>
 					</div>
 				<!--	<span class="slicknav_icon" style="cursor: pointer;">

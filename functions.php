@@ -235,9 +235,6 @@
 			  unset($arr['password']);
 			}
 			
-			//	var_dump($arr);var_dump($_SESSION['auth']);die();
-			
-			
 			$results =  $this->update($arr,$wh);
 			
 			if($results){
@@ -251,7 +248,21 @@
 			/**/
 			echo $json_data; 
 		}
+		
+		/*
+		  Author : Justin Xyrel 
+		  Date: 04/24/14
+		  Function: logout_user
+		  Desc: unset the session of the user
+          Params: none
+		*/ 	
 
+		public function logout_user(){
+			if(!isset($_SESSION)){
+				session_start();
+			} 
+			session_destroy();
+		}
 	}
 	
 ?>
