@@ -18,7 +18,7 @@
 
 		<div id="right">
 			
-			<table id="rightTable" border="1">
+			<table id="rightTable" border="0">
 				<tr>
 					<td style="text-align: center;"><img src="images/brand_logo.png" /></td>
 					<td style="text-align: left;">
