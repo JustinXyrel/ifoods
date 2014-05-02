@@ -11,6 +11,9 @@
 		echo "<script>window.location.assign('index.php');</script>";
 	}
 		//var_dump($_SESSION['auth']);?>
+		
+<html>		
+		
 <style>
 
   .paddedBox {
@@ -143,6 +146,15 @@
 }
   
 </style>
+
+<body>
+
+<div id="homeMainContainer">
+
+	<div id="header">
+		<?php include 'includes/header.php'; ?>
+	</div><!-- /header -->
+
 <div id = 'main_profile' >
 <div id = "view_profile">
 <div id="validation_msg" class="msg_container"><h2 id="val_msg"></h2></div>
@@ -352,8 +364,11 @@
 </div>
 </div>
 
+</div><!-- /homeMainContainer -->
 
+</body>
 
+</html>
 
 <?php
 
