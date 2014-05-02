@@ -1,4 +1,17 @@
-
+<?php
+	include('scripts.php'); 
+	$var_func = new var_functions();
+	
+	if(!isset($_SESSION)){
+		session_start();
+	}
+	if($var_func->is_logged_in()){
+	    $username = ucfirst($_SESSION['auth']['0']['username']);
+		$account_type = ucwords(str_replace('_', ' ' ,$_SESSION['auth']['0']['user_type']));
+	} else {
+		echo "<script>window.location.assign('index.php');</script>";
+	}
+?>
 
 	
 		<div id="contentleft">
