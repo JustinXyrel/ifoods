@@ -38,75 +38,73 @@
   line-height: 1.3;
 }
 #cssmenu {
-  width: 250px;
+	float: left;
+	width: 250px;
 }
 #cssmenu > ul > li > a {
-  padding-right: 40px;
-  font-size: 25px;
-  font-weight: bold;
-  display: block;
-  background: #ed1144;
-  color: #ffffff;
-  border-bottom: 1px solid #ffffff;
-  text-transform: uppercase;
+	padding-right: 40px;
+	font-size: 25px;
+	font-weight: bold;
+	display: block;
+	background: #ed1144;
+	color: #ffffff;
+	border-bottom: 1px solid #ffffff;
+	text-transform: uppercase;
 }
 #cssmenu > ul > li > a > span {
-  background: #7f7f7f;
-  padding: 10px;
-  display: block;
-  font-size: 13px;
-  font-weight: 300;
-  cursor: pointer;
+	background: #7f7f7f;
+	padding: 10px;
+	display: block;
+	font-size: 13px;
+	font-weight: 300;
+	cursor: pointer;
 }
 #cssmenu > ul > li > a:hover {
-  text-decoration: none;
+	text-decoration: none;
 }
 #cssmenu > ul > li.active {
-  border-bottom: none;
+	border-bottom: none;
 }
 #cssmenu > ul > li.active > a {
-  color: #fff;
+	color: #fff;
 }
 #cssmenu > ul > li.active > a span {
-  /*background: #bd0e36;*/
-  background: #ed1144;
+	/*background: #bd0e36;*/
+	background: #ed1144;
 }
 #cssmenu span.cnt {
-  position: absolute;
-  top: 8px;
-  right: 15px;
-  padding: 0;
-  margin: 0;
-  background: none;
+	position: absolute;
+	top: 8px;
+	right: 15px;
+	padding: 0;
+	margin: 0;
+	background: none;
 }
+
 /* Sub menu */
+
 #cssmenu ul ul {
-  display: none;
+	display: none;
 }
 #cssmenu ul ul li {
-  border: 1px solid #e0e0e0;
-  border-top: 0;
+	border: 1px solid #e0e0e0;
+	border-top: 0;
 }
 #cssmenu ul ul a {
-  padding: 10px;
-  display: block;
-  color: #7f7f7f;
-  font-size: 13px;
+	padding: 10px;
+	display: block;
+	color: #7f7f7f;
+	font-size: 13px;
 }
 #cssmenu ul ul a:hover {
-  color: #bd0e36;
+	color: #bd0e36;
 }
 #cssmenu ul ul li {
-  background: #ffffff;
+	background: #ffffff;
 }
 #cssmenu ul ul li.even {
-  background: #fff;
+	background: #fff;
 }
-
-
-
-
-
 
 </style>
 
@@ -180,8 +178,12 @@ $(document).ready(function(){
 			</ul>
 		</div><!-- /cssmenu -->
 		
-		<div id="content_display" style="border-top: 37px solid #7f7f7f;">
+		<div id="content_display" style="float: right; width: 78%; border-top: 37px solid #7f7f7f;">
 		
+		</div>
+		
+		<div id="bottom_content" style="height: 36px;">
+			
 		</div>
 		
 	</div><!-- /content -->
