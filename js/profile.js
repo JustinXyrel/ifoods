@@ -4,11 +4,13 @@ $(document).ready(function(){
  if($('#update_form').length > 0){
 	$("#validation_msg").hide();
 
-    $('#btn_edit').click(function(){
+    $('#btn_edit').click(function(event){
+	    event.stopImmediatePropagation();
 	   show_hide($('div#update_profile'),$('div#view_profile'));
 	});
 	
-    $('#btn_close').click(function(){
+    $('#btn_close').click(function(event){
+	   event.stopImmediatePropagation();
 	   show_hide($('div#view_profile'),$('div#update_profile'));
 	});
 	
