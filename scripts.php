@@ -15,6 +15,13 @@
 		<script src="js/profile.js"></script>
 		<script src="js/jquery.slicknav.min.js"></script>
 		<link rel="stylesheet" href="css/stylesheet.css" >
-
+		
+   <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+   <link href="http://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.min.css" rel="stylesheet">
+   <link href="http://cdnjs.cloudflare.com/ajax/libs/x-editable/1.4.5/bootstrap-editable/css/bootstrap-editable.css" rel="stylesheet">
+   <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+   <script src="http://cdnjs.cloudflare.com/ajax/libs/x-editable/1.4.5/bootstrap-editable/js/bootstrap-editable.min.js"></script>
+	<script src="js/jquery.filterable.js"></script>
+	<link rel="stylesheet" href="css/bootstrap-filterable.css" >
 	</head>
 </html>

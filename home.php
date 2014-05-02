@@ -146,28 +146,28 @@ $(document).ready(function(){
 	
 		<div id='cssmenu'>
 			<ul>
-				<li class='has-sub'><a><span>System Admin</span></a>
+				<li class='has-sub' style="display:none;"><a><span>System Admin</span></a>
 					<ul>
 						<li><a href='#'><span>Restaurant Name/ Main Branch</span></a></li>
 						<li><a href='#'><span>Manager Information</span></a></li>
 					 
 					</ul>
 				</li>
-				<li class='has-sub'><a><span>Restaurant</span></a>
+		<!--		<li class='has-sub'><a><span>Restaurant</span></a>
 					<ul>
 						<li><a href='#'><span>Restaurant Name/ Main Branch</span></a></li>
 						<li><a href='#'><span>Manager Information</span></a></li>
 					 
 					</ul>
-				</li>
-				<li class='has-sub'><a><span>Restaurant Admin</span></a>
+				</li>-->
+				<li class='has-sub' style="display:none;"><a><span>Restaurant Admin</span></a>
 					<ul>
 						<li><a href='#'><span>Products</span></a></li>
-						<li><a href='#'><span>Staff</span></a></li>
+						<li><a href='#' id='staff'><span>Staff</span></a></li>
 						<li><a href='#'><span>Brand</span></a></li>
 					</ul>
 				</li>
-				<li class='has-sub'><a><span>Staff/ Manager</span></a>
+				<li class='has-sub' style="display:none;"><a><span>Staff/ Manager</span></a>
 					<ul>
 						<li><a href='#'><span>Transaction</span></a></li>
 					</ul>

@@ -201,7 +201,50 @@ $('html').find("#inp_menu_image").change(function()	{	readImage( this );	});
 	$('.rad').click(function(){	$('#inp_menu_status').val($(this).attr('id'));	});
 	setTimeout(function(){$('form').find('#btn_search').click();},500);
 	
+	/*
+      to be revised.. temporary code - JX
 	
+	
+	*/
+	if($('#homeMainContainer').length > 0){
+	  if($('input#ut_id').val() == '3'){
+	    $('div#content').find('li.has-sub:eq(0)').show();
+		$('div#content').find('li.has-sub:eq(0)').addClass("active");
+	  }
+	  if($('input#ut_id').val() == '2'){
+	    $('div#content').find('li.has-sub:eq(1)').show();
+	  }
+	  if($('input#ut_id').val() > 3 ){
+	    $('div#content').find('li.has-sub:eq(2)').show();
+	  }
+	}
+	
+	
+	$('a#staff').on('click',function(event){
+		event.stopImmediatePropagation(); 
+		event.preventDefault(); 
+		$.ajax({
+			type: 'POST',
+			url:'controller.php',
+						data: {'function_name':'get_staff'},
+			success: function (response){ 
+			    $.ajax({
+				type: 'POST',
+				url:'staff.php',
+				data: {'data':response},
+				success: function (response){ 
+			
+						$('div#content_display').append(response);
+						$('table#staff').filterable();		
+								}
+				});
+					
+									
+			}
+		});
+		//alert('you clicked me');
+	});
+
 });
 
 
