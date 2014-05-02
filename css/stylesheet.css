@@ -94,7 +94,7 @@ body {
  /*****  START: STYLE *****/
  #homeMainContainer {
 	background-color: #f6f6f6;
-	width: 90%;
+	width: 1229px;
 	
 	margin: 0 auto;
 }
@@ -239,6 +239,10 @@ MEDIA QUERIES
 /*****  END: HEADER *****/
  
  /*slicknav*/
+ #slickdiv {
+	position: relative;
+ }
+ 
  .slicknav_menu {
 	display: none;
 	/*background: #7f7f7f;*/
