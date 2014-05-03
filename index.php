@@ -12,7 +12,9 @@
  ?>
 <style>
 
- </style>
+</style>
+
+<body id="login_body">
  
 <div id="loginMainContainer">
  
@@ -31,7 +33,7 @@
 				<td>Username</td><td>Password</td>
 			</tr>
 			<tr>
-				<td class="td_padding_left"><input type="text" name="login"></td><td class="td_padding_left"><input type="password" name="password"></td>
+				<td class="td_padding_left"><input type="text" id="login_username" name="login"></td><td class="td_padding_left"><input type="password" id="login_password" name="password"></td>
 			</tr>
 			<tr>
 				<td></td>
@@ -52,4 +54,5 @@
 
 </div><!-- /loginMainContainer -->
 
+</body><!-- /login_body -->
 
