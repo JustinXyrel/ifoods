@@ -263,6 +263,37 @@
 			} 
 			session_destroy();
 		}
+		
+		 /*
+		  Author : Justin Xyrel 
+		  Date: 05/01/14
+		  Function: get_staff
+		  Desc: Locate the account of the user where the user type is not equal to customer
+		  Params: post data such us $usr(username) and $pwd($password)
+		*/ 
+		public function get_staff(){	
+		  global $conn;
+		  
+		  if(!isset($_SESSION)){
+			session_start();
+		  }		
+		//  echo "<pre>",print_r($_SESSION['auth']),"</pre>";
+		     $fields = array('fname','lname','middle');
+			  $branch_id = $_SESSION['auth'][0]['branch_id'];
+			  
+			//global $conn;
+			//extract($_POST);
+		
+			//var_dump($profile);
+			
+			//$this->select_fields_where();
+			$sql_que = "SELECT u.*,ut.user_type from tbl_users u join tbl_user_types ut on u.user_type_id =ut.user_type_id where 
+                   u.branch_id= ".$branch_id." and u.user_type_id > 3 ";
+			$query = $conn->query($sql_que);
+            $results = $query->fetchAll(PDO::FETCH_ASSOC);
+            $json_data = json_encode($results);
+  		    echo $json_data;
+		}
 	}
 	
 ?>

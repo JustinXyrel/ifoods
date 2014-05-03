@@ -7,6 +7,7 @@ ob_start();
 try 
 {
 	$conn = new PDO("{$conf["database"]["type"]}:host={$conf["database"]["host"]};dbname={$conf["database"]["database"]}", 	 		$conf["database"]["username"], $conf["database"]["password"],array(PDO::ATTR_PERSISTENT => true));
+	
 }catch (PDOException $e) 
 {
 	trigger_error($e->getMessage(), E_USER_ERROR);
