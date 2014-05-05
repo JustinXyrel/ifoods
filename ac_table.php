@@ -122,7 +122,7 @@ class table {
   }else{
    $statement = "UPDATE {$this->table} SET $updates" ;
   }
-     //var_dump($statement);die();
+//  var_dump($statement);die();
   if ($conn->exec($statement)) {
    return true;
   }else{

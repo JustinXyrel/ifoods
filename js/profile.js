@@ -14,47 +14,12 @@ $(document).ready(function(){
 	   show_hide($('div#view_profile'),$('div#update_profile'));
 	});
 	
-    $.ajax({
-		type:'POST',
-        url:'controller.php',
-        data: { 'function_name' : 'get_profile',
-                  			},
-       	success: function (response){ 
-			var parse_json = $.parseJSON(response);
-            var user_profile = parse_json[0];
-			var arr = {'lname': user_profile['lname'],
-						'mname' : user_profile['mname'],
-						'fname' : user_profile['fname'],
-						'unit_no' : user_profile['unit_no'],
-						'building_no' : user_profile['building_name'],
-					    'street' : user_profile['street'],
-						'town_city' : user_profile['town_city'],
-						'state_province' : user_profile['state_province'],
-						'contact_no' :user_profile['contact_no'],
-						'email_add' : user_profile['email_add'],
-						'birth_date' : user_profile['birth_date'],
-						'country' : user_profile['country'],
-						'gender' : user_profile['gender'],
-						'cur_p' : user_profile['password'],
-						'u_id' : user_profile['user_id'],
-		 			  };
-
-             $.each(arr,function(key,value){
-                if(key == 'gender'){
-					if(value == 'f'){
-						$('input[type=radio]:eq(1)').click();
-					}else{
-						$('input[type=radio]:eq(1)').click();
-					}
- 					$('input[name=gender]').filter('[value='+value+']').prop('checked',true);
-                    $('label#'+key).text((value == 'f') ? 'Female' : 'Male');
-				}else{
-                    $('input#'+key).val(value);
-					$('label#'+key).text(value);
-				}                              
-             });
-		}			 
+	 $('#btn_cancel').click(function(event){
+	   event.stopImmediatePropagation();
+	   show_hide($('div#view_profile'),$('div#update_profile'));
 	});
+	
+    get_profile();
 
 
 	
@@ -94,7 +59,7 @@ $(document).ready(function(){
 	     $(pass_match).css('background-color', '#FFFFFF');
 
 	  }
-
+//console.log($("#update_form").serializeArray());
       if(validation_holder == 0) {
          $.ajax({
 				type:'POST' ,
@@ -113,7 +78,9 @@ $(document).ready(function(){
                    			    'function_name':'update_profile',
                   			  },
 						success: function (response){ 
-                          if(response){
+						  console.log(response);
+                          if(response == true){
+						    get_profile();
 							show_hide($('div#view_profile'),$('div#update_profile'));
 							$('#confirm_add').dialog('open');  
                           }
@@ -145,7 +112,54 @@ $(document).ready(function(){
 		  });
 	}
 		  
-	});
+		  
+    function get_profile(){
+		$.ajax({
+			type:'POST',
+			url:'controller.php',
+			data: { 'function_name' : 'get_profile',
+                  			},
+			success: function (response){ 
+				var parse_json = $.parseJSON(response);
+				var user_profile = parse_json[0];
+				var arr = {'lname': user_profile['lname'],
+						'mname' : user_profile['mname'],
+						'fname' : user_profile['fname'],
+						'unit_no' : user_profile['unit_no'],
+						'building_name' : user_profile['building_name'],
+					    'street' : user_profile['street'],
+						'town_city' : user_profile['town_city'],
+						'state_province' : user_profile['state_province'],
+						'contact_no' :user_profile['contact_no'],
+						'email_add' : user_profile['email_add'],
+						'birth_date' : user_profile['birth_date'],
+						'country' : user_profile['country'],
+						'gender' : user_profile['gender'],
+						'cur_p' : user_profile['password'],
+						'u_id' : user_profile['user_id'],
+		 			  };
+
+				$.each(arr,function(key,value){
+					if(key == 'gender'){
+						if(value.toUpperCase() == 'F'){
+							$('input[type=radio]:eq(1)').click();
+						}else{
+							$('input[type=radio]:eq(0)').click();
+						}
+						$('input[name=gender]').filter('[value='+value+']').prop('checked',true);
+						$('label#'+key).text((value.toUpperCase() == 'F') ? 'Female' : 'Male');
+					}else{
+						$('input#'+key).val(value);
+						$('select#'+key).val(value);
+						$('label#'+key).text(value);
+					}                              
+				});
+			}			 
+		});
+	
+	}
+	
+});
   
   $('#bannerBox').removeAttr('onclick');
   if (typeof device !== 'undefined')

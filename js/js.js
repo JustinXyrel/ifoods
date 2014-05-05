@@ -210,14 +210,17 @@ $('html').find("#inp_menu_image").change(function()	{	readImage( this );	});
 	  if($('input#ut_id').val() == '3'){
 	    $('div#content').find('li.has-sub:eq(0)').show();
 		$('div#content').find('li.has-sub:eq(0)').addClass("active");
+		$('div#content').find('li.has-sub:eq(0)').children('a').click()
 	  }
 	  if($('input#ut_id').val() == '2'){
 	  	$('div#content').find('li.has-sub:eq(1)').addClass("active");
 	    $('div#content').find('li.has-sub:eq(1)').show();
+		$('div#content').find('li.has-sub:eq(1)').children('a').click()
 	  }
 	  if($('input#ut_id').val() > 3 ){
 	  	$('div#content').find('li.has-sub:eq(2)').addClass("active");
 	    $('div#content').find('li.has-sub:eq(2)').show();
+		$('div#content').find('li.has-sub:eq(2)').children('a').click()
 	  }
 	}
 	
