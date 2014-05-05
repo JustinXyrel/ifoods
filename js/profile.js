@@ -56,14 +56,14 @@ $(document).ready(function(){
 
 	
     $("#btn_submit").click(function(event){
-      
+      event.stopImmediatePropagation();
       var validation_holder = 0;
       var firstname = $("#fname");
       var lastname = $("#lname");
       var street = $("#street");
       var town_city = $("#town_city");
       var state_province = $("#state_province");
-      var country = $('select[name=country] :selected');
+      var country = $('select[name=country]');
       var birth_date = $('#birth_date');
       var contact_no = $('#contact_no');
       var email_add = $('#email_add');
@@ -74,18 +74,25 @@ $(document).ready(function(){
       var pass_match = $('#confpass');
       var accept = $('#accept');
       var required = [firstname,lastname,street,town_city,country,birth_date,contact_no,email_add,curr_pass];
-       
-     jQuery.each( required, function( i, val ) {
-       if($(this).val() == ''){
-       	$(this).parent().find('p').show();
+      
+      var count_err = check_required_fields(required);	  
+	  console.log(count_err);
+   /*  jQuery.each( required, function( i, value ) {
+       if($(this).val() === ""){
+	   console.log(value.attr('value'));console.log(value.attr('id'));
+	   console.log($(this).val());
+	//	if($(this).attr('id') == 'country'){
+	//	 $('select#country').css('background-color', '#FF8073');
+	//	}
         $(this).css('background-color', '#FF8073');
         $(this).focus();
-          validation_holder = 1;
+	//	alert('here');
+        validation_holder = 1;
        }else{
       	 $(this).parent().find('p').hide();
          $(this).css('background-color', '#FFFFFF');
        }
-     });
+     });*/
       
       
       var match = [{ m: [ pass_match.val(), pass.val() ] }];
@@ -100,6 +107,7 @@ $(document).ready(function(){
 	  }else{
 		 $(pass).css('background-color', '#FFFFFF');   
 	     $(pass_match).css('background-color', '#FFFFFF');
+
 	  }
 	  
     /*  jQuery.each(match,function(i, val){
@@ -136,7 +144,7 @@ $(document).ready(function(){
       */
      
      
-    
+    console.log(validation_holder);
       if(validation_holder == 0) {
          $.ajax({
 				type:'POST' ,
@@ -146,7 +154,7 @@ $(document).ready(function(){
                          function_name : 'sha1_pass', 
                   },
                   success: function (response){   
-				//  console.log(response);
+				 console.log(response);
                     if($('#cur_p').val() === response ){
 
                       $.ajax({
