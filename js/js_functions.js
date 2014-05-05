@@ -7,12 +7,17 @@ author: Justin ^_-
 */
 
 function check_required_fields(required_fields){
+  var count = 0;
   $.each(required_fields, function(key,value){
    // console.log(value.val());
 	if(!value.val()){
-	    $(value).css('background-color', '#FF8073')
-	}    
+	    $(value).css('background-color', '#FF8073');
+		count++;
+	}else{
+	   $(value).css('background-color', '#FFFFFF');
+	}
   });
+  return count;
 }
 
 function show_hide(show,hide){
