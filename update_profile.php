@@ -33,6 +33,14 @@
 table h3 {
 	font-weight: bold;
 }
+
+
+
+#radioset span {
+	font-weight: initial;
+	font-family: initial;
+	font-size: initial;
+}
 </style>
 
 <script>
@@ -170,6 +178,13 @@ $(function() {
 							<tr>
 								<td class="padding_left">Gender *</td>
 								<td style="padding-left: 6px;">
+									<!--
+									<div class="btn-group">
+										<button type="button" id="male" class="btn btn-default" style="width: 100px;">Male</button>
+										<button type="button" id="female" class="btn btn-default" style="width: 100px;">Female</button>
+									</div>
+									-->
+									
 									<div id="radioset">
 										<input type="radio" id="radio1" name="radio"><label for="radio1">Male</label>
 										<input type="radio" id="radio3" name="radio"><label for="radio3">Female</label>
