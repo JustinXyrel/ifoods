@@ -36,7 +36,11 @@ table h3 {
 </style>
 
 <script>
-
+$(function() {
+		
+	$( "#radioset" ).buttonset();
+		
+});
 </script>
 
 <body>
@@ -166,15 +170,11 @@ table h3 {
 							<tr>
 								<td class="padding_left">Gender *</td>
 								<td style="padding-left: 6px;">
-									<!--<input type="radio" name="gender" id="genderOn" value="m" hidden="" checked="">
-									<label for="genderOn" class="switch switch--on">Male</label>
-									<input type="radio" name="gender" id="genderOff" value="f" hidden="">
-									<label for="genderOff" class="switch switch--off">Female</label>-->
-									
-									<div class="btn-group">
-										<button type="button" id="male" class="btn btn-default" style="width: 100px;">Male</button>
-										<button type="button" id="female" class="btn btn-default" style="width: 100px;">Female</button>
+									<div id="radioset">
+										<input type="radio" id="radio1" name="radio"><label for="radio1">Male</label>
+										<input type="radio" id="radio3" name="radio"><label for="radio3">Female</label>
 									</div>
+									
 									<input type="hidden" id="gender_val" name="gender"/>
 								</td>
 							</tr>
