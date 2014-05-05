@@ -132,8 +132,6 @@ $(document).ready(function(){
 
 </script>
 
-<html>
-
 <body>
 
 <div id="homeMainContainer">
@@ -192,4 +190,3 @@ $(document).ready(function(){
 
 </body>
 
-</html>
