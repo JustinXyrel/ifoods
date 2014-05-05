@@ -233,9 +233,12 @@ $('html').find("#inp_menu_image").change(function()	{	readImage( this );	});
 				url:'staff.php',
 				data: {'data':response},
 				success: function (response){ 
-			
+						$('div#content_display').html("");
 						$('div#content_display').append(response);
 						$('table#staff').filterable();		
+						$('table#staff').tableSort( {
+sortBy: ['text', 'text']
+} );
 								}
 				});
 					

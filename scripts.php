@@ -23,5 +23,8 @@
    <script src="http://cdnjs.cloudflare.com/ajax/libs/x-editable/1.4.5/bootstrap-editable/js/bootstrap-editable.min.js"></script>
 	<script src="js/jquery.filterable.js"></script>
 	<link rel="stylesheet" href="css/bootstrap-filterable.css" >
+	
+		<script src="js/tsort.js"></script>
+	<link rel="stylesheet" href="css/style.css" >
 	</head>
 </html>
