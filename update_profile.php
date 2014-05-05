@@ -41,6 +41,10 @@ table h3 {
 	font-family: initial;
 	font-size: initial;
 }
+
+#radioset label {
+	width: 50%;
+}
 </style>
 
 <script>
