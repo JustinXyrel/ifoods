@@ -134,7 +134,7 @@ $(document).ready(function(){
 
 <html>
 
-<body style="background: #fff;">
+<body>
 
 <div id="homeMainContainer">
 
@@ -175,7 +175,7 @@ $(document).ready(function(){
 			</ul>
 		</div><!-- /cssmenu -->
 		
-		<div id="content_display" style="float: right; width: 78%; border-top: 37px solid #7f7f7f;">
+		<div id="content_display">
 		
 		</div>
 		
@@ -185,9 +185,8 @@ $(document).ready(function(){
 		
 	</div><!-- /content -->
 	
-	<div id="footer">
-		<span class="glyphicon glyphicon-copyright-mark"></span><span> iFoods Corporation | All Rights Reserved 2014</span>
-	</div><!-- /footer -->
+	<!-- footer -->
+		<?php include 'includes/footer.php'; ?>
 
 </div><!-- /homeMainContainer -->
 
