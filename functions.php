@@ -231,22 +231,25 @@
 					$arr[$data['name']] = $data['value'];
 				}
 			}
+			//var_dump($arr);die();
+			  unset($arr['radio']); // does not belong to DB fields
 			if(empty($arr['password'])){
 			  unset($arr['password']);
 			}
-			
+		//	var_dump($arr);die();
 			$results =  $this->update($arr,$wh);
-			
+			//var_dump($results);die();
 			if($results){
 			 foreach($arr as $key=>&$value){
 			   $_SESSION['auth'][0][$key] = $value;
 			 }
 			}
 			
-			$json_data = json_encode($results);
+			//$json_data = json_encode($results);
 			
 			/**/
-			echo $json_data; 
+			echo $results;
+			
 		}
 		
 		/*
