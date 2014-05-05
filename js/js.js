@@ -212,9 +212,11 @@ $('html').find("#inp_menu_image").change(function()	{	readImage( this );	});
 		$('div#content').find('li.has-sub:eq(0)').addClass("active");
 	  }
 	  if($('input#ut_id').val() == '2'){
+	  	$('div#content').find('li.has-sub:eq(1)').addClass("active");
 	    $('div#content').find('li.has-sub:eq(1)').show();
 	  }
 	  if($('input#ut_id').val() > 3 ){
+	  	$('div#content').find('li.has-sub:eq(2)').addClass("active");
 	    $('div#content').find('li.has-sub:eq(2)').show();
 	  }
 	}

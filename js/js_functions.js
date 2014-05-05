@@ -13,7 +13,9 @@ function check_required_fields(required_fields){
 	if(!value.val()){
 	    $(value).css('background-color', '#FF8073');
 		count++;
-	}    
+	}else{
+	   $(value).css('background-color', '#FFFFFF');
+	}
   });
   return count;
 }
