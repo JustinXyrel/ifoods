@@ -1,5 +1,21 @@
 body {
 	background: #fff;
+	overflow-x: hidden;
+	font-family: Calibri;
+}
+
+.table{
+margin:0 auto;
+}
+
+.table tr:first-child {
+text-align: center;
+font-weight: bold;
+}
+
+.table tr td > img ,#image_view{
+border-radius: 13px;
+max-width: 100px;
 }
 
 input[type="button"] {
