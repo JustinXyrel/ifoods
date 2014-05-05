@@ -15,49 +15,82 @@
 	}
 ?>
 
-	
-		<div id="contentleft">
-			<img src="images/ifoods_logo_2.png" />
-		</div>
-			
-		<div id="middle">
-			<div class="col-lg-6" style="width: inherit;">
-				<div class="input-group">
-					<input type="text" class="form-control" id="header_search" name="header_search" placeholder="Search Product" />
-					<span class="input-group-btn">
-						<button class="btn btn-default" type="button">Go!</button>
-					</span>
-				</div><!-- /input-group -->
-			</div><!-- /.col-lg-6 -->
-		</div>
+<style>
 
-		<div id="right">
-			
-			<table id="rightTable" border="0">
-				<tr>
-					<td style="text-align: center;"><img src="images/brand_logo.png" /></td>
-					<td style="text-align: left;">
-						<div id="userBox" style="" >
-						    <input type = "hidden" id = "ut_id" value="<?php echo $usertype_id; ?>">
-							<span>User Name: <?php echo $username; ?></span></br>
-							<span><?php echo $account_type; ?></span>
-						</div>
-					</td>
-					<td>
-						<div id="slickdiv">
-							<ul id="menu" style="display:none;">
-								<li><a href="update_profile.php">Profile</a></li>
-								<li><a href="logout.php">Logout</a></li>
-							</ul>
-						</div>
-					<!--	<span class="slicknav_icon" style="cursor: pointer;">
-							<span class="slicknav_icon-bar"></span>
-							<span class="slicknav_icon-bar"></span>
-							<span class="slicknav_icon-bar"></span>
-						</span>-->
-					</td>
-				</tr>
-			</table>
+#header #tbl_left {
+	min-width: 900px;
+}
+
+#header #user_box {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin-right: 115px;
+	margin-top: 5px;
+}
+
+#header #menu_button_box {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+#header #menu_button_box #menuTable {
+	height: 65px;
+	background: #4c4c4c;
+}
+
+</style>
+
+	<table id="tbl_left">
+		<tr>
+			<td>
+				<img src="images/ifoods_logo_2.png" />
+			</td>
+			<td>
+				<div class="col-lg-6" style="width: inherit; float: right;">
+					<div class="input-group">
+						<input type="text" class="form-control" id="header_search" name="header_search" placeholder="Search Product" />
+						<span class="input-group-btn">
+							<button class="btn btn-default" type="button">Go!</button>
+						</span>
+					</div><!-- /input-group -->
+				</div><!-- /.col-lg-6 -->
+			</td>
+		</tr>
+	</table>
+	
+	<div id="user_box">
+		<table border="0">
+			<tr>
+				<td style="text-align: center;"><img src="images/brand_logo.png" /></td>
+				<td style="text-align: left;">
+					<div id="userBox" style="" >
+						<input type = "hidden" id = "ut_id" value="<?php echo $usertype_id; ?>">
+						<span>User Name: <?php echo $username; ?></span></br>
+						<span><?php echo $account_type; ?></span>
+					</div>
+				</td>
+				
+			</tr>
+		</table>
+	</div>
+				
+	<div id="menu_button_box">
 		
-		</div><!-- /right -->
+		<table id="menuTable" border="0">
+			<tr>
+				<td>
+					<div id="slickdiv">
+						<ul id="menu" style="display:none;">
+							<li><a href="update_profile.php">Profile</a></li>
+							<li><a href="logout.php">Logout</a></li>
+						</ul>
+					</div>
+				</td>
+			</tr>
+		</table><!-- /menuTable -->
+		
+	</div><!-- /menu_button_box -->
+
 	
