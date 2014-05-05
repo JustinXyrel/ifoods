@@ -245,6 +245,15 @@ $('html').find("#inp_menu_image").change(function()	{	readImage( this );	});
 		//alert('you clicked me');
 	});
 
+	
+	//update_profile.php - get gender button value
+	$('button#male').click(function(){
+		$('input#gender_val').val('M')
+	})
+	$('button#female').click(function(){
+		$('input#gender_val').val('F')
+	})
+	
 });
 
 
