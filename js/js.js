@@ -252,10 +252,10 @@ sortBy: ['text', 'text']
 
 	
 	//update_profile.php - get gender button value
-	$('button#male').click(function(){
+	$("input:radio[id=radio1]").click(function() {
 		$('input#gender_val').val('M')
 	})
-	$('button#female').click(function(){
+	$("input:radio[id=radio3]").click(function(){
 		$('input#gender_val').val('F')
 	})
 	

@@ -147,7 +147,7 @@ $(document).ready(function(){
 				<li class='has-sub' style="display:none;"><a><span>System Admin</span></a>
 					<ul>
 						<li><a href='#'><span>Restaurant Name/ Main Branch</span></a></li>
-						<li><a href='#'><span>Manager Information</span></a></li>
+						<li><a href='#'><span>Restaurant Admin</span></a></li>
 					 
 					</ul>
 				</li>
