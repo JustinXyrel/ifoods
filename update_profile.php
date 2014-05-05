@@ -28,14 +28,6 @@
 	padding-left:25px;
 }
 
-
-
-table h3 {
-	font-weight: bold;
-}
-
-
-
 #radioset span {
 	font-weight: initial;
 	font-family: Calibri;
@@ -79,7 +71,7 @@ $(function() {
 								<h3 style="margin-top: 0px;">Personal Information</h3>
 								<div style='display:none;background-color:#FF8073;' id = 'err_msg'></div>
 							</td>
-							<td style="padding-right: 3px;"><input type="button" id="btn_edit" style="width:50%;height:100%" value="Edit"/></td>
+							<td><input type="button" id="btn_edit" value="Edit"/></td>
 						</tr>
 						<tr>
 							<td class="padding_left">First Name </td>
@@ -165,7 +157,7 @@ $(function() {
 									<h3 style="margin-top: 0px;">Personal Information</h3>
 									<div style='display:none;background-color:#FF8073;' id = 'err_msg'></div>
 								</td>
-								<td style="padding-right: 3px;"><input type="button" id="btn_close" value="Close"/></td>
+								<td><input type="button" id="btn_close" value="Close"/></td>
 							</tr>
 							<tr>
 								<td class="padding_left">First Name *</td>
@@ -198,7 +190,7 @@ $(function() {
 								</td>
 							</tr>
 							<tr>
-								<td colspan="2" style="text-align:left;"><h2>Address</h2></td>
+								<td colspan="2" style="text-align:left;"><h3>Address</h3></td>
 							</tr>
 							<tr>
 								<td class="padding_left">Unit No.</td>
@@ -223,7 +215,7 @@ $(function() {
 							<tr>
 								<td class="padding_left">Country *</td>
 								<td class="padding_right">
-									<select class="res_select"  id = "country" name="country">
+									<select class="res_select form-control"  id = "country" name="country">
 										<option value=""></option>
 										<option value="Philippines">Philippines</option>
 										<option value="Australia">Australia</option>
@@ -234,10 +226,10 @@ $(function() {
 							</tr>
 							<tr>
 								<td class="padding_left">Date of Birth *</td>
-								<td class="padding_right"><input class='form_date' type="date" style="" type="text" name="birth_date" id="birth_date"/></td>
+								<td class="padding_right"><input class='form_date form-control' type="date" style="" type="text" name="birth_date" id="birth_date"/></td>
 							</tr>
 							<tr>
-								<td colspan="2" style="text-align:left;"><h2>Contact Information</h2></td>
+								<td colspan="2" style="text-align:left;"><h3>Contact Information</h3></td>
 							</tr>
 							<tr>
 								<td class="padding_left">Contact No. *</td>
