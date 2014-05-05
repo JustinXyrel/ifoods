@@ -78,7 +78,10 @@ $(document).ready(function(){
                    			    'function_name':'update_profile',
                   			  },
 						success: function (response){ 
-						  console.log(response);
+						 // console.log(response);
+						  if(response == ""){
+						    show_hide($('div#view_profile'),$('div#update_profile'));
+						  }
                           if(response == true){
 						    get_profile();
 							show_hide($('div#view_profile'),$('div#update_profile'));
@@ -100,6 +103,7 @@ $(document).ready(function(){
      $('#confirm_add').dialog({
          height: 'auto',
         width: 'auto',
+		position: 'top',
         zIndex: 999,
         autoOpen: false,
         modal: true,
