@@ -15,10 +15,12 @@
 
 ?>
    <table id = "staff">
-	<thead>
+	<tbody>
+	<tr>
 	  <th>Name</th>
 	  <th>Account Type</th>
-	</thead>
+	 </tr>
+	</tbody>
  <?php 	foreach($data as $info){ ?>
 	<tr>
 		<td>
