@@ -38,7 +38,7 @@ table h3 {
 
 #radioset span {
 	font-weight: initial;
-	font-family: initial;
+	font-family: Calibri;
 	font-size: initial;
 }
 
