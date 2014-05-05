@@ -41,8 +41,13 @@ $(document).ready(function(){
 
              $.each(arr,function(key,value){
                 if(key == 'gender'){
+					if(value == 'f'){
+						$('input[type=radio]:eq(1)').click();
+					}else{
+						$('input[type=radio]:eq(1)').click();
+					}
  					$('input[name=gender]').filter('[value='+value+']').prop('checked',true);
-                    $('label#'+key).text((value == 'f') ? 'F' : 'M');
+                    $('label#'+key).text((value == 'f') ? 'Female' : 'Male');
 				}else{
                     $('input#'+key).val(value);
 					$('label#'+key).text(value);
