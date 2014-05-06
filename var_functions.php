@@ -47,7 +47,7 @@
 	  return $access_module[$auth['user_type']][$module];
      }	
 	 
-	
+
   }
 
 ?>
