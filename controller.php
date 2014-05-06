@@ -6,6 +6,7 @@ ob_start();
 
 try 
 {
+   $conf["database"]["password"] = str_replace('@','!',$conf["database"]["password"]);
 	$conn = new PDO("{$conf["database"]["type"]}:host={$conf["database"]["host"]};dbname={$conf["database"]["database"]}", 	 		$conf["database"]["username"], $conf["database"]["password"],array(PDO::ATTR_PERSISTENT => true));
 	
 }catch (PDOException $e) 
