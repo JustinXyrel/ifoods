@@ -39,7 +39,7 @@
 
 </script>
 
-<link href="css/style.css" rel="stylesheet" type="text/css" />
+<!--<link href="css/style.css" rel="stylesheet" type="text/css" />-->
 
 <link href="css/advancedtable.css" rel="stylesheet" type="text/css" />
 

@@ -18,7 +18,7 @@
 <style>
 
 #header #tbl_left {
-	min-width: 850px;
+	min-width: 900px;
 }
 
 #header #user_box {
