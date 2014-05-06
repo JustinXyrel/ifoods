@@ -29,12 +29,12 @@
 
 <script language="javascript" type="text/javascript">
 
-	$().ready(function() {
-
+	$(document).ready(function() {
+		$('select').children().remove();
 		$("#searchtable").show();
 
 		$("table#staff").advancedtable({searchField: "#search", loadElement: "#loader", searchCaseSensitive: false, ascImage: "css/images/up.png", descImage: "css/images/down.png", searchOnField: "#searchOn"});
-
+		$('select').children('[value=0]').text('Name');
 	});
 
 </script>

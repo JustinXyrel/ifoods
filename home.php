@@ -160,7 +160,7 @@ $(document).ready(function(){
 				</li>-->
 				<li class='has-sub' style="display:none;"><a><span>Restaurant Admin</span></a>
 					<ul>
-						<li><a href='#'><span>Products</span></a></li>
+						<li><a href='#' id= 'product'><span>Products</span></a></li>
 						<li><a href='#' id='staff'><span>Staff</span></a></li>
 						<li><a href='#'><span>Brand</span></a></li>
 					</ul>
