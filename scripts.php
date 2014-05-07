@@ -15,6 +15,7 @@
 		<script src="js/jquery-ui.js"></script>
 		<script src="js/login.js"></script>
 		<script src="js/profile.js"></script>
+		<script src="js/home.js"></script>
 		<script src="js/jquery.slicknav.min.js"></script>
 		<link rel="stylesheet" href="css/stylesheet.css" >
 		<script src="js/jquery-ui-1.10.4.custom.js"></script>

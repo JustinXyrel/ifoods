@@ -28,9 +28,10 @@
 	</div><!-- /header -->
 
 	<div id="content">
-	
+
 		<!-- menu left pane -->
 		<?php include 'includes/menu_left_pane.php'; ?>
+
 		
 		<div id="content_display">
 		

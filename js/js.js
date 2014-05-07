@@ -201,57 +201,8 @@ $('html').find("#inp_menu_image").change(function()	{	readImage( this );	});
 	$('.rad').click(function(){	$('#inp_menu_status').val($(this).attr('id'));	});
 	setTimeout(function(){$('form').find('#btn_search').click();},500);
 	
-	/*
-      to be revised.. temporary code - JX
-	
-	
-	*/
-	if($('#homeMainContainer').length > 0){
-	  if($('input#ut_id').val() == '3'){
-	    activate_menu(0);
-	 /*   $('div#content').find('li.has-sub:eq(0)').show();
-		$('div#content').find('li.has-sub:eq(0)').addClass("active");
-		$('div#content').find('li.has-sub:eq(0)').children('a').click()*/
-	  }
-	  if($('input#ut_id').val() == '2'){
-		activate_menu(1);
-	  	/*$('div#content').find('li.has-sub:eq(1)').addClass("active");
-	    $('div#content').find('li.has-sub:eq(1)').show();
-		$('div#content').find('li.has-sub:eq(1)').children('a').click()*/
-	  }
-	  if($('input#ut_id').val() > 3 ){
-		activate_menu(2);
-	   /*	$('div#content').find('li.has-sub:eq(2)').addClass("active");
-	    $('div#content').find('li.has-sub:eq(2)').show();
-		$('div#content').find('li.has-sub:eq(2)').children('a').click()*/
-	  }
-	}
-	
-	
-	$('a#staff').on('click',function(event){
-		event.stopImmediatePropagation(); 
-		event.preventDefault(); 
-		$.ajax({
-			type: 'POST',
-			url:'controller.php',
-						data: {'function_name':'get_staff'},
-			success: function (response){ 
-			    $.ajax({
-				type: 'POST',
-				url:'staff.php',
-				data: {'data':response},
-				success: function (response){ 
-						$('div#content_display').html("");
-						$('div#content_display').append(response);
 
-								}
-				});
-					
-									
-			}
-		});
-		//alert('you clicked me');
-	});
+	
 
 	
 	//update_profile.php - get gender button value
