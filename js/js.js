@@ -213,11 +213,7 @@ $('html').find("#inp_menu_image").change(function()	{	readImage( this );	});
 		$('input#gender_val').val('F')
 	})
 	
-	function activate_menu(menu){
-		$('div#content').find('li.has-sub:eq('+menu+')').addClass("active");
-	    $('div#content').find('li.has-sub:eq('+menu+')').show();
-		$('div#content').find('li.has-sub:eq('+menu+')').children('a').click()
-	}
+
 });
 
 

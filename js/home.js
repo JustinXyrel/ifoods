@@ -66,6 +66,7 @@
 	  function activate_menu(menu){
 		$('div#content').find('li.has-sub:eq('+menu+')').addClass("active");
 	    $('div#content').find('li.has-sub:eq('+menu+')').show();
+		$('div#content').find('li.has-sub:eq('+menu+')').find('ul').show();
 		$('div#content').find('li.has-sub:eq('+menu+')').children('a').click()
 	}
 	});
