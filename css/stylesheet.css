@@ -185,12 +185,9 @@ input[type="button"]:active {
  /*****  END: LOGIN STYLE *****/
  
  
- 
- 
- 
 /*****  START: HEADER *****/ 
- /* STRUCTURE */
 
+/* structure */
 #contentleft {
 	/*width: 290px;*/
 	width: 47.3em;
@@ -213,7 +210,6 @@ input[type="button"]:active {
 	float: left;
 	/*background: burlywood;*/
 }
-
 
 /************************************************************************************
 MEDIA QUERIES
@@ -265,6 +261,7 @@ MEDIA QUERIES
 
 }
 /*****  END: HEADER *****/
+ 
  
  /*slicknav*/
  #slickdiv {
