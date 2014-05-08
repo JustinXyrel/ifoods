@@ -12,7 +12,7 @@
 		<script src="js/bootstrap.min.js"></script> 
 		<script src="js/js.js"></script>
 		<script src="js/js_functions.js"></script>
-		<script src="js/jquery-ui.js"></script>
+		<script src="js/jquery-ui.js" type="text/javascript" language="javascript"></script>
 		<script src="js/login.js"></script>
 		<script src="js/profile.js"></script>
 		<script src="js/home.js"></script>

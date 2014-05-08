@@ -20,7 +20,8 @@
 <script src="js/jquery-1.9.1.js" type="text/javascript" language="javascript"></script>
 
 <script src="js/advancedtable_v2.js" type="text/javascript" language="javascript"></script>
-
+	
+<script src="js/jquery-ui.js" type="text/javascript" language="javascript"></script>
 <script src="js/home.js" type="text/javascript" language="javascript"></script>
 
 <script language="javascript" type="text/javascript">
@@ -138,6 +139,8 @@
    
 
 </div>
+<div id='dialog_staff'>
 
+</div>
 </body></html>
  

@@ -26,6 +26,27 @@
 	  }
 	}
 	
+	
+	var win_width = window.innerWidth/1.3;
+	var win_height = window.innerHeight/1.05;
+	$( "#dialog_staff" ).dialog({
+      autoOpen: false,
+      height: win_height,	 
+      width: win_width,
+      position: ['center',20],
+	  modal: true,
+	  	  open: function() {
+			$.ajax({
+				url:'form_add_staff.php',
+				success: function (response){ 
+					$("#dialog_staff").html("");
+					$("#dialog_staff").append(response);
+				}
+			});
+	  },
+	  
+	  });
+	
 		$('a#staff').on('click',function(event){
 			event.stopImmediatePropagation(); 
 			event.preventDefault(); 
@@ -48,20 +69,24 @@
 		//alert('you clicked me');
 		});
 
-		$('a#add_staff').on('click',function(event){
+	/*	$('a#add_staff').on('click',function(event){
 			event.stopImmediatePropagation(); 
 			event.preventDefault(); 		
 //alert('this');			
 			$.ajax({
 				url:'form_add_staff.php',
 				success: function (response){ 
-				    console.log(response);
 					$('div#content_bottom').html("");
 					$('div#content_bottom').append(response);
 				}
 			});
 		
+		});*/
+		
+		$('a#add_staff').on('click',function(event){
+		    	$( "#dialog_staff" ).dialog('open');
 		});
+		
 
 	$('a#product').on('click',function(event){
 			event.stopImmediatePropagation(); 

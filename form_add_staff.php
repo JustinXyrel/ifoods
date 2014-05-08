@@ -3,7 +3,7 @@
 	<body>
 	<div id="add_staff" >
 					
-						<form id="update_form" class="ac-login" action="?" method="post">
+						<form id="add_staff_form" class="ac-login" action="?" method="post">
 
 							<div id="validation_msg" class="msg_container" style="display: none;"><h2 id="val_msg"></h2></div>
 				 
@@ -13,7 +13,7 @@
 										<h3 style="margin-top: 0px;">Personal Information</h3>
 										<div style='display:none;background-color:#FF8073;' id = 'err_msg'></div>
 									</td>
-									<td><input type="button" id="btn_close" value="Close"/></td>
+
 								</tr>
 								<tr>
 									<td class="padding_left">First Name *</td>
@@ -38,7 +38,7 @@
 										-->
 										
 										<div id="radioset">
-											<input type="radio" id="radio1" name="radio"><label for="radio1">Male</label>
+											<input type="radio" id="radio1" name="radio" checked><label for="radio1">Male</label>
 											<input type="radio" id="radio3" name="radio"><label for="radio3">Female</label>
 										</div>
 										
@@ -85,6 +85,12 @@
 									<td class="padding_right"><input class='form_date form-control' type="date" style="" type="text" name="birth_date" id="birth_date"/></td>
 								</tr>
 								<tr>
+								<td class="padding_left">User Level *</td>
+									<td class="padding_right">
+										Manager
+									</td>
+								</tr>
+								<tr>
 									<td colspan="2" style="text-align:left;"><h3>Contact Information</h3></td>
 								</tr>
 								<tr>
@@ -92,22 +98,29 @@
 									<td class="padding_right"><input class="form-control" type="text" name="contact_no" id="contact_no"/></td>
 								</tr>
 								<tr>
-									<td class="padding_left">Email Address *</td>
-									<td class="padding_right"><input class="form-control" type="text" name="email_add" id="email_add" placeholder="Enter your email"/></td>
+									<td class="padding_left">Username / Email Address *</td>
+									<td class="padding_right"><input class="form-control" type="email" name="email_add" id="email_add" placeholder="Enter email address"/></td>
 								</tr>
 
 								<tr>
-									<td class="padding_left">Current Password *</td>
-									<td class="padding_right"><input class="form-control" type="password" id="current_password" name="current_password" placeholder="Current Password"/></td>
+									<td class="padding_left">Account Activation*</td>
+									<td style="padding-left: 6px;">
+										<!--
+										<div class="btn-group">
+											<button type="button" id="male" class="btn btn-default" style="width: 100px;">Male</button>
+											<button type="button" id="female" class="btn btn-default" style="width: 100px;">Female</button>
+										</div>
+										-->
+										
+										<div id="radioset">
+											<input type="radio" id="radio1" name="radio" checked><label for="radio1">Activate</label>
+											<input type="radio" id="radio3" name="radio"><label for="radio3">Deactivate</label>
+										</div>
+										
+										<input type="hidden" id="gender_val" name="gender"/>
+									</td>
 								</tr>
-								<tr>
-									<td class="padding_left">New Password </td>
-									<td class="padding_right"><input class="form-control" type="password" id="password" name="password" placeholder="Password"/></td>
-								</tr>
-								<tr>
-									<td></td>
-									<td class="padding_right"><input class="form-control" type="password" id="confpass" placeholder="Re-enter Password"/></td>
-								</tr>
+							
 							</table>
 					
 							<table border="0"style="text-align:center; margin: 0 auto;">
