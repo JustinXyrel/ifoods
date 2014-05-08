@@ -34,6 +34,18 @@
 
 		<div id="content_display">
 		
+			<div id="content_top">
+				<table>
+					<tr>
+						<td><h4>Products</h4></td>
+					</tr>
+				</table>
+			</div><!-- /content_top -->
+			
+			<div id="content_bottom">
+				
+			</div><!-- /content_bottom -->
+			
 		</div><!-- /content_display -->
 		
 	</div><!-- /content -->

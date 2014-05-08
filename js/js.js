@@ -5,12 +5,7 @@ $(document).ready(function(){
 
 	var win_width = window.innerWidth/1.3;
 	var win_height = window.innerHeight/1.05;
-	$('#menu').slicknav({
-		prependTo:'#slickdiv'
-	});
-
-	$('#menu').slicknav();
-		$('.slicknav_menu').attr('style','display:block;');
+		
 	$("#dialog-confirm").dialog({
 		autoOpen: false,
 		height: 200,	 
@@ -206,14 +201,27 @@ $('html').find("#inp_menu_image").change(function()	{	readImage( this );	});
 
 	
 	//update_profile.php - get gender button value
-	$("input:radio[id=radio1]").click(function() {
+	$('input:radio[id=radio1]').click(function() {
 		$('input#gender_val').val('M')
 	})
-	$("input:radio[id=radio3]").click(function(){
+	$('input:radio[id=radio3]').click(function(){
 		$('input#gender_val').val('F')
 	})
 	
 
+	//search.php - insert new product button
+	$('a#add_product').on('click',function(event){
+		event.stopImmediatePropagation(); 
+			event.preventDefault(); 
+					
+					$.ajax({
+						url:'form_product.php',
+						success: function (response){ 
+							$('div#content_bottom').html("");
+							$('div#content_bottom').append(response);
+						}
+					});
+	});
 });
 
 

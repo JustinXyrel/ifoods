@@ -15,30 +15,18 @@
 	}
 ?>
 
+<script>
+$(document).ready(function(){
+	$('#menu').slicknav({
+		prependTo:'#slickdiv'
+	});
+
+	$('#menu').slicknav();
+	$('.slicknav_menu').attr('style','display:block;');
+});		
+</script>
+
 <style>
-
-#header #tbl_left {
-	min-width: 900px;
-}
-
-#header #user_box {
-	position: absolute;
-	top: 0;
-	right: 0;
-	margin-right: 115px;
-	margin-top: 5px;
-}
-
-#header #menu_button_box {
-	position: absolute;
-	top: 0;
-	right: 0;
-}
-
-#header #menu_button_box #menuTable {
-	height: 65px;
-	background: #4c4c4c;
-}
 
 </style>
 
