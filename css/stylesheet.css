@@ -35,7 +35,7 @@ input[type="button"]:active {
 	top:1px;
 }
 
-/*****  START: STYLE *****/
+/**********  START: STYLE **********/
 #homeMainContainer {
 	background-color: #f6f6f6;
 	width: 1229px;
@@ -68,9 +68,25 @@ input[type="button"]:active {
 #content  #content_display {
 	width: 927px;
 	float: right;
-	border-top: 37px solid #7f7f7f;
+	/*border-top: 37px solid #7f7f7f;*/
 	background: #fff;
-	padding: 30px;
+	/*padding: 30px;*/
+	/*padding: 10px;*/
+}
+
+#content  #content_display #content_top {
+	height: 37px;
+	background: #7f7f7f;
+	padding-left: 10px;
+}
+
+#content_top h4 {
+	color: #fff;
+}
+
+#content  #content_display #content_bottom {
+	background: #fff;
+	padding: 10px;
 }
 
 #footer {
@@ -84,10 +100,10 @@ input[type="button"]:active {
 	height: 36px;
 	background: #7f7f7f;
 }
-/*****  END: STYLE *****/ 
+/**********  END: STYLE **********/ 
 
 
-/*****  START: LOGIN STYLE *****/
+/**********  START: LOGIN STYLE **********/
 #login_body {
 	font-family: Calibri;
 	background-color: #f6f6f6;
@@ -182,85 +198,33 @@ input[type="button"]:active {
  }
  
  a { color: #e66100 }
- /*****  END: LOGIN STYLE *****/
+ /**********  END: LOGIN STYLE **********/
  
  
-/*****  START: HEADER *****/ 
-
-/* structure */
-#contentleft {
-	/*width: 290px;*/
-	width: 47.3em;
-	float: left;
-	padding: 5px 15px;
-	/*background: antiquewhite;*/
+/**********  START: HEADER **********/
+#header #tbl_left {
+	min-width: 900px;
 }
 
-#middle {
-	width: 294px; /* Account for margins + border values */
-	float: left;
-	padding: 5px 15px;
-	margin: 0px 5px 5px 5px;
-	/*background: beige;*/
+#header #user_box {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin-right: 115px;
+	margin-top: 5px;
 }
 
-#right {
-	width: 270px;
-	padding: 5px 15px;
-	float: left;
-	/*background: burlywood;*/
+#header #menu_button_box {
+	position: absolute;
+	top: 0;
+	right: 0;
 }
 
-/************************************************************************************
-MEDIA QUERIES
-*************************************************************************************/
-/* for 980px or less */
-@media screen and (max-width: 980px) {
-	
-	#pagewrap {
-		width: 90%;
-	}
-	#contentleft {
-		width: 41%;
-		padding: 1% 4%;
-	}
-	#middle {
-		width: 41%;
-		padding: 1% 4%;
-		margin: 0px 0px 5px 5px;
-		float: right;
-	}
-	
-	#right {
-		clear: both;
-		padding: 1% 4%;
-		width: auto;
-		float: none;
-	}
-
+#header #menu_button_box #menuTable {
+	height: 65px;
+	background: #4c4c4c;
 }
-
-/* for 700px or less */
-@media screen and (max-width: 600px) {
-
-	#contentleft {
-		width: auto;
-		float: none;
-	}
-	
-	#middle {
-		width: auto;
-		float: none;
-		margin-left: 0px;
-	}
-	
-	#right {
-		width: auto;
-		float: none;
-	}
-
-}
-/*****  END: HEADER *****/
+/**********  END: HEADER **********/
  
  
  /*slicknav*/

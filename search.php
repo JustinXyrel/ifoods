@@ -6,7 +6,13 @@
 <html>
 	<body>
 	
-	<form id='product_search' style='width: 80%; margin: 0 auto;'>
+	<table>
+		<tr>
+			<td><a class="btn_edit btn btn-default" id="add_product"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add New Product</a></td>
+		</tr>
+	</table>
+	
+	<form id='product_search'>
 		 
 		<div class='row'>
 		  <div class="col-xs-12 col-sm-12 col-md-12 " >

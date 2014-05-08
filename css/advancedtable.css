@@ -17,10 +17,11 @@ ul {
 	border-bottom:1px solid #DDD;
 	padding: 3px 0px;
 }
+
 .advancedtable thead th{
-	font-family:Georgia,"Times New Roman","Bitstream Charter",Times,serif;
-	font-size:14px;
-	font-style:italic;
+	font-family: inherit;
+	/*font-size: 12px;*/
+	/*font-style: italic;*/
 	font-size-adjust:none;
 	font-stretch:normal;
 	font-variant:normal;

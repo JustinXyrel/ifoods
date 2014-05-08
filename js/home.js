@@ -39,8 +39,8 @@
 						url:'staff.php',
 						data: {'data':response},
 						success: function (response){ 
-							$('div#content_display').html("");
-							$('div#content_display').append(response);
+							$('div#content_bottom').html("");
+							$('div#content_bottom').append(response);
 						}
 					});					
 				}
@@ -51,15 +51,15 @@
 	$('a#product').on('click',function(event){
 			event.stopImmediatePropagation(); 
 			event.preventDefault(); 
-	
+					
 					$.ajax({
 						url:'search.php',
 						success: function (response){ 
-							$('div#content_display').html("");
-							$('div#content_display').append(response);
+							$('div#content_bottom').html("");
+							$('div#content_bottom').append(response);
 						}
 					});					
-				
+					
 	});
 		//alert('you clicked me');
 

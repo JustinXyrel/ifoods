@@ -16,12 +16,9 @@
 	
 
 ?>
-<html ><head>
+<html >
 
-
-
-
-
+<head>
 
 <script src="js/jquery-1.9.1.js" type="text/javascript" language="javascript"></script>
 
@@ -43,23 +40,35 @@
 
 <link href="css/advancedtable.css" rel="stylesheet" type="text/css" />
 
+<style>
+
+#searchtable td select, input#search {
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.428571429;
+	color: #555555;
+	background-color: #ffffff;
+	background-image: none;
+	border: 1px solid #cccccc;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+	transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+</style>
+
 </head>
 
 <body>
 
-
-
-     <table width="100%" class="normal" id="searchtable" border="0" cellspacing="4" cellpadding="0" style="display:none;">
-
+     <table class="normal" id="searchtable" border="0" cellspacing="4" cellpadding="0" style="display:none; width: 100%; margin-bottom: 10px;">
        <tr>
-
          <td width="80%">Search / Filter:  <select id="searchOn" name="searchOn" style="display:none;"/>&nbsp;&nbsp;<input name="search" type="text" id="search" style="display:none;" /></td>
-
          <td width="20%"><div id="loader" style="display:none;"><img src="css/images/loader.gif" alt="Laoder" /></div></td>
-
        </tr>
-
-     </table>
+     </table><!-- /searchtable -->
 
      <table width="100%" id="staff" class="advancedtable" border="0" cellspacing="0" cellpadding="0">
 
@@ -72,7 +81,7 @@
 			<th>Email Address</th>
 			<th>Account Type</th>
 			<th>Account Status</th>
-			<th></th>
+			<th>Activate</th>
 		</tr>
 
      </thead>
@@ -116,7 +125,7 @@
 
        </tbody>
 
-     </table>
+     </table><!-- /staff -->
 
 
    
