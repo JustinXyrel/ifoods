@@ -145,8 +145,9 @@ $('html').find("#inp_menu_image").change(function()	{	readImage( this );	});
 			data: data,
 			type: "POST",
 			success: function(response){
+			   
 				var obj = jQuery.parseJSON(response);
-				var table = "<table style='width: 90%; margin: 0 auto;' class='table'><tr><td colspan=3>Menu</td><td>Status</td><td>Action</td></tr>";
+				var table = "<table style='width: 90%; margin: 0 auto;' class='table' id='products'><tr><td colspan = '3'>Menu</td><td>Status</td><td>Action</td></tr></thead>";
 				
 				if(obj.length === 0)
 				{
@@ -186,7 +187,8 @@ $('html').find("#inp_menu_image").change(function()	{	readImage( this );	});
 					menu_id = $(this).closest('tr').attr('class');
 					console.log("ID:" +  menu_id);
 					$( "#dialog-confirm" ).dialog( "open" );
-				});					
+				});	
+		
 			},
 			error: function(){	console.log('error');	}
 		});

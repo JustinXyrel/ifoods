@@ -46,7 +46,22 @@
 				}
 			});
 		//alert('you clicked me');
-	});
+		});
+
+		$('a#add_staff').on('click',function(event){
+			event.stopImmediatePropagation(); 
+			event.preventDefault(); 		
+//alert('this');			
+			$.ajax({
+				url:'form_add_staff.php',
+				success: function (response){ 
+				    console.log(response);
+					$('div#content_bottom').html("");
+					$('div#content_bottom').append(response);
+				}
+			});
+		
+		});
 
 	$('a#product').on('click',function(event){
 			event.stopImmediatePropagation(); 

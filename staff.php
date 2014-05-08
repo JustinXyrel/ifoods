@@ -1,6 +1,5 @@
 <?php
 	include('var_functions.php'); 
-
 	$var_func = new var_functions();
 
 	$is_allowed = $var_func->check_user_access('staff');
@@ -12,8 +11,6 @@
  //  var_dump($_POST);
   //echo "<pre>", var_dump(json_decode($_POST['data'],true)), "</pre>";
    $data = json_decode($_POST['data'],true);
-	//echo "yahooooo!!";
-	
 
 ?>
 <html >
@@ -23,6 +20,8 @@
 <script src="js/jquery-1.9.1.js" type="text/javascript" language="javascript"></script>
 
 <script src="js/advancedtable_v2.js" type="text/javascript" language="javascript"></script>
+
+<script src="js/home.js" type="text/javascript" language="javascript"></script>
 
 <script language="javascript" type="text/javascript">
 
@@ -62,7 +61,11 @@
 </head>
 
 <body>
-
+    <table>
+		<tr>
+			<td><a class="btn_edit btn btn-default" id="add_staff"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add New Staff</a></td>
+		</tr>
+	</table>
      <table class="normal" id="searchtable" border="0" cellspacing="4" cellpadding="0" style="display:none; width: 100%; margin-bottom: 10px;">
        <tr>
          <td width="80%">Search / Filter:  <select id="searchOn" name="searchOn" style="display:none;"/>&nbsp;&nbsp;<input name="search" type="text" id="search" style="display:none;" /></td>
@@ -79,6 +82,7 @@
 			<th>Address</th>
 			<th>Contact No.</th>
 			<th>Email Address</th>
+			<th>Branch</th>
 			<th>Account Type</th>
 			<th>Account Status</th>
 			<th>Activate</th>
@@ -106,6 +110,9 @@
 		</td>
 		<td>
 		 <?php echo $info['email_add'];?>
+		</td>
+		<td>
+		 <?php echo $info['branch_desc'];?>
 		</td>
 		<td>
 		 <?php echo $info['user_type'];?>

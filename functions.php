@@ -290,8 +290,10 @@
 			//var_dump($profile);
 			
 			//$this->select_fields_where();
-			$sql_que = "SELECT u.*,ut.user_type from tbl_users u join tbl_user_types ut on u.user_type_id =ut.user_type_id where 
+			$sql_que = "SELECT u.*,ut.user_type,rb.branch_desc from tbl_users u join tbl_user_types ut on u.user_type_id =ut.user_type_id 
+						join tbl_restaurant_branches rb on u.branch_id = rb.branch_id where 
                    u.branch_id= ".$branch_id." and u.user_type_id > 3 ";
+		 //   var_dump($sql_que);die();
 			$query = $conn->query($sql_que);
             $results = $query->fetchAll(PDO::FETCH_ASSOC);
             $json_data = json_encode($results);

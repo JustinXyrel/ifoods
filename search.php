@@ -1,9 +1,11 @@
 <?php 
 	require_once('scripts.php'); 
 	require_once('conn.php');
+
 ?>
 
 <html>
+
 	<body>
 	
 	<table>
@@ -11,7 +13,12 @@
 			<td><a class="btn_edit btn btn-default" id="add_product"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add New Product</a></td>
 		</tr>
 	</table>
-	
+	<table class="normal" id="searchtable" border="0" cellspacing="4" cellpadding="0" style="display:none; width: 100%; margin-bottom: 10px;">
+       <tr>
+         <td width="80%">Search / Filter:  <select id="searchOn" name="searchOn" style="display:none;"/>&nbsp;&nbsp;<input name="search" type="text" id="search" style="display:none;" /></td>
+         <td width="20%"><div id="loader" style="display:none;"><img src="css/images/loader.gif" alt="Laoder" /></div></td>
+       </tr>
+     </table><!-- /searchtable -->
 	<form id='product_search'>
 		 
 		<div class='row'>
