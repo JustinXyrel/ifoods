@@ -39,7 +39,6 @@ class table {
 
  public function select_where($wh) {
   global $conn;
-
   $statement = 'SELECT * FROM ' . $this->table . ' WHERE '. $wh;
   $q = $conn->query($statement);
   $results = $q->fetchAll(PDO::FETCH_ASSOC);
@@ -161,6 +160,32 @@ class table {
    echo get_class($this)."->".__FUNCTION__." : ERROR = ".$e->getMessage();
   }
    
+ }
+ 
+ 	/**
+	 * @desc Checks the existence of a record based on a given array
+	 * @param array $data set of data to be checked
+	 * @return Returns true when the record exists and false when it does not.
+	 */
+	public function check_existence($data)	{
+
+		$result = $this->select_where($data);
+        // echo $result;die();
+		if (json_decode($result,true) == 0)	{
+
+			return false;
+				
+		}else{
+				
+			return true;
+				
+		}
+
+	}
+	
+ public function select_join_where() {
+	
+ 
  }
  
 

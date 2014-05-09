@@ -132,7 +132,7 @@
 			global $conn;
 			extract($_POST);
 		
-			$sql_que = "SELECT u.*,ut.user_type from tbl_users u join tbl_user_types ut on u.user_type_id =ut.user_type_id where 
+			$sql_que = "SELECT u.*,ut.user_type,(SELECT res_id from tbl_restaurant_branches where branch_id = u.branch_id) as res_id from tbl_users u join tbl_user_types ut on u.user_type_id =ut.user_type_id where 
                    u.username= '".$usr."' and u.password ='".$pwd."' and u.user_type_id != 1 ";
 			$query = $conn->query($sql_que);
             $results = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -282,22 +282,67 @@
 		  }		
 		//  echo "<pre>",print_r($_SESSION['auth']),"</pre>";
 		     $fields = array('fname','lname','middle');
-			  $branch_id = $_SESSION['auth'][0]['branch_id'];
-			  
-			//global $conn;
-			//extract($_POST);
-		
-			//var_dump($profile);
-			
-			//$this->select_fields_where();
+			  $res_id = $_SESSION['auth'][0]['res_id'];
+
 			$sql_que = "SELECT u.*,ut.user_type,rb.branch_desc from tbl_users u join tbl_user_types ut on u.user_type_id =ut.user_type_id 
 						join tbl_restaurant_branches rb on u.branch_id = rb.branch_id where 
-                   u.branch_id= ".$branch_id." and u.user_type_id > 3 ";
+                   rb.res_id= ".$res_id." and u.user_type_id = 4 ";
 		 //   var_dump($sql_que);die();
 			$query = $conn->query($sql_que);
             $results = $query->fetchAll(PDO::FETCH_ASSOC);
             $json_data = json_encode($results);
   		    echo $json_data;
+		}
+
+
+		
+		 /*
+		  Author : Justin Xyrel 
+		  Date: 05/08/14
+		  Function: add_manager
+		  Desc: Add manager account
+		  Params: post data 
+		*/ 
+		public function add_manager(){	
+		  global $conn;
+		  extract($_POST);
+		  if(!isset($_SESSION)){
+			session_start();
+		  }		
+		  var_dump($this->check_email_exist($form[12]['value']));
+		  
+		  var_dump($form); var_dump($form[12]['value']);die();
+	/*	//  echo "<pre>",print_r($_SESSION['auth']),"</pre>";
+		     $fields = array('fname','lname','middle');
+			  $res_id = $_SESSION['auth'][0]['res_id'];
+
+			$sql_que = "SELECT u.*,ut.user_type,rb.branch_desc from tbl_users u join tbl_user_types ut on u.user_type_id =ut.user_type_id 
+						join tbl_restaurant_branches rb on u.branch_id = rb.branch_id where 
+                   rb.res_id= ".$res_id." and u.user_type_id = 4 ";
+		 //   var_dump($sql_que);die();
+			$query = $conn->query($sql_que);
+            $results = $query->fetchAll(PDO::FETCH_ASSOC);
+            $json_data = json_encode($results);
+  		    echo $json_data;*/
+		}
+		
+		 /*
+		  Author : Justin Xyrel 
+		  Date: 05/09/14
+		  Function: check_email_exist
+		  Desc: check if email exist
+		  Params: email address
+		*/ 
+		public function check_email_exist($email_address){	
+		  global $conn;
+		  
+		  if(!isset($_SESSION)){
+			session_start();
+		  }		
+		  $this->table = 'tbl_users';
+		  $result  = $this->check_existence("email_add = '".$email_address."'");
+		
+		  return $result;
 		}
 	}
 	

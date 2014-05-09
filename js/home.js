@@ -44,7 +44,40 @@
 				}
 			});
 	  },
-	  
+	  buttons: {
+			Save: function() {
+			   // var validation_holder = 0;
+				var firstname = $("input#fname");
+				var lastname = $("input#lname");
+				var street = $("input#street");
+				var town_city = $("input#town_city");
+				var state_province = $("input#state_province");
+				var country = $('select[name=country]');
+				var birth_date = $('input#birth_date');
+				var contact_no = $('input#contact_no');
+				var email_add = $('input#email_add');
+				var required = [firstname,lastname,street,town_city,country,birth_date,contact_no,email_add];
+      
+				var count_err = check_required_fields(required);	
+			//	var data = {function_name: 'product_delete', branch_id: 9, menu_id: menu_id};
+			 //   alert(count_err);
+				if(count_err == 0){
+					$.ajax({
+						url: 'controller.php',
+						data:  { 'form' : $("#add_staff_form").serializeArray(),
+                   			 'function_name':'add_manager',
+                  			  },
+						type: "POST",
+						success: function(data){
+						console.log(data);
+						//$('tr.'+menu_id).fadeOut();
+						//$( this ).dialog( "close" );	
+						}
+					});
+				}
+			},
+			Cancel: function() { $( this ).dialog( "close" );	}
+		}
 	  });
 	
 		$('a#staff').on('click',function(event){
@@ -86,8 +119,8 @@
 		$('a#add_staff').on('click',function(event){
 		    	$( "#dialog_staff" ).dialog('open');
 		});
-		
 
+		
 	$('a#product').on('click',function(event){
 			event.stopImmediatePropagation(); 
 			event.preventDefault(); 

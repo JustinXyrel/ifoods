@@ -1,4 +1,9 @@
-
+<?php 
+	include('var_functions.php'); 
+	$var_func = new var_functions();  
+	$gen_password = $var_func->generate_password();
+	 var_dump($gen_password);
+	?>
 <html>
 	<body>
 	<div id="add_staff" >
@@ -38,11 +43,10 @@
 										-->
 										
 										<div id="radioset">
-											<input type="radio" id="radio1" name="radio" checked><label for="radio1">Male</label>
-											<input type="radio" id="radio3" name="radio"><label for="radio3">Female</label>
+											<input type="radio" id="radio1" name="gender" value="male" checked><label for="radio1">Male</label>
+											<input type="radio" id="radio3" name="gender" value="female"><label for="radio3">Female</label>
 										</div>
 										
-										<input type="hidden" id="gender_val" name="gender"/>
 									</td>
 								</tr>
 								<tr>
@@ -101,6 +105,7 @@
 									<td class="padding_left">Username / Email Address *</td>
 									<td class="padding_right"><input class="form-control" type="email" name="email_add" id="email_add" placeholder="Enter email address"/></td>
 								</tr>
+								
 
 								<tr>
 									<td class="padding_left">Account Activation*</td>
@@ -113,24 +118,23 @@
 										-->
 										
 										<div id="radioset">
-											<input type="radio" id="radio1" name="radio" checked><label for="radio1">Activate</label>
-											<input type="radio" id="radio3" name="radio"><label for="radio3">Deactivate</label>
+											<input type="radio" id="radio1" name="status" value="activate" checked><label for="radio1">Activate</label>
+											<input type="radio" id="radio3" name="status" value="deactivate"><label for="radio3">Deactivate</label>
 										</div>
 										
-										<input type="hidden" id="gender_val" name="gender"/>
 									</td>
 								</tr>
 							
 							</table>
-					
-							<table border="0"style="text-align:center; margin: 0 auto;">
+					            <input type="hidden" id="password" name="password" value=<?php echo $gen_password;?>>
+						<!--	<table border="0"style="text-align:center; margin: 0 auto;">
 								<tr>
 									<td><input type="hidden" id = "u_id" /></td>
 									<td><input type="hidden" id = "cur_p" /></td>
 									<td style="padding-right: 3px;"><input type="button" id="btn_submit" value="Save"/></td>
 									<td style="padding-left: 3px;"><input id="btn_cancel" type="button" value="Cancel"/></td>
 								</tr>
-							</table> 
+							</table> -->
 				  
 						</form>
 		</div>

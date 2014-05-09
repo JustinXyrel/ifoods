@@ -45,7 +45,19 @@
 	  $auth = $_SESSION['auth'][0];
 	  $access_module = $this->parse_access();
 	  return $access_module[$auth['user_type']][$module];
-     }	
+     }
+
+    public function generate_password($length = 8) {
+		$chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+		$count = mb_strlen($chars);
+
+		for ($i = 0, $result = ''; $i < $length; $i++) {
+			$index = rand(0, $count - 1);
+			$result .= mb_substr($chars, $index, 1);
+		}
+
+		return $result;
+	}	 
 	 
 
   }

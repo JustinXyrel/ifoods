@@ -124,6 +124,7 @@ $(document).ready(function(){
 			data: { 'function_name' : 'get_profile',
                   			},
 			success: function (response){ 
+		//	console.log(response);
 				var parse_json = $.parseJSON(response);
 				var user_profile = parse_json[0];
 				var arr = {'lname': user_profile['lname'],
