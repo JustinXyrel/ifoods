@@ -58,7 +58,19 @@
 
 		return $result;
 	}	 
+	
+	
+	public function get_error_msg($err_code){
+	  $error = array(
+			'1'=> 'The email address is already taken',
+	  
+	  );
+
+      return $error[$err_code];	  
+	
+	}
 	 
+
 
   }
 

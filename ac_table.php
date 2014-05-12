@@ -43,6 +43,7 @@ class table {
   $q = $conn->query($statement);
   $results = $q->fetchAll(PDO::FETCH_ASSOC);
   $results = json_encode($results);
+ //var_dump($results);die();
   return $results;
  }
 
@@ -76,7 +77,7 @@ class table {
   $where = implode(" AND ", $wh);
               
   $statement = 'SELECT '.implode(',',$fields).' FROM ' . $this->table . ' WHERE ' . $where ;
-                //var_dump($statement);die();
+         //       var_dump($statement);die();
   try {
 
    if (!$q = $conn->query($statement)) {
@@ -170,8 +171,8 @@ class table {
 	public function check_existence($data)	{
 
 		$result = $this->select_where($data);
-        // echo $result;die();
-		if (json_decode($result,true) == 0)	{
+     //   echo count($result);die();
+		if (count($result) <= 2 )	{
 
 			return false;
 				

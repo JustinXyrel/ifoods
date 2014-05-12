@@ -2,7 +2,7 @@
 	include('var_functions.php'); 
 	$var_func = new var_functions();  
 	$gen_password = $var_func->generate_password();
-	 var_dump($gen_password);
+	// var_dump($gen_password);
 	?>
 <html>
 	<body>
@@ -10,7 +10,7 @@
 					
 						<form id="add_staff_form" class="ac-login" action="?" method="post">
 
-							<div id="validation_msg" class="msg_container" style="display: none;"><h2 id="val_msg"></h2></div>
+							<div id="validation_msg" class="msg_container" style="display:block;background-color:#FF8073;text-align:center;"><h3 id="val_msg"></h3></div>
 				 
 							<table border="0" style="width: 100%;">
 								<tr>
@@ -89,9 +89,17 @@
 									<td class="padding_right"><input class='form_date form-control' type="date" style="" type="text" name="birth_date" id="birth_date"/></td>
 								</tr>
 								<tr>
-								<td class="padding_left">User Level *</td>
+								<td class="padding_left">User Level </td>
 									<td class="padding_right">
 										Manager
+									</td>
+								</tr>
+								<tr>
+									<td class="padding_left">Branch *</td>
+									<td class="padding_right">
+										<select class="res_select form-control"  id = "branch_id" name="branch_id">
+											<option value=""></option>
+										</select>
 									</td>
 								</tr>
 								<tr>
@@ -137,6 +145,19 @@
 							</table> -->
 				  
 						</form>
-		</div>
+				</div>
+		
+				<div id='confirm_add_user' style='display:none;' >
+							<table>
+								<tr>
+									<td>
+										<img src='https://d2g691qpj752hh.cloudfront.net/AcrestaPhilippines/phil1/thumbsUpOrange.png'>
+									</td>
+									<td>
+										Your have successfully added a user.
+									</td>
+								</tr>
+							</table>
+						</div><!-- /confirm_add -->
 	</body>
 </html>

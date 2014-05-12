@@ -1,5 +1,5 @@
 <?php
-
+	
 	class functions extends table{
 		
 		public function search(){
@@ -309,40 +309,72 @@
 		  if(!isset($_SESSION)){
 			session_start();
 		  }		
-		  var_dump($this->check_email_exist($form[12]['value']));
+		  $this->table = 'tbl_users';
+		  $email_exist  = $this->check_existence("email_add = '".$form[13]['value']."'");
+		  $is_valid_email = filter_var($form[13]['value'],FILTER_VALIDATE_EMAIL);
 		  
-		  var_dump($form); var_dump($form[12]['value']);die();
-	/*	//  echo "<pre>",print_r($_SESSION['auth']),"</pre>";
-		     $fields = array('fname','lname','middle');
-			  $res_id = $_SESSION['auth'][0]['res_id'];
+		    
+		  if($email_exist){
+			echo json_encode(array('error' => '1' , 'err_msg' => 'The email address is already taken.' )); die();
+		  }elseif(!$is_valid_email){
+		    echo json_encode(array('error' => '1' , 'err_msg' => 'The email address is invalid.' )); die();	  
+		  }else{
+		      
+		     //echo (json_encode(array('error' => '0' ,'result'=>true,'forms'=>$form)));die();
+		    foreach($form as $val){
+			
+			  $val['value'] = ($val['name'] == 'password') ? sha1($val['value']) : $val['value'];
+			  $val['value'] = ($val['name'] == 'status') ? (($val['value'] == 'activate') ? '1' : '0') : $val['value'];
+			  $fields[$val['name']] = $val['value'];
+			  if($val['name'] == 'email_add'){
+			     $fields['username'] = $val['value'];
+			  }
+			}
+			$fields['user_type_id'] = 4;
+		//	var_dump($fields);
+		 //echo json_encode(array('error' => '1' , 'err_msg' => 'Please try again.' ));
+	//	  echo json_encode(array('error' => '0' ,'result'=>true));
+		 //   die();
+			$response = $this->insert($fields);
+			
+			if($response > 0){
+			   echo json_encode(array('error' => '0' ,'result'=>true));
+			}else{
+			   echo json_encode(array('error' => '1' , 'err_msg' => 'Please try again.' ));
+			}
+			
+		 // var_dump($form); var_dump($form[12]['value']);die();
+		//  $this->insert($fields);
+		  
 
-			$sql_que = "SELECT u.*,ut.user_type,rb.branch_desc from tbl_users u join tbl_user_types ut on u.user_type_id =ut.user_type_id 
-						join tbl_restaurant_branches rb on u.branch_id = rb.branch_id where 
-                   rb.res_id= ".$res_id." and u.user_type_id = 4 ";
-		 //   var_dump($sql_que);die();
-			$query = $conn->query($sql_que);
-            $results = $query->fetchAll(PDO::FETCH_ASSOC);
-            $json_data = json_encode($results);
-  		    echo $json_data;*/
+		  }
 		}
 		
+				
 		 /*
 		  Author : Justin Xyrel 
 		  Date: 05/09/14
-		  Function: check_email_exist
-		  Desc: check if email exist
-		  Params: email address
+		  Function: get_staff
+		  Desc: Locate the account of the user where the user type is not equal to customer
+		  Params: post data such us $usr(username) and $pwd($password)
 		*/ 
-		public function check_email_exist($email_address){	
-		  global $conn;
-		  
+		public function get_branches(){	
 		  if(!isset($_SESSION)){
 			session_start();
 		  }		
-		  $this->table = 'tbl_users';
-		  $result  = $this->check_existence("email_add = '".$email_address."'");
+		  $res_id = $_SESSION['auth'][0]['res_id'];
+		  $this->table = 'tbl_restaurant_branches';
+		  $fields = array('branch_id','branch_desc');
+		  $condition = array('res_id'=>$res_id);
+		  $result = $this->select_fields_where($fields,$condition);
+		  echo json_encode($result);
+		}
 		
-		  return $result;
+		public function send_email(){
+	       extract($_POST);
+		   //var_dump($_POST);
+		   $result = mail($mail,$subject,$content);
+	       echo $mail;
 		}
 	}
 	
