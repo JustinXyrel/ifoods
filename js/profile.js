@@ -49,7 +49,10 @@ $(document).ready(function(){
       var match = [{ m: [ pass_match.val(), pass.val() ] }];
       
       var count = 0;
-	  if(pass_match.val() !==  pass.val() || count_err > 0){
+	  if(count_err > 0){
+		    $(curr_pass).css('background-color', '#FF8073');
+	  }
+	  if(pass_match.val() !==  pass.val()){
 	   	 $(pass_match).parent().find('p').hide();
          $(pass).css('background-color', '#FF8073');
          $(pass_match).css('background-color', '#FF8073');   
@@ -77,7 +80,7 @@ $(document).ready(function(){
                    			    'function_name':'update_profile',
                   			  },
 						success: function (response){ 
-						  alert(response);
+						  console.log(response);
 						  if(is_json_string(response)){
 						     var obj = jQuery.parseJSON(response);
 						    $('html,body').scrollTop(0);

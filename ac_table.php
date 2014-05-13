@@ -171,8 +171,11 @@ class table {
 	public function check_existence($data)	{
 
 		$result = $this->select_where($data);
-     //   echo count($result);die();
-		if (count($result) <= 2 )	{
+		$count = ($result == "[]" ) ? 0 : count($result);
+		
+		//echo var_dump($count);
+        //echo sizeof($count);die();
+		if ($count == 0 ) {
 
 			return false;
 				

@@ -97,7 +97,7 @@
                   			  },
 						type: "POST",
 						success: function(response){
-						//console.log(response);
+						  console.log(response);
 							var obj = jQuery.parseJSON(response);
 						
 							if(obj['result']){

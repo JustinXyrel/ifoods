@@ -219,8 +219,8 @@
 				session_start();
 			} 
 			//var_dump($form[13]['value']);die();
-		     $this->validate_email_address($form[13]['value']);
-			 die();
+		     $this->validate_email_address($form[13]['value'],$user_id);
+			// die();
 			foreach($form as &$data){     
 				if($data['name'] !== 'email_add_verify' && $data['name'] !== 'current_password' ){
 					if($data['name'] == 'password' && !empty($data['value']) ){
@@ -229,7 +229,7 @@
 					}
 					if($data['name'] == 'birth_date'){
 						$data['value'] = strtotime($data['value']);
-				}
+					}
 					$arr[$data['name']] = $data['value'];
 				}
 			}
@@ -396,9 +396,11 @@
 		  Params:  {$email_address}
 		*/ 
 		
-		public function validate_email_address($email_address){
+		public function validate_email_address($email_address,$user_id = 0){
 	       $this->table = 'tbl_users';
-		   $email_exist  = $this->check_existence("email_add = '".$email_address."'");
+		 //  var_dump($user_id);die();
+		   $email_exist  = $this->check_existence("email_add = '".$email_address."' and user_id != '".$user_id."'" );
+		 //  var_dump($email_exist);
 		   $is_valid_email = filter_var($email_address,FILTER_VALIDATE_EMAIL);
 		    if($email_exist){
 				echo json_encode(array('error' => '1' , 'err_msg' => 'The email address is already taken.' )); die();
