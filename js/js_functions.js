@@ -24,3 +24,12 @@ function show_hide(show,hide){
   $(show).slideToggle();
   $(hide).slideToggle();
 }
+
+function is_json_string(str) {
+    try {
+        JSON.parse(str);
+    } catch (e) {
+        return false;
+    }
+    return true;
+}

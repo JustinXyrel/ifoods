@@ -49,7 +49,7 @@ $(document).ready(function(){
       var match = [{ m: [ pass_match.val(), pass.val() ] }];
       
       var count = 0;
-	  if(pass_match.val() !==  pass.val()){
+	  if(pass_match.val() !==  pass.val() || count_err > 0){
 	   	 $(pass_match).parent().find('p').hide();
          $(pass).css('background-color', '#FF8073');
          $(pass_match).css('background-color', '#FF8073');   
@@ -70,7 +70,6 @@ $(document).ready(function(){
                   },
                   success: function (response){   
                     if($('#cur_p').val() === response ){
-
                       $.ajax({
 						type:'POST',
                   		url:'controller.php',
@@ -78,15 +77,26 @@ $(document).ready(function(){
                    			    'function_name':'update_profile',
                   			  },
 						success: function (response){ 
-						 // console.log(response);
-						  if(response == ""){
-						    show_hide($('div#view_profile'),$('div#update_profile'));
+						  alert(response);
+						  if(is_json_string(response)){
+						     var obj = jQuery.parseJSON(response);
+						    $('html,body').scrollTop(0);
+							$('#validation_msg').focus();
+							$('#validation_msg').fadeIn();
+							$('#val_msg').text(obj['err_msg']);
+						  }else{
+							$('#validation_msg').fadeOut();
+							if(response == true || response == ""){
+								get_profile();
+								show_hide($('div#view_profile'),$('div#update_profile'));
+								$.ajax({
+									type: 'POST',
+									url:'controller.php',
+									data: {'mail': email_add.val(),'subject': 'Account Update Notification','content': 'You have successfully updated your account.','function_name':'send_email'},
+							   });
+								$('#confirm_add').dialog('open');  
+							}
 						  }
-                          if(response == true){
-						    get_profile();
-							show_hide($('div#view_profile'),$('div#update_profile'));
-							$('#confirm_add').dialog('open');  
-                          }
 						}
 					  });
 
@@ -96,7 +106,12 @@ $(document).ready(function(){
 							}
 					});
   
-      }
+      }else{
+		 $('html,body').scrollTop(0);
+		 $('#validation_msg').focus();
+		 $('#validation_msg').fadeIn();
+		 $('#val_msg').text('Please check and fill in required fields.');
+	  }
 
     });
    
@@ -113,7 +128,7 @@ $(document).ready(function(){
        //    AC.API.Nav('update_profile');
 				},
 		   }
-		  });
+	});
 	}
 		  
 		  

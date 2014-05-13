@@ -75,8 +75,6 @@ $(function() {
 				<div id='main_profile' >
 
 					<div id="view_profile">
-					
-						<div id="validation_msg" class="msg_container"><h2 id="val_msg"></h2></div>
 					 
 						<table border="0" style="width: 100%;">
 							<tr>
@@ -162,7 +160,7 @@ $(function() {
 					
 						<form id="update_form" class="ac-login" action="?" method="post">
 
-							<div id="validation_msg" class="msg_container" style="display: none;"><h2 id="val_msg"></h2></div>
+							<div id="validation_msg" class="msg_container" style="display:block;background-color:#FF8073;text-align:center;"><h3 id="val_msg"></h3></div>
 				 
 							<table border="0" style="width: 100%;">
 								<tr>

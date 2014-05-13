@@ -97,13 +97,13 @@
                   			  },
 						type: "POST",
 						success: function(response){
-						console.log(response);
+						//console.log(response);
 							var obj = jQuery.parseJSON(response);
 						
 							if(obj['result']){
 								$('#validation_msg').fadeOut();
 							  // console.log('result is true');
-							   var content = "You can now access your account by logging in the ff. information. </br> Username:"+email_add.val()+"</br> Password: "+ $('#password').val() ;
+							   var content = "You can now access your account by logging in the ff. information. Username:"+email_add.val()+", Password: "+ $('#password').val() ;
 								$.ajax({
 									type: 'POST',
 									url:'controller.php',

@@ -218,7 +218,9 @@
 			if(!isset($_SESSION)){
 				session_start();
 			} 
-		
+			//var_dump($form[13]['value']);die();
+		     $this->validate_email_address($form[13]['value']);
+			 die();
 			foreach($form as &$data){     
 				if($data['name'] !== 'email_add_verify' && $data['name'] !== 'current_password' ){
 					if($data['name'] == 'password' && !empty($data['value']) ){
@@ -310,7 +312,8 @@
 			session_start();
 		  }		
 		  $this->table = 'tbl_users';
-		  $email_exist  = $this->check_existence("email_add = '".$form[13]['value']."'");
+		  $this->validate_email_address($form[13]['value']);
+		 /* $email_exist  = $this->check_existence("email_add = '".$form[13]['value']."'");
 		  $is_valid_email = filter_var($form[13]['value'],FILTER_VALIDATE_EMAIL);
 		  
 		    
@@ -319,7 +322,7 @@
 		  }elseif(!$is_valid_email){
 		    echo json_encode(array('error' => '1' , 'err_msg' => 'The email address is invalid.' )); die();	  
 		  }else{
-		      
+		      */
 		     //echo (json_encode(array('error' => '0' ,'result'=>true,'forms'=>$form)));die();
 		    foreach($form as $val){
 			
@@ -347,7 +350,7 @@
 		//  $this->insert($fields);
 		  
 
-		  }
+		 // }
 		}
 		
 				
@@ -370,12 +373,41 @@
 		  echo json_encode($result);
 		}
 		
+		 /*
+		  Author : Justin Xyrel 
+		  Date: 05/12/14
+		  Function: send_email
+		  Desc: Send mail thru mail function of PHP
+		  Params:  {$mail: email_address, $subject : header, $content : content of email }
+		*/ 
+		
 		public function send_email(){
 	       extract($_POST);
 		   //var_dump($_POST);
 		   $result = mail($mail,$subject,$content);
 	       echo $mail;
 		}
+		
+		/*
+		  Author : Justin Xyrel 
+		  Date: 05/13/14
+		  Function: validate_email_address
+		  Desc: check validation of email
+		  Params:  {$email_address}
+		*/ 
+		
+		public function validate_email_address($email_address){
+	       $this->table = 'tbl_users';
+		   $email_exist  = $this->check_existence("email_add = '".$email_address."'");
+		   $is_valid_email = filter_var($email_address,FILTER_VALIDATE_EMAIL);
+		    if($email_exist){
+				echo json_encode(array('error' => '1' , 'err_msg' => 'The email address is already taken.' )); die();
+			}elseif(!$is_valid_email){
+				echo json_encode(array('error' => '1' , 'err_msg' => 'The email address is invalid.' )); die();	  
+			}
+		}
+		
+		
 	}
 	
 ?>
