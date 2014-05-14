@@ -114,7 +114,7 @@
 										var clas = $("table#staff tr:nth-child("+ch+")").attr('class');
 										var status = ($('input[name=status]').val().trim() == 'activate') ? 'Active' : 'Inactive';
 										var odd_even = (clas == 'odd') ? 'even' : 'odd';
-										var btn_status = (status == 'Active') ? 'Activate' : 'Deactivate';
+										var btn_status = (status == 'Active') ? 'Deactivate' : 'Activate';
 									    var add_tbl_row = "<tr class= "+ odd_even +" style='display: table-row'>";
 										    add_tbl_row += "<td>"+firstname.val()+" "+ lastname.val()+"</td>";
 											add_tbl_row += "<td>"+street.val()+" "+ town_city.val()+" "+ state_province.val()+"</td>";
@@ -151,6 +151,11 @@
 		}
 	  });	
 	  
+	    $('#update_stat').on('click',function(event){
+		
+		
+		});
+	  
 		$('a#staff').on('click',function(event){
 			event.stopImmediatePropagation(); 
 			event.preventDefault(); 
@@ -178,7 +183,7 @@
 		});
 
 		
-	$('a#product').on('click',function(event){
+		$('a#product').on('click',function(event){
 			event.stopImmediatePropagation(); 
 			event.preventDefault(); 
 					
@@ -190,9 +195,31 @@
 						}
 					});					
 					
-	});
+		});
 		//alert('you clicked me');
-
+		$('a#sysad_report').on('click',function(event){
+			event.stopImmediatePropagation(); 
+			event.preventDefault(); 
+			$.ajax({
+				type: 'POST',
+				url:'controller.php',
+						data: {'function_name':'sysad_report'},
+				success: function (response){ 
+					$.ajax({
+						type: 'POST',
+						url:'sysad_report.php',
+						data: {'data':response},
+						success: function (response){ 
+							$('div#content_bottom').html("");
+							$('div#content_bottom').append(response);
+						}
+					});					
+				}
+			});
+		//alert('you clicked me');
+		});
+		
+		
 	  function activate_menu(menu){
 		$('div#content').find('li.has-sub:eq('+menu+')').addClass("active");
 	    $('div#content').find('li.has-sub:eq('+menu+')').show();

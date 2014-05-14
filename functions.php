@@ -313,17 +313,7 @@
 		  }		
 		  $this->table = 'tbl_users';
 		  $this->validate_email_address($form[13]['value']);
-		 /* $email_exist  = $this->check_existence("email_add = '".$form[13]['value']."'");
-		  $is_valid_email = filter_var($form[13]['value'],FILTER_VALIDATE_EMAIL);
 		  
-		    
-		  if($email_exist){
-			echo json_encode(array('error' => '1' , 'err_msg' => 'The email address is already taken.' )); die();
-		  }elseif(!$is_valid_email){
-		    echo json_encode(array('error' => '1' , 'err_msg' => 'The email address is invalid.' )); die();	  
-		  }else{
-		      */
-		     //echo (json_encode(array('error' => '0' ,'result'=>true,'forms'=>$form)));die();
 		    foreach($form as $val){
 			
 			  $val['value'] = ($val['name'] == 'password') ? sha1($val['value']) : $val['value'];
@@ -334,23 +324,14 @@
 			  }
 			}
 			$fields['user_type_id'] = 4;
-		//	var_dump($fields);
-		 //echo json_encode(array('error' => '1' , 'err_msg' => 'Please try again.' ));
-	//	  echo json_encode(array('error' => '0' ,'result'=>true));
-		 //   die();
+
 			$response = $this->insert($fields);
 			
 			if($response > 0){
 			   echo json_encode(array('error' => '0' ,'result'=>true));
 			}else{
 			   echo json_encode(array('error' => '1' , 'err_msg' => 'Please try again.' ));
-			}
-			
-		 // var_dump($form); var_dump($form[12]['value']);die();
-		//  $this->insert($fields);
-		  
-
-		 // }
+			}			
 		}
 		
 				
@@ -409,6 +390,28 @@
 			}
 		}
 		
+		/*
+		  Author : Justin Xyrel 
+		  Date: 05/14/14
+		  Function: sysad_report
+		  Desc:  shows restaurant report in system admin side
+		  Params:  None
+		*/ 
+		
+		public function sysad_report(){
+			global $conn;
+			extract($_POST);
+		
+			$sql_que = "SELECT res_id,res_desc,contact_no,address,branch_no,
+							   (SELECT COUNT(*) FROM  tbl_orders t_o JOIN 
+									tbl_restaurant_branches t_b ON t_o.branch_id = t_b.branch_id 
+									WHERE t_b.res_id = t_n.res_id) as order_count
+						FROM tbl_restaurant_name t_n";
+			$query = $conn->query($sql_que);
+            $results = $query->fetchAll(PDO::FETCH_ASSOC);
+            $json_data = json_encode($results);
+  		    echo $json_data;
+		}
 		
 	}
 	

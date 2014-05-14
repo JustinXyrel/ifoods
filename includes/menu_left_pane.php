@@ -121,9 +121,8 @@ $(document).ready(function(){
 	<ul>
 		<li class='has-sub' style="display:none;"><a><span>System Admin</span></a>
 			<ul>
-				<li><a href='#'><span>Restaurant Name/ Main Branch</span></a></li>
-				<li><a href='#'><span>Restaurant Admin</span></a></li>
-			 
+				<li><a href='#' ><span>Restaurant Name/ Main Branch</span></a></li>
+				<li><a href='#' id='sysad_report'><span>Report</span></a></li>
 			</ul>
 		</li>
 <!--		<li class='has-sub'><a><span>Restaurant</span></a>
