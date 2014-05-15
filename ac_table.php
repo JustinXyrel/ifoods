@@ -48,7 +48,7 @@ class table {
  }
 
  public function select_fields_order_by($fields,$orderby) {
-                global $conn;
+  global $conn;
     //  echo $fields." ".$orderby;
 
   $statement = "SELECT $fields FROM {$this->table} ORDER BY $orderby" ;
@@ -187,10 +187,26 @@ class table {
 
 	}
 	
- public function select_join_where() {
+	/**
+	  *  SELECT COUNT -JX
+	  *
+	**/
+
+	public function select_count() {
+		global $conn;
+
+		$statement = 'SELECT COUNT(*) as count_result FROM ' . $this->table ;
+		$q = $conn->query($statement);
+		$results = $q->fetchAll(PDO::FETCH_ASSOC);
+	//	var_dump($results[0]['count_result']);die();
+		//$results = json_encode($results);
+		return $results[0]['count_result'];
+	}
+	
+	public function select_join_where() {
 	
  
- }
+	}
  
 
    

@@ -1,7 +1,8 @@
 <?php
 	include('var_functions.php'); 
 	$var_func = new var_functions();
-
+		
+	//var_dump($func->get_restaurant_count());die();
 	$is_allowed = $var_func->check_user_access('sysad_report');
 	
 	//var_dump($var_func->join_string(array('staff','crew'))); die();
@@ -11,7 +12,8 @@
   // var_dump($_POST);die();
  // echo "<pre>", var_dump(json_decode($_POST['data'],true)), "</pre>";die();
    $data = json_decode($_POST['data'],true);
- //echo "<pre>", var_dump($data), "</pre>";
+// echo "<pre>", var_dump($_POST['data']), "</pre>";die();
+ //echo "<pre>", var_dump($data), "</pre>";die();
 ?>
 <html >
 
@@ -84,8 +86,10 @@
      </thead>
 
        <tbody>
-
-<?php 	foreach($data as $info){ ?>
+       <h5 id= 'total_rest'>Total Restaurant: <?php echo $data['count_rest']; ?></h5>
+	   <h5 id= 'total_branch'>Total Branches: <?php echo $data['count_branches']; ?></h5>
+	   <h5 id= 'total_orders'>Total Orders: <?php echo $data['count_orders']; ?></h5>
+<?php 	foreach($data['lists'] as $info){ ?>
 			<tr id = "<?php echo $info['user_id'];?>">
 				<td>
 				 <?php 
@@ -96,7 +100,7 @@
 				 ?>
 				</td>
 				<td>
-				 <?php echo ""?>
+				 <?php echo ucfirst($info['admin_fname']).' '.ucfirst($info['admin_lname'])?>
 				</td>
 				<td>
 				 <?php echo $info['contact_no'];?>
