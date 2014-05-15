@@ -198,9 +198,9 @@ class table {
 		$statement = 'SELECT COUNT(*) as count_result FROM ' . $this->table ;
 		$q = $conn->query($statement);
 		$results = $q->fetchAll(PDO::FETCH_ASSOC);
-	//	var_dump($results[0]['count_result']);die();
-		//$results = json_encode($results);
+
 		return $results[0]['count_result'];
+
 	}
 	
 	public function select_join_where() {

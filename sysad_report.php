@@ -1,8 +1,14 @@
 <?php
 	include('var_functions.php'); 
 	$var_func = new var_functions();
+<<<<<<< HEAD
 		
 	//var_dump($func->get_restaurant_count());die();
+=======
+	$func = new functions();
+	
+	var_dump($func->get_restaurant_count());die();
+>>>>>>> c7571051d30ede10812c9bd00b9deff14015cdad
 	$is_allowed = $var_func->check_user_access('sysad_report');
 	
 	//var_dump($var_func->join_string(array('staff','crew'))); die();
@@ -12,7 +18,10 @@
   // var_dump($_POST);die();
  // echo "<pre>", var_dump(json_decode($_POST['data'],true)), "</pre>";die();
    $data = json_decode($_POST['data'],true);
+<<<<<<< HEAD
 // echo "<pre>", var_dump($_POST['data']), "</pre>";die();
+=======
+>>>>>>> c7571051d30ede10812c9bd00b9deff14015cdad
  //echo "<pre>", var_dump($data), "</pre>";die();
 ?>
 <html >
@@ -86,10 +95,12 @@
      </thead>
 
        <tbody>
+
        <h5 id= 'total_rest'>Total Restaurant: <?php echo $data['count_rest']; ?></h5>
 	   <h5 id= 'total_branch'>Total Branches: <?php echo $data['count_branches']; ?></h5>
 	   <h5 id= 'total_orders'>Total Orders: <?php echo $data['count_orders']; ?></h5>
 <?php 	foreach($data['lists'] as $info){ ?>
+
 			<tr id = "<?php echo $info['user_id'];?>">
 				<td>
 				 <?php 

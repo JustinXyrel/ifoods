@@ -116,6 +116,10 @@ input[type="button"]:active {
 	margin: 15% auto;
  }
  
+ #loginMainContainer a {
+	color: #e66100
+}
+ 
  #logoBox {
 	border-radius: 3px;
 	text-align: center;

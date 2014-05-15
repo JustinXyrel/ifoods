@@ -403,14 +403,14 @@
 		public function sysad_report(){
 			global $conn;
 			extract($_POST);
+
 		    $this->table = 'tbl_restaurant_name';
 		    $results['count_rest'] = $this->select_count();
 			$this->table = 'tbl_restaurant_branches';
 		    $results['count_branches'] = $this->select_count();
 			$this->table = 'tbl_orders';
 		    $results['count_orders'] = $this->select_count();
-		
-		//  var_dump($results);die();
+
 			$sql_que = "SELECT res_id,res_desc,contact_no,address,branch_no, 
 							(SELECT t_u.fname FROM  tbl_users t_u JOIN 
 									tbl_restaurant_branches t_b ON t_u.branch_id = t_b.branch_id 
@@ -423,6 +423,7 @@
 									WHERE t_b.res_id = t_n.res_id) as order_count
 							FROM tbl_restaurant_name t_n";
 			$query = $conn->query($sql_que);
+
             $results['lists'] = $query->fetchAll(PDO::FETCH_ASSOC);
 		//	$results['rest'] = $count_rest;
 			//echo $results;die();
@@ -430,7 +431,7 @@
 			//$results['das']='dass';
 			//var_dump($results);die();
             $json_data = json_encode($results);
-  		   echo $json_data;
+  		    echo $json_data;
 		    //eturn $results;
 		} 
 		
@@ -452,21 +453,7 @@
   		   // echo $json_data;			
 		}
 		
-		/*
-		  Author : Justin Xyrel 
-		  Date: 05/14/14
-		  Function: sysad_report
-		  Desc:  shows restaurant report in system admin side
-		  Params:  None
-		*/ 
-		
-		public function all_sysad_report(){
-		 //  $results['list'] = $this->sysad_report();
-		   $results['rest_name_count'] = $this->get_restaurant_count();
-		  var_dump($results);die();
-		   $json_data = json_encode($results);
-  		   echo $json_data;
-		}
+
 	}
 	
 ?>
