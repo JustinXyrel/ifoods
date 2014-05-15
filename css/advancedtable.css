@@ -26,11 +26,16 @@ ul {
 	font-stretch:normal;
 	font-variant:normal;
 	font-weight:bold;
-	background: #E5E5E5;
+	/*background: #E5E5E5;*/
 	border-top:1px solid #BBB;
 	border-bottom:1px solid #BBB;
-	padding: 2px 5px;
+	/*padding: 2px 5px;*/
+	padding: 8px;
 	color: #444;
+}
+
+.advancedtable thead a {
+	color: #333333;
 }
 
 /** ROWS PER PAGE NAVIGATION **/
