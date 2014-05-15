@@ -401,18 +401,47 @@
 		public function sysad_report(){
 			global $conn;
 			extract($_POST);
+		//$this->table = 'tbl_restaurant_name';
+		 //  var_dump($user_id);die();
+		 //  $count_rest = $this->select_count();
 		
-			$sql_que = "SELECT res_id,res_desc,contact_no,address,branch_no,
-							   (SELECT COUNT(*) FROM  tbl_orders t_o JOIN 
+		 //  echo $results;die();
+			$sql_que = "SELECT res_id,res_desc,contact_no,address,branch_no, 
+							(SELECT t_u.fname FROM  tbl_users t_u JOIN 
+									tbl_restaurant_branches t_b ON t_u.branch_id = t_b.branch_id 
+									WHERE t_b.res_id = t_n.res_id AND t_u.user_type_id = 2 limit 1) as admin_fname,
+(							SELECT t_u.lname FROM  tbl_users t_u JOIN 
+									tbl_restaurant_branches t_b ON t_u.branch_id = t_b.branch_id 
+									WHERE t_b.res_id = t_n.res_id AND t_u.user_type_id = 2 limit 1) as admin_lname,
+							(SELECT COUNT(*) FROM  tbl_orders t_o JOIN 
 									tbl_restaurant_branches t_b ON t_o.branch_id = t_b.branch_id 
 									WHERE t_b.res_id = t_n.res_id) as order_count
-						FROM tbl_restaurant_name t_n";
+							FROM tbl_restaurant_name t_n";
 			$query = $conn->query($sql_que);
             $results = $query->fetchAll(PDO::FETCH_ASSOC);
+		//	$results['rest'] = $count_rest;
+			//echo $results;die();
+		//	$results = $this->get_restaurant_count($results);die();
+			//$results['das']='dass';
             $json_data = json_encode($results);
   		    echo $json_data;
 		}
 		
+		/*
+		  Author : Justin Xyrel 
+		  Date: 05/14/15
+		  Function: get_restaurant_count
+		  Desc:  get total restaurant count
+		  Params:  None
+		*/ 
+		
+		public function get_restaurant_count(){
+			$this->table = 'tbl_restaurant_name';
+			$results = $this->select_count();
+		//	return $results;	
+			$json_data = json_encode($results);
+  		    echo $json_data;			
+		}
 	}
 	
 ?>
