@@ -425,33 +425,12 @@
 			$query = $conn->query($sql_que);
 
             $results['lists'] = $query->fetchAll(PDO::FETCH_ASSOC);
-		//	$results['rest'] = $count_rest;
-			//echo $results;die();
-		 	//$results = $this->get_restaurant_count($results);die();
-			//$results['das']='dass';
-			//var_dump($results);die();
+
             $json_data = json_encode($results);
   		    echo $json_data;
-		    //eturn $results;
+
 		} 
-		
-		/*
-		  Author : Justin Xyrel 
-		  Date: 05/14/15
-		  Function: get_restaurant_count
-		  Desc:  get total restaurant count
-		  Params:  None
-		*/ 
-		
-		public function get_restaurant_count(){
-	
-			$this->table = 'tbl_restaurant_name';
-			$results = $this->select_count();
-				// json_encode($count);die();
-			return $results;	
-			//$json_data = json_encode($results);
-  		   // echo $json_data;			
-		}
+
 		
 
 	}

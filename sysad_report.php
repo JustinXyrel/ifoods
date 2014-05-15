@@ -65,9 +65,12 @@
 
      <table class="normal" id="searchtable" border="0" cellspacing="4" cellpadding="0" style="display:none; width: 100%; margin-bottom: 10px;">
        <tr>
-         <td width="80%">Search / Filter:  <select id="searchOn" name="searchOn" style="display:none;"/>&nbsp;&nbsp;<input name="search" type="text" id="search" style="display:none;" /></td>
+         <td width="80%">Search / Filter by Columns:  <select id="searchOn" name="searchOn" style="display:none;"/>&nbsp;&nbsp;<input name="search" type="text" id="search" style="display:none;" /></td>
          <td width="20%"><div id="loader" style="display:none;"><img src="css/images/loader.gif" alt="Laoder" /></div></td>
        </tr>
+	<!--   <tr>
+	        <td width="80%">Search / Filter by Date: <input type="date" id= "from_date" placeholder="From Date:"> <input type="date" id= "to_date"  placeholder="To Date:"></td>
+	   </tr>-->
      </table><!-- /searchtable -->
 
      <table width="100%" id="sysad_report" class="advancedtable" border="0" cellspacing="0" cellpadding="0">
