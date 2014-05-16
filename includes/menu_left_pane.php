@@ -181,6 +181,45 @@ $(document).ready(function(){
 					<li><a href='#' ><span>Cancelled</span></a></li>
 				</ul>
 			</li>
+<<<<<<< HEAD
+=======
+			<li class='has-sub' style=""><a><span>AD MANAGEMENT</span></a>
+				<ul>
+					<li><a href='#' ><span>Front</span></a></li>
+					<li><a href='#'><span>Top</span></a></li>
+					<li><a href='#' ><span>Right</span></a></li>
+					<li><a href='#' ><span>Bottom</span></a></li>
+					<li><a href='#' ><span>Left</span></a></li>
+				</ul>
+			</li>
+	</ul>
+</div>
+</div>
+
+<div id="resto_admin" style="display: none;">
+	<div class='cssmenu'>	
+		<ul>	
+				<li class='has-sub' style=""><a><span>Restaurant Admin</span></a>
+					<ul>
+						<li><a href='#' id='product'><span>Products</span></a></li>
+						<li><a href='#' id='staff'><span>Staff</span></a></li>
+						<li><a href='#'><span>Brand</span></a></li>
+					</ul>
+				</li>
+				<li class='has-sub' style=""><a><span>USER MNGMT</span></a>
+					<ul>
+						<li><a href='#' id='resadmin_report'><span>Branches</span></a></li>
+						<li><a href='#' id='staff'><span>Add Branches</span></a></li>
+					</ul>
+				</li>
+				<li class='has-sub' style=""><a><span>TRANSACTIONS</span></a>
+					<ul>
+						<li><a href='#' ><span>Pending</span></a></li>
+						<li><a href='#'><span>Delivered</span></a></li>
+						<li><a href='#' ><span>Cancelled</span></a></li>
+					</ul>
+				</li>
+>>>>>>> 348cb8dab5fe6fb98d41ae47fde6815f03a3e996
 		</ul>
 	</div>
 </div>

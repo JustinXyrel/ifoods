@@ -204,7 +204,9 @@
 					});					
 					
 		});
-		//alert('you clicked me');
+	
+	    /*For displaying system admin restaurant name report - JX*/
+	
 		$('a#sysad_report').on('click',function(event){
 			event.stopImmediatePropagation(); 
 			event.preventDefault(); 
@@ -227,12 +229,50 @@
 		//alert('you clicked me');
 		});
 		
+		/*For displaying system admin restaurant name report - JX*/
+	
+		$('a#resadmin_report').on('click',function(event){
+			event.stopImmediatePropagation(); 
+			event.preventDefault(); 
+			$.ajax({
+				type: 'POST',
+				url:'controller.php',
+				data: {'function_name':'get_profile'},
+				success: function (response){
+				 //   console.log(response);
+					var obj = jQuery.parseJSON(response);
+					var user_res_id = obj[0]['res_id'];
+				//	console.log(obj);	console.log(obj[0]); console.log(obj[0]['res_id']);
+					 
+					$.ajax({
+						type: 'POST',
+						url:'controller.php',
+						data: {'function_name':'restadmin_report','res_id' : user_res_id},
+						success: function (response){ 
+					//	console.log(response);
+							$.ajax({
+								type: 'POST',
+								url:'restadmin_report.php',
+								data: {'data':response},
+								success: function (response){ 
+									$('div#content_bottom').html("");
+									$('div#content_bottom').append(response);
+								}	
+							});					
+						}
+					});	
+                }				
+			});
+		//alert('you clicked me');
+		});
 		
+		
+	/*	
 	function activate_menu(menu){
 		$('div#content').find('li.has-sub:eq('+menu+')').addClass("active");
 	    $('div#content').find('li.has-sub:eq('+menu+')').show();
 		$('div#content').find('li.has-sub:eq('+menu+')').find('ul').show();
 		$('div#content').find('li.has-sub:eq('+menu+')').children('a').click()
-	}
+	}*/
 	
 	});

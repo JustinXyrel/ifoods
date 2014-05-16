@@ -431,6 +431,53 @@
 
 		} 
 
+		/*
+		  Author : Justin Xyrel 
+		  Date: 05/14/14
+		  Function: restadmin_report
+		  Desc:  shows restaurant report in restaurant admin side
+		  Params:  None
+		*/ 
+		
+		public function restadmin_report(){
+			global $conn;
+			extract($_POST);
+
+			$this->table = 'tbl_restaurant_branches';
+		    $results['count_branches'] = $this->select_count_where('res_id='.$res_id);
+			
+			$total_order = 0;
+			
+			$sql_que = "SELECT t_b.branch_id,t_b.branch_desc,t_b.branch_contact_person,t_b.branch_contact_no,t_b.unit_no,
+							   t_b.building_name,t_b.street,t_b.town_city,t_b.state_province,t_b.country,
+								(SELECT count(*) from tbl_orders where branch_id = t_b.branch_id) as total_order
+						FROM tbl_restaurant_branches t_b
+						WHERE t_b.res_id =".$res_id;
+		/*	$sql_que = "SELECT res_id,res_desc,contact_no,address,branch_no, 
+							(SELECT t_u.fname FROM  tbl_users t_u JOIN 
+									tbl_restaurant_branches t_b ON t_u.branch_id = t_b.branch_id 
+									WHERE t_b.res_id = t_n.res_id AND t_u.user_type_id = 2 limit 1) as admin_fname,
+(							SELECT t_u.lname FROM  tbl_users t_u JOIN 
+									tbl_restaurant_branches t_b ON t_u.branch_id = t_b.branch_id 
+									WHERE t_b.res_id = t_n.res_id AND t_u.user_type_id = 2 limit 1) as admin_lname,
+							(SELECT COUNT(*) FROM  tbl_orders t_o JOIN 
+									tbl_restaurant_branches t_b ON t_o.branch_id = t_b.branch_id 
+									WHERE t_b.res_id = t_n.res_id) as order_count
+							FROM tbl_restaurant_name t_n";*/
+					//		var_dump($sql_que);die();
+			$query = $conn->query($sql_que);
+
+            $results['lists'] = $query->fetchAll(PDO::FETCH_ASSOC);
+
+			foreach($results['lists'] as $list){
+			  $total_order += $list['total_order'];
+			}
+			 $results['count_orders'] = $total_order;
+			 $json_data = json_encode($results);
+  		     echo $json_data;
+
+		} 
+
 		
 
 	}
