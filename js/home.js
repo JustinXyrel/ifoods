@@ -23,13 +23,21 @@
 	*/
 	if($('#homeMainContainer').length > 0){
 	  if($('input#ut_id').val() == '3'){
-	    activate_menu(0);
+		$('div#system_admin').show();
+	    
+	  //  activate_menu(0);
 	  }
 	  if($('input#ut_id').val() == '2'){
-		activate_menu(1);
+	   $('div#resto_admin').show();
+		//activate_menu(1);
 	  }
-	  if($('input#ut_id').val() > 3 ){
-		activate_menu(2);
+	  if($('input#ut_id').val() == '4'){
+	   $('div#manager').show();
+		//activate_menu(1);
+	  }
+	  if($('input#ut_id').val() > 4 ){
+		$('div#staff').show();
+		//activate_menu(2);
 	  }
 	}
 	
@@ -220,10 +228,11 @@
 		});
 		
 		
-	  function activate_menu(menu){
+	function activate_menu(menu){
 		$('div#content').find('li.has-sub:eq('+menu+')').addClass("active");
 	    $('div#content').find('li.has-sub:eq('+menu+')').show();
 		$('div#content').find('li.has-sub:eq('+menu+')').find('ul').show();
 		$('div#content').find('li.has-sub:eq('+menu+')').children('a').click()
 	}
+	
 	});
