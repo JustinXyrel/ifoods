@@ -115,6 +115,9 @@ $(document).ready(function(){
 		}		
 	});
 	
+	$('div.cssmenu').find('a').children('span').click(function() {
+		$('h4#menu_label').text($(this).text());
+	});
 });
 </script>
 
@@ -123,7 +126,7 @@ $(document).ready(function(){
 		<ul>
 			<li class='has-sub' style=""><a><span>USER MNGMT</span></a>
 				<ul>
-					<li><a href='#' ><span>Restaurants</span></a></li>
+					<li><a href='#' id="restaurants"><span>Restaurants</span></a></li>
 					<li><a href='#'><span>Add Restaurant</span></a></li>
 					<li><a href='#' id='sysad_report'><span>Report</span></a></li>
 				</ul>

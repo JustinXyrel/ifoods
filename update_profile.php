@@ -54,7 +54,7 @@ $(function() {
 			<div id="content_top">
 				<table>
 					<tr>
-						<td><h4>Products</h4></td>
+						<td><h4 id="menu_label"></h4></td>
 					</tr>
 				</table>
 			</div><!-- /content_top -->
