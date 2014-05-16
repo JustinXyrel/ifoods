@@ -203,6 +203,22 @@ class table {
 
 	}
 	
+	/**
+	  *  SELECT COUNT where-JX
+	  *
+	**/
+
+	public function select_count_where($wh) {
+		global $conn;
+
+		$statement = 'SELECT COUNT(*) as count_result FROM ' . $this->table.' where '.$wh ;
+		$q = $conn->query($statement);
+		$results = $q->fetchAll(PDO::FETCH_ASSOC);
+
+		return $results[0]['count_result'];
+
+	}
+	
 	public function select_join_where() {
 	
  

@@ -178,7 +178,7 @@ $(document).ready(function(){
 				</li>
 				<li class='has-sub' style=""><a><span>USER MNGMT</span></a>
 					<ul>
-						<li><a href='#' id='product'><span>Branches</span></a></li>
+						<li><a href='#' id='resadmin_report'><span>Branches</span></a></li>
 						<li><a href='#' id='staff'><span>Add Branches</span></a></li>
 					</ul>
 				</li>

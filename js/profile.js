@@ -145,6 +145,7 @@ $(document).ready(function(){
 		//	console.log(response);
 				var parse_json = $.parseJSON(response);
 				var user_profile = parse_json[0];
+				console.log(user_profile);
 				var arr = {'lname': user_profile['lname'],
 						'mname' : user_profile['mname'],
 						'fname' : user_profile['fname'],
