@@ -17,17 +17,6 @@
 <html>		
 		
 <style>
-
-#main_profile table {
-	/*width: 100%;*/
-	/*margin-bottom: 25px;*/
-	/*text-align: left;*/
-}
-
-.padding_left {
-	padding-left:25px;
-}
-
 #radioset span {
 	font-weight: initial;
 	font-family: Calibri;

@@ -79,6 +79,7 @@
 	display: block;
 	color: #7f7f7f;
 	font-size: 13px;
+	margin-left: 10px;
 }
 .cssmenu ul ul a:hover {
 	color: #bd0e36;
@@ -120,30 +121,57 @@ $(document).ready(function(){
 <div id="system_admin" style="display: none;">
 <div class='cssmenu'>
 	<ul>
-			<li class='has-sub' style=""><a><span>System Admin</span></a>
-				<ul>
-					<li><a href='#' ><span>Restaurant Name/ Main Branch</span></a></li>
-					<li><a href='#' id='sysad_report'><span>Report</span></a></li>
-				</ul>
-			</li>
+		<li class='has-sub' style=""><a><span>USER MNGMT</span></a>
+			<ul>
+				<li><a href='#' ><span>Restaurants</span></a></li>
+				<li><a href='#'><span>Add Restaurant</span></a></li>
+				<li><a href='#' id='sysad_report'><span>Report</span></a></li>
+			</ul>
+		</li>
+		<li class='has-sub' style=""><a><span>CATEGORY MNGMT</span></a>
+			<ul>
+				<li><a href='#' ><span>Class</span></a></li>
+				<li><a href='#'><span>Add Class</span></a></li>
+				<li><a href='#' ><span>Menus</span></a></li>
+				<li><a href='#'><span>Add Menu</span></a></li>
+				<li><a href='#'><span>Payment Method</span></a></li>
+				<li><a href='#'><span>Add Payment Method</span></a></li>
+				<li><a href='#'><span>Order Type</span></a></li>
+				<li><a href='#'><span>Add Order Type</span></a></li>
+				<li><a href='#'><span>Restaurant Type</span></a></li>
+				<li><a href='#'><span>Add Restaurant Type</span></a></li>
+			</ul>
+		</li>
+		<li class='has-sub' style=""><a><span>TRANSACTIONS</span></a>
+			<ul>
+				<li><a href='#' ><span>Pending</span></a></li>
+				<li><a href='#'><span>Delivered</span></a></li>
+				<li><a href='#' ><span>Cancelled</span></a></li>
+			</ul>
+		</li>
+		<li class='has-sub' style=""><a><span>AD MANAGEMENT</span></a>
+			<ul>
+				<li><a href='#' ><span>Front</span></a></li>
+				<li><a href='#'><span>Top</span></a></li>
+				<li><a href='#' ><span>Right</span></a></li>
+				<li><a href='#' ><span>Bottom</span></a></li>
+				<li><a href='#' ><span>Left</span></a></li>
+			</ul>
+		</li>
+	</ul>
+</div>
+</div>
+
+<div id="resto_admin" style="display: none;">
+	<div class='cssmenu'>	
+		<ul>
 			<li class='has-sub' style=""><a><span>USER MNGMT</span></a>
 				<ul>
-					<li><a href='#' ><span>Restaurants</span></a></li>
-					<li><a href='#'><span>Add Restaurant</span></a></li>
-				</ul>
-			</li>
-			<li class='has-sub' style=""><a><span>CATEGORY MNGMT</span></a>
-				<ul>
-					<li><a href='#' ><span>Class</span></a></li>
-					<li><a href='#'><span>Add Class</span></a></li>
-					<li><a href='#' ><span>Menus</span></a></li>
-					<li><a href='#'><span>Add Menu</span></a></li>
-					<li><a href='#'><span>Payment Method</span></a></li>
-					<li><a href='#'><span>Add Payment Method</span></a></li>
-					<li><a href='#'><span>Order Type</span></a></li>
-					<li><a href='#'><span>Add Order Type</span></a></li>
-					<li><a href='#'><span>Restaurant Type</span></a></li>
-					<li><a href='#'><span>Add Restaurant Type</span></a></li>
+					<li><a href='#' id='product'><span>Products</span></a></li>
+					<li><a href='#' id='staff'><span>Staff</span></a></li>
+					<li><a href='#'><span>Brand</span></a></li>
+					<li><a href='#' id='product'><span>Branches</span></a></li>
+					<li><a href='#' id='staff'><span>Add Branches</span></a></li>
 				</ul>
 			</li>
 			<li class='has-sub' style=""><a><span>TRANSACTIONS</span></a>
@@ -153,42 +181,6 @@ $(document).ready(function(){
 					<li><a href='#' ><span>Cancelled</span></a></li>
 				</ul>
 			</li>
-			<li class='has-sub' style=""><a><span>AD MANAGEMENT</span></a>
-				<ul>
-					<li><a href='#' ><span>Front</span></a></li>
-					<li><a href='#'><span>Top</span></a></li>
-					<li><a href='#' ><span>Right</span></a></li>
-					<li><a href='#' ><span>Bottom</span></a></li>
-					<li><a href='#' ><span>Left</span></a></li>
-				</ul>
-			</li>
-	</ul>
-</div>
-</div>
-
-<div id="resto_admin" style="display: none;">
-	<div class='cssmenu'>	
-		<ul>	
-				<li class='has-sub' style=""><a><span>Restaurant Admin</span></a>
-					<ul>
-						<li><a href='#' id='product'><span>Products</span></a></li>
-						<li><a href='#' id='staff'><span>Staff</span></a></li>
-						<li><a href='#'><span>Brand</span></a></li>
-					</ul>
-				</li>
-				<li class='has-sub' style=""><a><span>USER MNGMT</span></a>
-					<ul>
-						<li><a href='#' id='product'><span>Branches</span></a></li>
-						<li><a href='#' id='staff'><span>Add Branches</span></a></li>
-					</ul>
-				</li>
-				<li class='has-sub' style=""><a><span>TRANSACTIONS</span></a>
-					<ul>
-						<li><a href='#' ><span>Pending</span></a></li>
-						<li><a href='#'><span>Delivered</span></a></li>
-						<li><a href='#' ><span>Cancelled</span></a></li>
-					</ul>
-				</li>
 		</ul>
 	</div>
 </div>
@@ -222,9 +214,17 @@ $(document).ready(function(){
 <div id="staff" style="display: none;">	
 <div class='cssmenu'>		
 	<ul>	
-		<li class='has-sub'><a><span>Staff/ Manager</span></a>
+		<li class='has-sub'><a><span>FOOD MNGMT</span></a>
 			<ul>
-				<li><a href='#'><span>Transaction</span></a></li>
+				<li><a href='#'><span>Foods</span></a></li>
+				<li><a href='#'><span>Add Foods</span></a></li>
+			</ul>
+		</li>
+		<li class='has-sub' style=""><a><span>TRANSACTIONS</span></a>
+			<ul>
+				<li><a href='#' ><span>Pending</span></a></li>
+				<li><a href='#'><span>Delivered</span></a></li>
+				<li><a href='#' ><span>Cancelled</span></a></li>
 			</ul>
 		</li>
 	</ul>

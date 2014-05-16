@@ -35,6 +35,10 @@ input[type="button"]:active {
 	top:1px;
 }
 
+.padding_left {
+	padding-left:25px;
+}
+
 /**********  START: STYLE **********/
 #homeMainContainer {
 	background-color: #f6f6f6;
