@@ -39,6 +39,7 @@ input[type="button"]:active {
 #homeMainContainer {
 	background-color: #f6f6f6;
 	width: 1229px;
+	/*width: 90%;*/
 	margin: 0 auto;
 }
 
