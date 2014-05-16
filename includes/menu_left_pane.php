@@ -3,10 +3,10 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,300);
 @charset 'UTF-8';
 /* Base Styles */
-#cssmenu,
-#cssmenu ul,
-#cssmenu li,
-#cssmenu a {
+.cssmenu,
+.cssmenu ul,
+.cssmenu li,
+.cssmenu a {
   margin: 0;
   padding: 0;
   border: 0;
@@ -18,14 +18,14 @@
   font-size: 14px;
   position: relative;
 }
-#cssmenu a {
+.cssmenu a {
   line-height: 1.3;
 }
-#cssmenu {
+.cssmenu {
 	float: left;
 	width: 250px;
 }
-#cssmenu > ul > li > a {
+.cssmenu > ul > li > a {
 	padding-right: 40px;
 	font-size: 25px;
 	font-weight: bold;
@@ -35,7 +35,7 @@
 	border-bottom: 1px solid #ffffff;
 	text-transform: uppercase;
 }
-#cssmenu > ul > li > a > span {
+.cssmenu > ul > li > a > span {
 	background: #7f7f7f;
 	padding: 10px;
 	display: block;
@@ -43,20 +43,20 @@
 	font-weight: 300;
 	cursor: pointer;
 }
-#cssmenu > ul > li > a:hover {
+.cssmenu > ul > li > a:hover {
 	text-decoration: none;
 }
-#cssmenu > ul > li.active {
+.cssmenu > ul > li.active {
 	border-bottom: none;
 }
-#cssmenu > ul > li.active > a {
+.cssmenu > ul > li.active > a {
 	color: #fff;
 }
-#cssmenu > ul > li.active > a span {
+.cssmenu > ul > li.active > a span {
 	/*background: #bd0e36;*/
 	background: #ed1144;
 }
-#cssmenu span.cnt {
+.cssmenu span.cnt {
 	position: absolute;
 	top: 8px;
 	right: 15px;
@@ -67,26 +67,26 @@
 
 /* Sub menu */
 
-#cssmenu ul ul {
+.cssmenu ul ul {
 	display: none;
 }
-#cssmenu ul ul li {
+.cssmenu ul ul li {
 	border: 1px solid #e0e0e0;
 	border-top: 0;
 }
-#cssmenu ul ul a {
+.cssmenu ul ul a {
 	padding: 10px;
 	display: block;
 	color: #7f7f7f;
 	font-size: 13px;
 }
-#cssmenu ul ul a:hover {
+.cssmenu ul ul a:hover {
 	color: #bd0e36;
 }
-#cssmenu ul ul li {
+.cssmenu ul ul li {
 	background: #ffffff;
 }
-#cssmenu ul ul li.even {
+.cssmenu ul ul li.even {
 	background: #fff;
 }
 </style>
@@ -94,8 +94,8 @@
 <script>
 $(document).ready(function(){
 
-	$('#cssmenu > ul > li > a').click(function() {
-		$('#cssmenu li').removeClass('active');
+	$('.cssmenu > ul > li > a').click(function() {
+		$('.cssmenu li').removeClass('active');
 		$(this).closest('li').addClass('active');
 		var checkElement = $(this).next();
 		
@@ -104,7 +104,7 @@ $(document).ready(function(){
 			checkElement.slideUp('normal');
 		}
 		if((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
-			$('#cssmenu ul ul:visible').slideUp('normal');
+			$('.cssmenu ul ul:visible').slideUp('normal');
 			checkElement.slideDown('normal');
 		}
 		if($(this).closest('li').find('ul').children().length == 0) {
@@ -117,32 +117,116 @@ $(document).ready(function(){
 });
 </script>
 
-<div id='cssmenu'>
+<div id="system_admin" style="display: none;">
+<div class='cssmenu'>
 	<ul>
-		<li class='has-sub' style="display:none;"><a><span>System Admin</span></a>
+			<li class='has-sub' style=""><a><span>System Admin</span></a>
+				<ul>
+					<li><a href='#' ><span>Restaurant Name/ Main Branch</span></a></li>
+					<li><a href='#' id='sysad_report'><span>Report</span></a></li>
+				</ul>
+			</li>
+			<li class='has-sub' style=""><a><span>USER MNGMT</span></a>
+				<ul>
+					<li><a href='#' ><span>Restaurants</span></a></li>
+					<li><a href='#'><span>Add Restaurant</span></a></li>
+				</ul>
+			</li>
+			<li class='has-sub' style=""><a><span>CATEGORY MNGMT</span></a>
+				<ul>
+					<li><a href='#' ><span>Class</span></a></li>
+					<li><a href='#'><span>Add Class</span></a></li>
+					<li><a href='#' ><span>Menus</span></a></li>
+					<li><a href='#'><span>Add Menu</span></a></li>
+					<li><a href='#'><span>Payment Method</span></a></li>
+					<li><a href='#'><span>Add Payment Method</span></a></li>
+					<li><a href='#'><span>Order Type</span></a></li>
+					<li><a href='#'><span>Add Order Type</span></a></li>
+					<li><a href='#'><span>Restaurant Type</span></a></li>
+					<li><a href='#'><span>Add Restaurant Type</span></a></li>
+				</ul>
+			</li>
+			<li class='has-sub' style=""><a><span>TRANSACTIONS</span></a>
+				<ul>
+					<li><a href='#' ><span>Pending</span></a></li>
+					<li><a href='#'><span>Delivered</span></a></li>
+					<li><a href='#' ><span>Cancelled</span></a></li>
+				</ul>
+			</li>
+			<li class='has-sub' style=""><a><span>AD MANAGEMENT</span></a>
+				<ul>
+					<li><a href='#' ><span>Front</span></a></li>
+					<li><a href='#'><span>Top</span></a></li>
+					<li><a href='#' ><span>Right</span></a></li>
+					<li><a href='#' ><span>Bottom</span></a></li>
+					<li><a href='#' ><span>Left</span></a></li>
+				</ul>
+			</li>
+	</ul>
+</div>
+</div>
+
+<div id="resto_admin" style="display: none;">
+	<div class='cssmenu'>	
+		<ul>	
+				<li class='has-sub' style=""><a><span>Restaurant Admin</span></a>
+					<ul>
+						<li><a href='#' id='product'><span>Products</span></a></li>
+						<li><a href='#' id='staff'><span>Staff</span></a></li>
+						<li><a href='#'><span>Brand</span></a></li>
+					</ul>
+				</li>
+				<li class='has-sub' style=""><a><span>USER MNGMT</span></a>
+					<ul>
+						<li><a href='#' id='product'><span>Branches</span></a></li>
+						<li><a href='#' id='staff'><span>Add Branches</span></a></li>
+					</ul>
+				</li>
+				<li class='has-sub' style=""><a><span>TRANSACTIONS</span></a>
+					<ul>
+						<li><a href='#' ><span>Pending</span></a></li>
+						<li><a href='#'><span>Delivered</span></a></li>
+						<li><a href='#' ><span>Cancelled</span></a></li>
+					</ul>
+				</li>
+		</ul>
+	</div>
+</div>
+	
+<div id="manager" style="display: none;">	
+<div class='cssmenu'>		
+	<ul>	
+		<li class='has-sub'><a><span>USER MNGMT</span></a>
 			<ul>
-				<li><a href='#' ><span>Restaurant Name/ Main Branch</span></a></li>
-				<li><a href='#' id='sysad_report'><span>Report</span></a></li>
+				<li><a href='#'><span>Staff</span></a></li>
+				<li><a href='#'><span>Add Staff</span></a></li>
 			</ul>
 		</li>
-<!--		<li class='has-sub'><a><span>Restaurant</span></a>
+		<li class='has-sub'><a><span>FOOD MNGMT</span></a>
 			<ul>
-				<li><a href='#'><span>Restaurant Name/ Main Branch</span></a></li>
-				<li><a href='#'><span>Manager Information</span></a></li>
-			 
-			</ul>
-		</li>-->
-		<li class='has-sub' style="display:none;"><a><span>Restaurant Admin</span></a>
-			<ul>
-				<li><a href='#' id='product'><span>Products</span></a></li>
-				<li><a href='#' id='staff'><span>Staff</span></a></li>
-				<li><a href='#'><span>Brand</span></a></li>
+				<li><a href='#'><span>Foods</span></a></li>
+				<li><a href='#'><span>Add Foods</span></a></li>
 			</ul>
 		</li>
-		<li class='has-sub' style="display:none;"><a><span>Staff/ Manager</span></a>
+		<li class='has-sub' style=""><a><span>TRANSACTIONS</span></a>
+			<ul>
+				<li><a href='#' ><span>Pending</span></a></li>
+				<li><a href='#'><span>Delivered</span></a></li>
+				<li><a href='#' ><span>Cancelled</span></a></li>
+			</ul>
+		</li>
+	</ul>
+</div><!-- /cssmenu -->
+</div>	
+	
+<div id="staff" style="display: none;">	
+<div class='cssmenu'>		
+	<ul>	
+		<li class='has-sub'><a><span>Staff/ Manager</span></a>
 			<ul>
 				<li><a href='#'><span>Transaction</span></a></li>
 			</ul>
 		</li>
 	</ul>
 </div><!-- /cssmenu -->
+</div>
