@@ -17,16 +17,6 @@
 #radioset label, #radioset_gender label {
 	width: 50%;
 }
-
-
-.error_msg {
-	display: none;
-	padding: 15px;
-	border: 1px solid transparent;
-	border-radius: 4px;
-	background: #FF8073;
-	text-align: center;
-}
 </style>
 
 <script>
