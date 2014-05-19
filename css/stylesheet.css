@@ -35,6 +35,21 @@ input[type="button"]:active {
 	top:1px;
 }
 
+.padding_left {
+	padding-left:25px;
+}
+
+.error_msg {
+	display: none;
+	padding: 8px;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	background: #FF8073;
+	text-align: center;
+	/*background-color: #fcf8e3;*/
+	/*border: 1px solid #fbeed5;*/
+}
+
 /**********  START: STYLE **********/
 #homeMainContainer {
 	background-color: #f6f6f6;

@@ -17,17 +17,6 @@
 <html>		
 		
 <style>
-
-#main_profile table {
-	/*width: 100%;*/
-	/*margin-bottom: 25px;*/
-	/*text-align: left;*/
-}
-
-.padding_left {
-	padding-left:25px;
-}
-
 #radioset span {
 	font-weight: initial;
 	font-family: Calibri;
@@ -65,7 +54,7 @@ $(function() {
 			<div id="content_top">
 				<table>
 					<tr>
-						<td><h4>Products</h4></td>
+						<td><h4 id="menu_label"></h4></td>
 					</tr>
 				</table>
 			</div><!-- /content_top -->

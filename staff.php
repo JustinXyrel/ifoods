@@ -63,7 +63,7 @@
 <body>
     <table>
 		<tr>
-			<td><a class="btn_edit btn btn-default" id="add_staff"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add New Staff</a></td>
+			<td><a class="btn_edit btn btn-default" id="add_staff" style="margin-bottom: 7px;"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add New Manager</a></td>
 		</tr>
 	</table>
      <table class="normal" id="searchtable" border="0" cellspacing="4" cellpadding="0" style="display:none; width: 100%; margin-bottom: 10px;">

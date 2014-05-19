@@ -79,6 +79,7 @@
 	display: block;
 	color: #7f7f7f;
 	font-size: 13px;
+	margin-left: 15px;
 }
 .cssmenu ul ul a:hover {
 	color: #bd0e36;
@@ -114,22 +115,20 @@ $(document).ready(function(){
 		}		
 	});
 	
+	$('div.cssmenu').find('a').children('span').click(function() {
+		$('h4#menu_label').text($(this).text());
+	});
 });
 </script>
 
 <div id="system_admin" style="display: none;">
-<div class='cssmenu'>
-	<ul>
-			<li class='has-sub' style=""><a><span>System Admin</span></a>
-				<ul>
-					<li><a href='#' ><span>Restaurant Name/ Main Branch</span></a></li>
-					<li><a href='#' id='sysad_report'><span>Report</span></a></li>
-				</ul>
-			</li>
+	<div class='cssmenu'>
+		<ul>
 			<li class='has-sub' style=""><a><span>USER MNGMT</span></a>
 				<ul>
-					<li><a href='#' ><span>Restaurants</span></a></li>
+					<li><a href='#' id="restaurants"><span>Restaurants</span></a></li>
 					<li><a href='#'><span>Add Restaurant</span></a></li>
+					<li><a href='#' id='sysad_report'><span>Report</span></a></li>
 				</ul>
 			</li>
 			<li class='has-sub' style=""><a><span>CATEGORY MNGMT</span></a>
@@ -162,37 +161,42 @@ $(document).ready(function(){
 					<li><a href='#' ><span>Left</span></a></li>
 				</ul>
 			</li>
-	</ul>
-</div>
+		</ul>
+	</div>
 </div>
 
 <div id="resto_admin" style="display: none;">
 	<div class='cssmenu'>	
-		<ul>	
-				<li class='has-sub' style=""><a><span>Restaurant Admin</span></a>
-					<ul>
-						<li><a href='#' id='product'><span>Products</span></a></li>
-						<li><a href='#' id='staff'><span>Staff</span></a></li>
-						<li><a href='#'><span>Brand</span></a></li>
-					</ul>
-				</li>
-				<li class='has-sub' style=""><a><span>USER MNGMT</span></a>
-					<ul>
-						<li><a href='#' id='resadmin_report'><span>Branches</span></a></li>
-						<li><a href='#' id='staff'><span>Add Branches</span></a></li>
-					</ul>
-				</li>
-				<li class='has-sub' style=""><a><span>TRANSACTIONS</span></a>
-					<ul>
-						<li><a href='#' ><span>Pending</span></a></li>
-						<li><a href='#'><span>Delivered</span></a></li>
-						<li><a href='#' ><span>Cancelled</span></a></li>
-					</ul>
-				</li>
+		<ul>
+			<li class='has-sub' style=""><a><span>USER MNGMT</span></a>
+				<ul>
+					<li><a href='#' id='product'><span>Products</span></a></li>
+					<li><a href='#' id='staff'><span>Manager</span></a></li>
+					<li><a href='#'><span>Brand</span></a></li>
+					<li><a href='#' id='product'><span>Branches</span></a></li>
+					<li><a href='#' id='staff'><span>Add Branches</span></a></li>
+				</ul>
+			</li>
+			<li class='has-sub' style=""><a><span>TRANSACTIONS</span></a>
+				<ul>
+					<li><a href='#' ><span>Pending</span></a></li>
+					<li><a href='#'><span>Delivered</span></a></li>
+					<li><a href='#' ><span>Cancelled</span></a></li>
+				</ul>
+			</li>
+			<li class='has-sub' style=""><a><span>AD MANAGEMENT</span></a>
+				<ul>
+					<li><a href='#' ><span>Front</span></a></li>
+					<li><a href='#'><span>Top</span></a></li>
+					<li><a href='#' ><span>Right</span></a></li>
+					<li><a href='#' ><span>Bottom</span></a></li>
+					<li><a href='#' ><span>Left</span></a></li>
+				</ul>
+			</li>
 		</ul>
 	</div>
 </div>
-	
+
 <div id="manager" style="display: none;">	
 <div class='cssmenu'>		
 	<ul>	
@@ -220,13 +224,21 @@ $(document).ready(function(){
 </div>	
 	
 <div id="staff" style="display: none;">	
-<div class='cssmenu'>		
-	<ul>	
-		<li class='has-sub'><a><span>Staff/ Manager</span></a>
-			<ul>
-				<li><a href='#'><span>Transaction</span></a></li>
-			</ul>
-		</li>
-	</ul>
-</div><!-- /cssmenu -->
+	<div class='cssmenu'>		
+		<ul>	
+			<li class='has-sub'><a><span>FOOD MNGMT</span></a>
+				<ul>
+					<li><a href='#'><span>Foods</span></a></li>
+					<li><a href='#'><span>Add Foods</span></a></li>
+				</ul>
+			</li>
+			<li class='has-sub' style=""><a><span>TRANSACTIONS</span></a>
+				<ul>
+					<li><a href='#' ><span>Pending</span></a></li>
+					<li><a href='#'><span>Delivered</span></a></li>
+					<li><a href='#' ><span>Cancelled</span></a></li>
+				</ul>
+			</li>
+		</ul>
+	</div><!-- /cssmenu -->
 </div>
