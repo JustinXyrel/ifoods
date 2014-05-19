@@ -24,7 +24,7 @@
 	
 <script src="js/jquery-ui.js" type="text/javascript" language="javascript"></script>
 <script src="js/home.js" type="text/javascript" language="javascript"></script>
-
+<script src="js/is_loading.js" type="text/javascript" language="javascript"></script>
 <script language="javascript" type="text/javascript">
 
 	$(document).ready(function() {

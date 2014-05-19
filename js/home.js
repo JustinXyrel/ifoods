@@ -1,5 +1,6 @@
 
 	$(document).ready(function() {
+
 		function confirm_dialog(){
 			$('#confirm_add_user').dialog({
 				height: 'auto',
@@ -194,7 +195,7 @@
 		$('a#product').on('click',function(event){
 			event.stopImmediatePropagation(); 
 			event.preventDefault(); 
-					
+				
 					$.ajax({
 						url:'search.php',
 						success: function (response){ 
@@ -210,6 +211,7 @@
 		$('a#sysad_report').on('click',function(event){
 			event.stopImmediatePropagation(); 
 			event.preventDefault(); 
+			$.isLoading({text:"Loading.. "});
 			$.ajax({
 				type: 'POST',
 				url:'controller.php',
@@ -222,6 +224,7 @@
 						success: function (response){ 
 							$('div#content_bottom').html("");
 							$('div#content_bottom').append(response);
+							$.isLoading("hide");
 						}
 					});					
 				}
@@ -234,6 +237,7 @@
 		$('a#resadmin_report').on('click',function(event){
 			event.stopImmediatePropagation(); 
 			event.preventDefault(); 
+			$.isLoading({text:"Loading.. "});
 			$.ajax({
 				type: 'POST',
 				url:'controller.php',
@@ -255,8 +259,10 @@
 								url:'restadmin_report.php',
 								data: {'data':response},
 								success: function (response){ 
+								$("body").isLoading("hide");
 									$('div#content_bottom').html("");
 									$('div#content_bottom').append(response);
+									
 								}	
 							});					
 						}

@@ -19,8 +19,7 @@
 		<script src="js/jquery.slicknav.min.js"></script>
 		<link rel="stylesheet" href="css/stylesheet.css" >
 		<script src="js/jquery-ui-1.10.4.custom.js"></script>
-	<!--	<script src="js/pace.js"></script>
-		<link href="css/pace.css" rel="stylesheet" />-->
+		<script src="js/is_loading.js"></script>
 	<!--	<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/x-editable/1.4.5/bootstrap-editable/js/bootstrap-editable.min.js"></script>
 
