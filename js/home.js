@@ -25,15 +25,19 @@
 	if($('#homeMainContainer').length > 0){
 	  if($('input#ut_id').val() == '3'){
 		$('div#system_admin').show();
-	    
+	  	$('a#sysad_report').click();
+		$.isLoading("hide");		
 	  //  activate_menu(0);
 	  }
 	  if($('input#ut_id').val() == '2'){
 	   $('div#resto_admin').show();
+	   	$('a#resadmin_report').click();
+		$.isLoading("hide");
 		//activate_menu(1);
 	  }
 	  if($('input#ut_id').val() == '4'){
 	   $('div#manager').show();
+	   
 		//activate_menu(1);
 	  }
 	  if($('input#ut_id').val() > 4 ){
