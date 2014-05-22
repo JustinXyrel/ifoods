@@ -8,9 +8,7 @@
 	if($is_allowed != 1){
 	  echo "Authentication of user failed.";die();
 	}
- //  var_dump($_POST);
-  //echo "<pre>", var_dump(json_decode($_POST['data'],true)), "</pre>";
-   $data = json_decode($_POST['data'],true);
+    $data = json_decode($_POST['data'],true);
  //echo "<pre>", var_dump($data), "</pre>";
 ?>
 <html >

@@ -453,18 +453,7 @@
 								(SELECT count(*) from tbl_orders where branch_id = t_b.branch_id) as total_order
 						FROM tbl_restaurant_branches t_b
 						WHERE t_b.res_id =".$res_id;
-		/*	$sql_que = "SELECT res_id,res_desc,contact_no,address,branch_no, 
-							(SELECT t_u.fname FROM  tbl_users t_u JOIN 
-									tbl_restaurant_branches t_b ON t_u.branch_id = t_b.branch_id 
-									WHERE t_b.res_id = t_n.res_id AND t_u.user_type_id = 2 limit 1) as admin_fname,
-(							SELECT t_u.lname FROM  tbl_users t_u JOIN 
-									tbl_restaurant_branches t_b ON t_u.branch_id = t_b.branch_id 
-									WHERE t_b.res_id = t_n.res_id AND t_u.user_type_id = 2 limit 1) as admin_lname,
-							(SELECT COUNT(*) FROM  tbl_orders t_o JOIN 
-									tbl_restaurant_branches t_b ON t_o.branch_id = t_b.branch_id 
-									WHERE t_b.res_id = t_n.res_id) as order_count
-							FROM tbl_restaurant_name t_n";*/
-					//		var_dump($sql_que);die();
+
 			$query = $conn->query($sql_que);
 
             $results['lists'] = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -477,7 +466,89 @@
   		     echo $json_data;
 
 		} 
+		
+		/*
+		  Author : Justin Xyrel 
+		  Date: 05/19/14
+		  Function: get_transactions
+		  Desc: get restaurant transactions 
+		  Params:  None
+		*/ 
+		
+		public function get_transactions(){
+			global $conn;
+			extract($_POST);
+			$this->table = 'tbl_orders';
+		    $results['count_orders'] = $this->select_count_where('branch_id='.$branch_id);
+			$this->table = 'tbl_users';
+		    $results['count_staff'] = $this->select_count_where('user_type_id=5 and branch_id='.$branch_id);
+			$sql_que = "SELECT o.order_id,o.user_id,o.table_id,o.discount_type_id,o.guests_no,o.note,o.order_status,o.order_type,
+						o.del_address,o.event_type,o.expected_date,o.expected_time,
+						o.expected_time_to,o.processed_date,o.discount_percentage,
+						o.total_amount,o.discount_amount,o.total_payment,o.insert_date,u.fname,u.lname,u.mname,u.unit_no,
+						u.building_name,u.street,u.town_city,
+						u.state_province,u.country,u.contact_no,u.email_add,
+						(SELECT currency from tbl_restaurant_branches where branch_id = ".$branch_id.") as currency
+						
+						FROM tbl_orders o JOIN tbl_users u on o.user_id = u.user_id 
+						WHERE o.branch_id = ". $branch_id ;
 
+			$query = $conn->query($sql_que) ;
+			
+			$results['lists'] = $query->fetchAll(PDO::FETCH_ASSOC);
+			$results = json_encode($results);
+			echo $results;
+		} 
+
+		/*
+		Author : Justin Xyrel
+		Function: get_order_details
+		Desc: Get order details
+		*/
+ 
+		public function get_order_details(){
+			global $conn;
+			extract($_POST);
+
+			$sql_que = "SELECT od.menu_id,od.mix_match_id,od.discount_type_id,
+						od.quantity,od.discount_percentage,od.discount_amount,
+						od.total_payment,od.status,m.menu_id,m.menu_name,mx.mix_match_id,mx.mix_match_name 
+						FROM tbl_order_details od LEFT JOIN tbl_menus m on od.menu_id = m.menu_id 
+						LEFT JOIN tbl_mix_matches mx on od.mix_match_id = mx.mix_match_id where od.order_id = ".$order_id;
+
+			$query = $conn->query($sql_que) ;
+			$results = $query->fetchAll(PDO::FETCH_ASSOC);
+		//	var_dump($results);die();
+			$results = json_encode($results);
+			echo $results;
+		} 
+
+		/*
+		  Author : Justin Xyrel 
+		  Date: 05/20/14
+		  Function: get_manager_staff
+		  Desc: get staff of manager
+ 		  Params: post data such us $usr(username) and $pwd($password)
+		*/ 
+		public function get_manager_staff(){	
+		  global $conn;
+		  
+		  if(!isset($_SESSION)){
+			session_start();
+		  }		
+		//  echo "<pre>",print_r($_SESSION['auth']),"</pre>";
+		     $fields = array('fname','lname','middle');
+			 $branch_id = $_SESSION['auth'][0]['branch_id'];
+
+			$sql_que = "SELECT u.*,ut.user_type,rb.branch_desc from tbl_users u join tbl_user_types ut on u.user_type_id =ut.user_type_id 
+						join tbl_restaurant_branches rb on u.branch_id = rb.branch_id where 
+                   rb.branch_id= ".$branch_id." and u.user_type_id = 5 ";
+		 //   var_dump($sql_que);die();
+			$query = $conn->query($sql_que);
+            $results = $query->fetchAll(PDO::FETCH_ASSOC);
+            $json_data = json_encode($results);
+  		    echo $json_data;
+		}
 		
 
 	}

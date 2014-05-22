@@ -202,21 +202,22 @@ $(document).ready(function(){
 	<ul>	
 		<li class='has-sub'><a><span>USER MNGMT</span></a>
 			<ul>
-				<li><a href='#'><span>Staff</span></a></li>
-				<li><a href='#'><span>Add Staff</span></a></li>
+				<li><a href='#'  id = 'staff_m'><span>Staff</span></a></li>
+				<li><a href='#'  id = 'a_add_staff'><span>Add Staff</span></a></li>
 			</ul>
 		</li>
 		<li class='has-sub'><a><span>FOOD MNGMT</span></a>
 			<ul>
-				<li><a href='#'><span>Foods</span></a></li>
+				<li><a href='#' id= 'view_product'><span>Foods</span></a></li>
 				<li><a href='#'><span>Add Foods</span></a></li>
 			</ul>
 		</li>
 		<li class='has-sub' style=""><a><span>TRANSACTIONS</span></a>
 			<ul>
-				<li><a href='#' ><span>Pending</span></a></li>
-				<li><a href='#'><span>Delivered</span></a></li>
-				<li><a href='#' ><span>Cancelled</span></a></li>
+			    <li><a href='#'  id = 'all_trans'><span>All</span></a></li>
+				<li><a href='#' id = 'pending_trans' ><span>Pending</span></a></li>
+				<li><a href='#' id = 'delivered_trans'><span>Delivered</span></a></li>
+				<li><a href='#' id = 'cancelled_trans' ><span>Cancelled</span></a></li>
 			</ul>
 		</li>
 	</ul>

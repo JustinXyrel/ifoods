@@ -218,8 +218,22 @@ class table {
 		return $results[0]['count_result'];
 
 	}
+	/*
+	 Function:select_join_where()
+	 Desc: capable of joining two tables 
+	 params: {$arr: [name_of_table] => array(
+								      ['fields']=>(field1,field2,field3),
+									  ['condition']=> array([field_name_1] => 'fullname',[field_name_2] => 'sample'  ),
+									  [FIELD_OF_INTERSECTION ] => 'user_id',
+					[name_of_table_2] => etc....	,			  
+			  $join_type : 'LEFT JOIN',	
+			  )
+	 
+
 	
-	public function select_join_where() {
+	
+	*/
+	public function select_join_where($arr,$join_type) {
 	
  
 	}
