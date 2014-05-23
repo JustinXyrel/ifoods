@@ -2,6 +2,15 @@
 	
 	class functions extends table{
 		
+		public function get_distinct_category(){
+			global $conn;
+			extract($_POST);
+			$query = $conn->query("SELECT DISTINCT `menu_category`  FROM `tbl_menus` WHERE branch_id = $branch_id" );
+			$results = $query->fetchAll(PDO::FETCH_ASSOC);
+			$json_data = json_encode($results);
+  		    echo $json_data;
+		}
+		
 		public function search(){
 			global $conn;
 			extract($_POST);
