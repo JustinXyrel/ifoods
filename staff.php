@@ -9,6 +9,7 @@
 	  echo "Authentication of user failed.";die();
 	}
     $data = json_decode($_POST['data'],true);
+	
  //echo "<pre>", var_dump($data), "</pre>";
 ?>
 <html >
@@ -18,19 +19,16 @@
 <script src="js/jquery-1.9.1.js" type="text/javascript" language="javascript"></script>
 
 <script src="js/advancedtable_v2.js" type="text/javascript" language="javascript"></script>
-	
+<script src="js/is_loading.js" type="text/javascript" language="javascript"></script>	
 <script src="js/jquery-ui.js" type="text/javascript" language="javascript"></script>
 <script src="js/home.js" type="text/javascript" language="javascript"></script>
 
 <script language="javascript" type="text/javascript">
-
 	$(document).ready(function() {
 		$('select').children().remove();
 		$("#searchtable").show();
-
-		$("table#staff").advancedtable({searchField: "#search", loadElement: "#loader", searchCaseSensitive: false, ascImage: "css/images/up.png", descImage: "css/images/down.png", searchOnField: "#searchOn"});
+	 	$("table#staff").advancedtable({searchField: "#search", loadElement: "#loader", searchCaseSensitive: false, ascImage: "css/images/up.png", descImage: "css/images/down.png", searchOnField: "#searchOn"});
 	});
-
 </script>
 
 <!--<link href="css/style.css" rel="stylesheet" type="text/css" />-->
@@ -90,7 +88,10 @@
 
        <tbody>
 
-<?php 	foreach($data as $info){ ?>
+<?php 	foreach($data as $info){
+			$user_type= ucwords(str_replace("_"," ",$info['user_type']));
+
+ ?>
 			<tr id = "<?php echo $info['user_id'];?>">
 				<td>
 				 <?php 
@@ -113,7 +114,7 @@
 				 <?php echo $info['branch_desc'];?>
 				</td>
 				<td>
-				 <?php echo $info['user_type'];?>
+				 <?php echo $user_type;//$info['user_type'];?>
 				</td>
 				<td>
 				 <?php echo ($info['status'] == 0) ? 'Inactive' : 'Active';?>

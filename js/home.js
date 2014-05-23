@@ -1,6 +1,68 @@
 
 	$(document).ready(function() {
+        /*STAFF*/
+		
+		$('a#manager').on('click',function(event){
+			event.stopImmediatePropagation(); 
+			event.preventDefault(); 
+			$.ajax({
+				type: 'POST',
+				url:'controller.php',
+						data: {'function_name':'get_manager'},
+				success: function (response){ 
+					$.ajax({
+						type: 'POST',
+						url:'staff.php',
+						data: {'data':response},
+						success: function (response){ 
+							$('div#content_bottom').html("");
+							$('div#content_bottom').append(response);
+							$.isLoading("hide");
+						//	call_table_plugin('staff');
+						}
+					});				
+				}
+			});
+		});
 
+		$('a#add_staff').on('click',function(event){
+			event.stopImmediatePropagation(); 
+			event.preventDefault();
+			
+			
+		    if($('table#staff').length == 0){
+				get_staff();			
+			}
+		
+			dialog_add_staff();
+		    $( "#dialog_staff" ).dialog('open');			
+		 
+		
+		});		
+		
+		
+		$('a#staff').one('click',function(event){
+			event.stopImmediatePropagation(); 
+			event.preventDefault(); 
+			
+			get_staff();
+	
+		});
+		
+	/*	$('a#a_add_staff').one('click',function(event){
+			event.stopImmediatePropagation(); 
+			event.preventDefault();
+			if($('table#staff').length == 0){
+				get_staff();
+			}	  
+		    dialog_add_staff();
+		    $( "#dialog_staff" ).dialog('open');
+		});*/
+		
+		
+		/*END OF STAFF*/
+		
+		
 		function build_dialog(element_id){
 			$('#'+element_id).dialog({
 				height: 'auto',
@@ -47,9 +109,27 @@
 									
 										$("select#branch_id").append("<option id='"+br_id+"' value='"+br_id+"'>"+br_desc+"</option>");
 									});
+									
+									if($('#ut_id').val()== '4'){
+										$.ajax({
+											type: 'POST',
+											url:'controller.php',
+											data: {'function_name':'get_profile'},
+											success: function (response){
+												var obj = jQuery.parseJSON(response);
+												var manager_branch_id = obj[0]['branch_id'];
+									//alert('asdferr');
+												$('select#branch_id').val('asdfghjkl');
+												$('#branch_id option[value='+manager_branch_id+']').prop('selected',true);
+												$('select#branch_id').hide();
+												$('label#branch_label').text($('select#branch_id :selected').text());
+												$('label#branch_label').show();
+											}
+							  });
+							}
 								}
 							});
-					
+	
 						}
 					});
 					},
@@ -73,12 +153,12 @@
 								$.ajax({
 									url: 'controller.php',
 									data:  { 'form' : $("#add_staff_form").serializeArray(),
-										 'function_name':'add_manager',
+										 'function_name':'add_staff',
 										  },
 									type: "POST",
 									success: function(response){
-									  console.log(response);
-										var obj = jQuery.parseJSON(response);
+								//	  console.log(response);
+								      var obj = jQuery.parseJSON(response);
 									
 										if(obj['result']){
 											$('#validation_msg').fadeOut();
@@ -89,19 +169,20 @@
 												url:'controller.php',
 												data: {'mail': email_add.val(),'subject': 'Successful registration','content': content,'function_name':'send_email'},
 												success: function (response){ 
-												console.log(response);
+
 													var ch = $('table#staff').find('tr').length-2; 
 													var clas = $("table#staff tr:nth-child("+ch+")").attr('class');
 													var status = ($('input[name=status]').val().trim() == 'activate') ? 'Active' : 'Inactive';
 													var odd_even = (clas == 'odd') ? 'even' : 'odd';
 													var btn_status = (status == 'Active') ? 'Deactivate' : 'Activate';
+													var user_type = ($('#ut_id').val() == '4') ? 'Restaurant Staff' : 'Restaurant Manager';
 													var add_tbl_row = "<tr class= "+ odd_even +" style='display: table-row'>";
 														add_tbl_row += "<td>"+firstname.val()+" "+ lastname.val()+"</td>";
 														add_tbl_row += "<td>"+street.val()+" "+ town_city.val()+" "+ state_province.val()+"</td>";
 														add_tbl_row += "<td>"+contact_no.val()+"</td>";
 														add_tbl_row += "<td>"+email_add.val()+"</td>";
 														add_tbl_row += "<td>"+branch.text().trim()+"</td>";
-														add_tbl_row += "<td>restaurant manager</td>";
+														add_tbl_row += "<td>"+user_type+"</td>";
 														add_tbl_row += "<td>"+status+"</td>";
 														add_tbl_row += "<td><button id='update_stat'>"+btn_status+"</button></td>";
 														add_tbl_row += "</tr>";
@@ -170,73 +251,47 @@
 		
 		});
 	  
-		$('a#staff').on('click',function(event){
-			event.stopImmediatePropagation(); 
-			event.preventDefault(); 
-			$.ajax({
-				type: 'POST',
-				url:'controller.php',
-						data: {'function_name':'get_staff'},
-				success: function (response){ 
-					$.ajax({
-						type: 'POST',
-						url:'staff.php',
-						data: {'data':response},
-						success: function (response){ 
-							$('div#content_bottom').html("");
-							$('div#content_bottom').append(response);
-						}
-					});					
-				}
-			});
-		//alert('you clicked me');
-		});
 
-		$('a#add_staff').on('click',function(event){
-		    dialog_add_staff();
-		    $( "#dialog_staff" ).dialog('open');
-		});
 
 		
-		$('a#product').on('click',function(event){
-			event.stopImmediatePropagation(); 
-			event.preventDefault(); 
+	$('a#product').one('click',function(event){
+		event.stopImmediatePropagation(); 
+		event.preventDefault(); 
 				
-					$.ajax({
-						url:'search.php',
-						success: function (response){ 
-							$('div#content_bottom').html("");
-							$('div#content_bottom').append(response);
-						}
-					});					
-					
-		});
+		$.ajax({
+			url:'search.php',
+			success: function (response){ 
+					$('div#content_bottom').html("");
+					$('div#content_bottom').append(response);
+			}
+		});										
+	});
 	
 	    /*For displaying system admin restaurant name report - JX*/
 	
-		$('a#sysad_report').one('click',function(event){
-			event.stopImmediatePropagation(); 
-			event.preventDefault(); 
-			$.isLoading({text:"Loading.. "});
-			$.ajax({
-				type: 'POST',
-				url:'controller.php',
-						data: {'function_name':'sysad_report'},
-				success: function (response){ 
-					$.ajax({
-						type: 'POST',
-						url:'sysad_report.php',
-						data: {'data':response},
-						success: function (response){ 
-							$('div#content_bottom').html("");
-							$('div#content_bottom').append(response);
-							$.isLoading("hide");
-						}
-					});					
-				}
-			});
-		//alert('you clicked me');
+	  $('a#sysad_report').one('click',function(event){
+		event.stopImmediatePropagation(); 
+		event.preventDefault(); 
+		$.isLoading({text:"Loading.. "});
+		$.ajax({
+			type: 'POST',
+			url:'controller.php',
+			data: {'function_name':'sysad_report'},
+			success: function (response){ 
+				$.ajax({
+					type: 'POST',
+					url:'sysad_report.php',
+					data: {'data':response},
+					success: function (response){ 
+						$('div#content_bottom').html("");
+						$('div#content_bottom').append(response);
+						$.isLoading("hide");
+					}
+				});					
+			}
 		});
+		//alert('you clicked me');
+	  });
 		
 		/*For displaying system admin restaurant name report - JX*/
 	
@@ -249,7 +304,6 @@
 				url:'controller.php',
 				data: {'function_name':'get_profile'},
 				success: function (response){
-				 //   console.log(response);
 					var obj = jQuery.parseJSON(response);
 					var user_res_id = obj[0]['res_id'];
 					 
@@ -273,9 +327,8 @@
 						}
 					});	
                 }				
+				});
 			});
-		//alert('you clicked me');
-		});
 		
 		$('a#all_trans').one('click',function(event){
 			get_transactions();
@@ -320,8 +373,7 @@
 							 var total_payment = parseFloat(value['total_payment']).toFixed(2);
 
 						      $('table#order_details').find('tbody').append("<tr><td>"+food_val+"</td><td>"+price_per+"</td><td>X</td><td>"+value['quantity']+"</td><td>"+total_payment+"</td></tr>");
-						     
-								total_invoice += parseInt(total_payment);
+							  total_invoice += parseInt(total_payment);
 						   });
 						       total_invoice = parseFloat(total_invoice).toFixed(2);
 						   $('table#order_details').find('tbody').append("<tr><td colspan='4'>Subtotal</td><td>"+total_invoice+"</td></tr>");
@@ -331,29 +383,6 @@
 						}
 			});
 		  $('div#'+dialog_id).dialog('open');
-		});
-
-		$('a#staff_m').on('click',function(event){
-			event.stopImmediatePropagation(); 
-			event.preventDefault(); 
-			$.ajax({
-				type: 'POST',
-				url:'controller.php',
-						data: {'function_name':'get_manager_staff'},
-				success: function (response){ 
-					$.ajax({
-						type: 'POST',
-						url:'staff.php',
-						data: {'data':response},
-						success: function (response){ 
-							$('div#content_bottom').html("");
-							$('div#content_bottom').append(response);
-							$('a#add_staff').remove();
-						}
-					});					
-				}
-			});
-		//alert('you clicked me');
 		});
 		
 		$('a#pending_trans').on('click',function(event){
@@ -368,11 +397,7 @@
 		   get_transaction_bstatus('cancelled');
 		});
 	
-		$('a#a_add_staff').on('click',function(event){
-		    dialog_add_staff();
-		    $( "#dialog_staff" ).dialog('open');
-		});
-		
+	 	
 	 function get_transactions(){
 		$.ajax({
 				type: 'POST',
@@ -409,6 +434,41 @@
 		$('select option[value="8"]').prop('selected',true);
 		$('#search').val(status);
 		$('#search').change();
+	 }
+	 
+	 function get_products(){
+	 
+	 
+	 }
+	 
+	 function get_staff(){
+	 	$.isLoading({text:"Loading.. "});
+	 	$.ajax({
+			type: 'POST',
+			url:'controller.php',
+			data: {'function_name':'get_staff'},
+			success: function (response){ 
+					$.ajax({
+						type: 'POST',
+						url:'staff.php',
+						data: {'data':response},
+						success: function (response){ 					
+							$('div#content_bottom').html("");
+							$('div#content_bottom').append(response);
+							$('a#add_staff').text('Add New Staff');
+							$.isLoading("hide");
+						}
+					});					
+			}
+		}); 
+		$.isLoading("hide");
+	 }
+	 
+	 function call_table_plugin(table_id){
+		$('select').children().remove();
+		$("#searchtable").show();
+		$("table#"+table_id).advancedtable({searchField: "#search", loadElement: "#loader", searchCaseSensitive: false, ascImage: "css/images/up.png", descImage: "css/images/down.png", searchOnField: "#searchOn"});
+
 	 }
 	
 	});

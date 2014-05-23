@@ -171,7 +171,7 @@ $(document).ready(function(){
 			<li class='has-sub' style=""><a><span>USER MNGMT</span></a>
 				<ul>
 					<li><a href='#' id='product'><span>Products</span></a></li>
-					<li><a href='#' id='staff'><span>Manager</span></a></li>
+					<li><a href='#' id='manager'><span>Manager</span></a></li>
 					<li><a href='#'><span>Brand</span></a></li>
 					<li><a href='#' id='product'><span>Branches</span></a></li>
 					<li><a href='#' id='staff'><span>Add Branches</span></a></li>
@@ -202,14 +202,13 @@ $(document).ready(function(){
 	<ul>	
 		<li class='has-sub'><a><span>USER MNGMT</span></a>
 			<ul>
-				<li><a href='#'  id = 'staff_m'><span>Staff</span></a></li>
-				<li><a href='#'  id = 'a_add_staff'><span>Add Staff</span></a></li>
+				<li><a href='#'  id = 'staff'><span>Staff</span></a></li>
 			</ul>
 		</li>
 		<li class='has-sub'><a><span>FOOD MNGMT</span></a>
 			<ul>
-				<li><a href='#' id= 'view_product'><span>Foods</span></a></li>
-				<li><a href='#'><span>Add Foods</span></a></li>
+				<li><a href='#' id= 'product'><span>Foods</span></a></li>
+				<li><a href='#' id= 'add_product'><span>Add Foods</span></a></li>
 			</ul>
 		</li>
 		<li class='has-sub' style=""><a><span>TRANSACTIONS</span></a>

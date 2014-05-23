@@ -218,9 +218,9 @@
 			if(!isset($_SESSION)){
 				session_start();
 			} 
-			//var_dump($form[13]['value']);die();
+
 		     $this->validate_email_address($form[13]['value'],$user_id);
-			// die();
+
 			foreach($form as &$data){     
 				if($data['name'] !== 'email_add_verify' && $data['name'] !== 'current_password' ){
 					if($data['name'] == 'password' && !empty($data['value']) ){
@@ -233,23 +233,19 @@
 					$arr[$data['name']] = $data['value'];
 				}
 			}
-			//var_dump($arr);die();
+
 			  unset($arr['radio']); // does not belong to DB fields
 			if(empty($arr['password'])){
 			  unset($arr['password']);
 			}
-		//	var_dump($arr);die();
 			$results =  $this->update($arr,$wh);
-			//var_dump($results);die();
+
 			if($results){
 			 foreach($arr as $key=>&$value){
 			   $_SESSION['auth'][0][$key] = $value;
 			 }
 			}
-			
-			//$json_data = json_encode($results);
-			
-			/**/
+
 			echo $results;
 			
 		}
@@ -272,11 +268,11 @@
 		 /*
 		  Author : Justin Xyrel 
 		  Date: 05/01/14
-		  Function: get_staff
-		  Desc: Locate the account of the user where the user type is not equal to customer
-		  Params: post data such us $usr(username) and $pwd($password)
+		  Function: get_manager
+		  Desc: Get List of managers in a particular restaurant
+		  Params: post data such us $res_id
 		*/ 
-		public function get_staff(){	
+		public function get_manager(){	
 		  global $conn;
 		  
 		  if(!isset($_SESSION)){
@@ -301,11 +297,11 @@
 		 /*
 		  Author : Justin Xyrel 
 		  Date: 05/08/14
-		  Function: add_manager
+		  Function: add_staff
 		  Desc: Add manager account
 		  Params: post data 
 		*/ 
-		public function add_manager(){	
+		public function add_staff(){	
 		  global $conn;
 		  extract($_POST);
 		  if(!isset($_SESSION)){
@@ -313,7 +309,10 @@
 		  }		
 		  $this->table = 'tbl_users';
 		  $this->validate_email_address($form[13]['value']);
-		  
+		  $user_type_id = $_SESSION['auth'][0]['user_type_id'];
+		//  var_dump( $user_type_id);die();
+		//  var_dump( $_SESSION['auth'][0]);
+		  //exit();
 		    foreach($form as $val){
 			
 			  $val['value'] = ($val['name'] == 'password') ? sha1($val['value']) : $val['value'];
@@ -323,8 +322,8 @@
 			     $fields['username'] = $val['value'];
 			  }
 			}
-			$fields['user_type_id'] = 4;
-
+			$fields['user_type_id'] = ($user_type_id == '4' ) ? '5' : '4' ;
+            $fields['birth_date'] = strtotime($fields['birth_date']);
 			$response = $this->insert($fields);
 			
 			if($response > 0){
@@ -530,7 +529,7 @@
 		  Desc: get staff of manager
  		  Params: post data such us $usr(username) and $pwd($password)
 		*/ 
-		public function get_manager_staff(){	
+		public function get_staff(){	
 		  global $conn;
 		  
 		  if(!isset($_SESSION)){

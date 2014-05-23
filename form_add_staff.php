@@ -118,6 +118,7 @@ $(function() {
 							<select class="res_select form-control"  id = "branch_id" name="branch_id">
 								<option value=""></option>
 							</select>
+							<label id = 'branch_label' style = 'display:none;'></label>
 						</td>
 					</tr>
 					<tr>
