@@ -64,7 +64,7 @@
 				</div>
 			  </div>	
 			  <div id='img_base_container' style='display:none;'></div>
-			  <div id='dialog-form-category'>
+			  <div id='dialog-form-category' style='display:none;'>
 				  <div class="form-group">
 					<label for="inp_menu_cat_others" class="col-sm-12 control-label">Other Category</label>
 					<div class="col-sm-12">

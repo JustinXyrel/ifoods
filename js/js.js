@@ -8,9 +8,8 @@ $(document).ready(function(){
 	var win_width = window.innerWidth/1.3;
 	var win_height = window.innerHeight/1.05;
 	
+	function set_distinct_category(){
 	var data = {function_name: 'get_distinct_category', branch_id: 9};
-	
-	
 	$.ajax({
 		url: '../ifoods/controller.php',
 		data: data,
@@ -19,11 +18,12 @@ $(document).ready(function(){
 		   if(response != '')
 		   {
 			   var obj = jQuery.parseJSON(response);
-			   $('form').find('#inp_menu_cat').append($("<option></option>").attr("value",'').text('Choose one'));
+			   $('#inp_menu_cat').find('option').remove();
+			   $('form').find('#inp_menu_cat').append($("<option></option>").attr("value",'').text('Choose one')).prop('selected', true);
 					
 			   $.each(obj, function(k, v) {
-					$('form').find('#inp_menu_cat').append($("<option></option>").attr("value",v.menu_category).text(v.menu_category)); 
-			   });
+						$('form').find('#inp_menu_cat').append($("<option></option>").attr("value",v.menu_category).text(v.menu_category)); 
+				 });
 			   
 			   $('form').find('#inp_menu_cat').append($("<option></option>").attr("value",'Other Category').text('Other Category'));
 				 
@@ -33,6 +33,7 @@ $(document).ready(function(){
 		   
 		}
 	});
+	}
 	
 	$('#inp_menu_cat').change(function(){
 		if(this.value == 'Other Category'){
@@ -126,7 +127,7 @@ $(document).ready(function(){
 		});
 		$('html').find("#inp_menu_image").change(function()	{	readImage( this );	});
 	  },
-	  create: function( event, ui ) {	$('#dialog-form').load('form_product.php #manage_product');  },
+	  create: function( event, ui ) {	$('#dialog-form').load('form_product.php #manage_product');  set_distinct_category(); },
       buttons: {
         "Update Product": function() {
 			var ok = true;
@@ -282,6 +283,7 @@ $('html').find("#inp_menu_image").change(function()	{	readImage( this );	});
 						success: function (response){ 
 							$('div#content_bottom').html("");
 							$('div#content_bottom').append(response);
+							set_distinct_category();
 							$.isLoading("hide");
 						}
 					});
