@@ -282,7 +282,6 @@ $('html').find("#inp_menu_image").change(function()	{	readImage( this );	});
 						success: function (response){ 
 							$('div#content_bottom').html("");
 							$('div#content_bottom').append(response);
-							
 							$.isLoading("hide");
 						}
 					});
