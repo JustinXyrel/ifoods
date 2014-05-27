@@ -49,8 +49,10 @@ $(document).ready(function(){
       var match = [{ m: [ pass_match.val(), pass.val() ] }];
       
       var count = 0;
+	//  alert(count_err);
 	  if(count_err > 0){
-		    $(curr_pass).css('background-color', '#FF8073');
+		   // $(curr_pass).css('background-color', '#FF8073');
+			 validation_holder = 1;
 	  }
 	  if(pass_match.val() !==  pass.val()){
 	   	 $(pass_match).parent().find('p').hide();

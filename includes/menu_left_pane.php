@@ -172,7 +172,7 @@ $(document).ready(function(){
 			<li class='has-sub' style=""><a><span>USER MNGMT</span></a>
 				<ul>
 					<li><a href='#' id='product'><span>Products</span></a></li>
-					<li><a href='#' id='staff'><span>Manager</span></a></li>
+					<li><a href='#' id='manager'><span>Manager</span></a></li>
 					<li><a href='#'><span>Brand</span></a></li>
 					<li><a href='#' id='product'><span>Branches</span></a></li>
 					<li><a href='#' id='staff'><span>Add Branches</span></a></li>
@@ -199,33 +199,33 @@ $(document).ready(function(){
 </div><!-- /resto_admin -->
 
 <!-- MANAGER -->
-<div id="manager" style="display: none;">	
+<div id="manager" style="display: none;">
 	<div class='cssmenu'>		
 		<ul>	
 			<li class='has-sub'><a><span>USER MNGMT</span></a>
 				<ul>
-					<li><a href='#'><span>Staff</span></a></li>
-					<li><a href='#'><span>Add Staff</span></a></li>
+					<li><a href='#'  id = 'staff'><span>Staff</span></a></li>
 				</ul>
 			</li>
 			<li class='has-sub'><a><span>FOOD MNGMT</span></a>
 				<ul>
-					<li><a href='#'><span>Foods</span></a></li>
-					<li><a href='#'><span>Add Foods</span></a></li>
+					<li><a href='#' id= 'product'><span>Foods</span></a></li>
+					<li><a href='#' id= 'add_product'><span>Add Foods</span></a></li>
 				</ul>
 			</li>
 			<li class='has-sub' style=""><a><span>TRANSACTIONS</span></a>
 				<ul>
-					<li><a href='#' ><span>Pending</span></a></li>
-					<li><a href='#'><span>Delivered</span></a></li>
-					<li><a href='#' ><span>Cancelled</span></a></li>
+					<li><a href='#'  id = 'all_trans'><span>All</span></a></li>
+					<li><a href='#' id = 'pending_trans' ><span>Pending</span></a></li>
+					<li><a href='#' id = 'delivered_trans'><span>Delivered</span></a></li>
+					<li><a href='#' id = 'cancelled_trans' ><span>Cancelled</span></a></li>
 				</ul>
 			</li>
 		</ul>
 	</div><!-- /cssmenu -->
 </div><!-- /manager -->	
-
-<!-- STAFF -->	
+	
+<!-- STAFF -->
 <div id="staff" style="display: none;">	
 	<div class='cssmenu'>		
 		<ul>	

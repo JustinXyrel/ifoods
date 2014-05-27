@@ -2,14 +2,14 @@
 	include('var_functions.php'); 
 	$var_func = new var_functions();
 
-	$is_allowed = $var_func->check_user_access('sysad_report');
+	$is_allowed = $var_func->check_user_access('trans_report');
 	
 	//var_dump($var_func->join_string(array('staff','crew'))); die();
 	if($is_allowed != 1){
 	  echo "Authentication of user failed.";die();
 	}
   // var_dump($_POST);die();
- // echo "<pre>", var_dump(json_decode($_POST['data'],true)), "</pre>";die();
+ //echo "<pre>", var_dump(json_decode($_POST['data'],true)), "</pre>";die();
    $data = json_decode($_POST['data'],true);
 
  //echo "<pre>", var_dump($data), "</pre>";die();
@@ -20,7 +20,7 @@
 
 <script src="js/jquery-1.9.1.js" type="text/javascript" language="javascript"></script>
 
-<script src="js/advancedtable_v2.js" type="text/javascript" language="javascript"></script>
+<script src="js/advancedtable_v2.js" type="text/javascript" langsuage="javascript"></script>
 	
 <script src="js/jquery-ui.js" type="text/javascript" language="javascript"></script>
 <script src="js/home.js" type="text/javascript" language="javascript"></script>
@@ -31,7 +31,7 @@
 		$('select').children().remove();
 		$("#searchtable").show();
 
-		$("table#sysad_report").advancedtable({searchField: "#search", loadElement: "#loader", searchCaseSensitive: false, ascImage: "css/images/up.png", descImage: "css/images/down.png", searchOnField: "#searchOn"});
+		$("table#trans_report").advancedtable({searchField: "#search", loadElement: "#loader", searchCaseSensitive: false, ascImage: "css/images/up.png", descImage: "css/images/down.png", searchOnField: "#searchOn"});
 	});
 
 </script>
@@ -73,49 +73,65 @@
 	   </tr>-->
      </table><!-- /searchtable -->
 
-     <table width="100%" id="sysad_report" class="advancedtable" border="0" cellspacing="0" cellpadding="0">
+     <table width="100%" id="trans_report" class="advancedtable" border="0" cellspacing="0" cellpadding="0">
 
      <thead>
 
 		<tr>
-			<th>Restaurant Name</th>
-			<th>Admin Name</th>
-			<th>Contact no.</th>
+			<th>Change Status  <br><a href="#"  id='chkbox' style='color:blue;font-size:small;'>Check/Uncheck All</a></th>
+			<th>Order No.</th>
+			<th>Order Method</th>
+			<th>Customer</th>
+			<th>Contact</th>
 			<th>Address</th>
-			<th>No. of Orders</th>
+			<th>Order Info</th>
+			<th>Date Ordered</th>
+			<th>Current Status</th>
 		</tr>
 
      </thead>
 
        <tbody>
 
-       <h5 id= 'total_rest'>Total Restaurant: <?php echo $data['count_rest']; ?></h5>
-	   <h5 id= 'total_branch'>Total Branches: <?php echo $data['count_branches']; ?></h5>
+	   <h5 id= 'total_branch'>Total Staff: <?php echo $data['count_staff']; ?></h5>
 	   <h5 id= 'total_orders'>Total Orders: <?php echo $data['count_orders']; ?></h5>
-<?php 	foreach($data['lists'] as $info){ ?>
-
-			<tr id = "<?php echo $info['user_id'];?>">
-				<td>
-				 <?php 
-				   echo ucwords($info['res_desc']);
-				  // $name = $var_func->join_string(array($info['fname'],$info['mname'],$info['lname']));
-				   //echo $name;
-				 
-				 ?>
+<?php 	
+		foreach($data['lists'] as $info){ 
+			$arr_add = array($info['unit_no'],$info['building_name'],$info['street'],$info['town_city'],$info['state_province'],$info['country']);
+			$address =  (empty($info['del_address'])) ? implode(' ',$arr_add) : $info['del_address'] ;
+			$customer_name = implode(' ',array($info['fname'],$info['mname'],$info['lname']));
+			$order_status = ($info['order_status'] == 'wconfirm') ? 'Waiting for Confirmation' : ucwords($info['order_status']); 
+			$order_type = ucwords(str_replace("_"," ",str_replace("pre"," ",$info['order_type'])));
+?>
+  
+			<tr id = "<?php echo $info['order_id'];?>">
+				<td style='text-align:center;'>
+				   <input type='checkbox'>
 				</td>
 				<td>
-				 <?php echo ucfirst($info['admin_fname']).' '.ucfirst($info['admin_lname'])?>
+				 <?php echo $info['order_id'];?>
+				</td>
+				<td>
+                  <?php echo $order_type?>
+				</td>
+				<td>
+				 <?php echo $customer_name;?>
 				</td>
 				<td>
 				 <?php echo $info['contact_no'];?>
 				</td>
 				<td>
-				 <?php echo $info['address'];?>
+				 <?php echo $address;?>
 				</td>
 				<td>
-				 <?php echo $info['order_count'];?>
+				  <a href="#" id='view_detailed_trans'>View</a>
 				</td>
-	
+				<td>
+				 <?php echo $info['insert_date'];?>
+				</td>
+				<td>
+				 <?php echo $order_status;?>
+				</td>
 				
 			</tr>
 
@@ -132,8 +148,54 @@
    
 
 </div>
-<div id='dialog_staff'>
+<div id='view_detailed_order' style ='display:none;'>
+   <table>
+	<tr>
+		<td id= 'order_no_label'>
+		    Order Number
+		</td>
+		<td id= 'order_no_value'>
 
+		</td>
+    </tr>
+	<tr>
+		<td id= 'name_label'>
+		    Name
+		</td>
+		<td id= 'name_value'>
+	
+		</td>
+    </tr>
+	<tr>
+		<td id= 'address_label'>
+		    Address
+		</td>
+		<td id= 'address_value'>
+	
+		</td>
+    </tr>
+	<tr>
+		<td id= 'contact_no_label'>
+		    Contact Number
+		</td>
+		<td id= 'contact_no_value'>
+	
+		</td>
+    </tr>
+   <table>
+   <table id = 'order_details' class="advancedtable">
+    <thead>
+	  <th> Food </th>
+	  <th> Price </th>
+	  <th></th>
+	  <th> Quantity </th>
+	  <th> Ext Price </th>
+    </thead>
+	<tbody>
+	
+	</tbody>
+	
+   <table>
 </div>
 </body></html>
  

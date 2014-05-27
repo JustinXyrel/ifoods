@@ -33,7 +33,6 @@ $(document).ready(function(){
 						'usr': usr.val(),
 						'pwd': response,},
 					success: function(response){
-					console.log(response);
 						if(response != '[]'){
 							$('#err_message').fadeOut();
 							$.ajax({
@@ -45,6 +44,8 @@ $(document).ready(function(){
 									window.location.assign('home.php');
 								}
 							});
+							
+							
 						}else{
 							$('#err_message').text('Incorrect username/password combination');
 							$('#err_message').fadeIn();

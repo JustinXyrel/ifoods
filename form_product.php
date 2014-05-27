@@ -45,7 +45,7 @@
 			  <div class="form-group">
 				<label for="inp_menu_cat" class="col-sm-3 control-label">Category</label>
 				<div class="col-sm-8">
-				  <input type="text" class="form-control" id="inp_menu_cat" name="inp_menu_cat" >
+				  <select class="form-control" id="inp_menu_cat" name="inp_menu_cat" ></select>
 				</div>
 			  </div>
 			  <div class="form-group">
@@ -64,7 +64,14 @@
 				</div>
 			  </div>	
 			  <div id='img_base_container' style='display:none;'></div>
+			  <div id='dialog-form-category' style='display:none;'>
+				  <div class="form-group">
+					<label for="inp_menu_cat_others" class="col-sm-12 control-label">Other Category</label>
+					<div class="col-sm-12">
+					  <input type="text" class="form-control" id="inp_menu_cat_others" name="inp_menu_cat_others" />
+					</div>
+				  </div>
+			  </div>
 		<form>
-	
 	</body>
 </html>
