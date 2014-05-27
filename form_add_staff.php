@@ -7,6 +7,8 @@
 	?>
 <html>
 
+<script src="js/home.js" type="text/javascript" language="javascript"></script>
+
 <style>
 #radioset span, #radioset_gender span {
 	font-weight: initial;

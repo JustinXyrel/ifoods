@@ -40,10 +40,6 @@
 
 <link href="css/advancedtable.css" rel="stylesheet" type="text/css" />
 
-<style>
-
-</style>
-
 </head>
 
 <body>

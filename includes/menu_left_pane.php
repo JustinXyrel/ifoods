@@ -120,7 +120,7 @@ $(document).ready(function(){
 	});
 });
 </script>
-
+<!-- SYSTEM ADMIN -->
 <div id="system_admin" style="display: none;">
 	<div class='cssmenu'>
 		<ul>
@@ -133,7 +133,7 @@ $(document).ready(function(){
 			</li>
 			<li class='has-sub' style=""><a><span>CATEGORY MNGMT</span></a>
 				<ul>
-					<li><a href='#' ><span>Class</span></a></li>
+					<li><a href='#' id="class" ><span>Class</span></a></li>
 					<li><a href='#'><span>Add Class</span></a></li>
 					<li><a href='#' ><span>Menus</span></a></li>
 					<li><a href='#'><span>Add Menu</span></a></li>
@@ -163,8 +163,9 @@ $(document).ready(function(){
 			</li>
 		</ul>
 	</div>
-</div>
+</div><!-- /system_admin -->
 
+<!-- RESTAURANT ADMIN -->
 <div id="resto_admin" style="display: none;">
 	<div class='cssmenu'>	
 		<ul>
@@ -194,35 +195,37 @@ $(document).ready(function(){
 				</ul>
 			</li>
 		</ul>
-	</div>
-</div>
+	</div><!-- /cssmenu -->
+</div><!-- /resto_admin -->
 
+<!-- MANAGER -->
 <div id="manager" style="display: none;">	
-<div class='cssmenu'>		
-	<ul>	
-		<li class='has-sub'><a><span>USER MNGMT</span></a>
-			<ul>
-				<li><a href='#'><span>Staff</span></a></li>
-				<li><a href='#'><span>Add Staff</span></a></li>
-			</ul>
-		</li>
-		<li class='has-sub'><a><span>FOOD MNGMT</span></a>
-			<ul>
-				<li><a href='#'><span>Foods</span></a></li>
-				<li><a href='#'><span>Add Foods</span></a></li>
-			</ul>
-		</li>
-		<li class='has-sub' style=""><a><span>TRANSACTIONS</span></a>
-			<ul>
-				<li><a href='#' ><span>Pending</span></a></li>
-				<li><a href='#'><span>Delivered</span></a></li>
-				<li><a href='#' ><span>Cancelled</span></a></li>
-			</ul>
-		</li>
-	</ul>
-</div><!-- /cssmenu -->
-</div>	
-	
+	<div class='cssmenu'>		
+		<ul>	
+			<li class='has-sub'><a><span>USER MNGMT</span></a>
+				<ul>
+					<li><a href='#'><span>Staff</span></a></li>
+					<li><a href='#'><span>Add Staff</span></a></li>
+				</ul>
+			</li>
+			<li class='has-sub'><a><span>FOOD MNGMT</span></a>
+				<ul>
+					<li><a href='#'><span>Foods</span></a></li>
+					<li><a href='#'><span>Add Foods</span></a></li>
+				</ul>
+			</li>
+			<li class='has-sub' style=""><a><span>TRANSACTIONS</span></a>
+				<ul>
+					<li><a href='#' ><span>Pending</span></a></li>
+					<li><a href='#'><span>Delivered</span></a></li>
+					<li><a href='#' ><span>Cancelled</span></a></li>
+				</ul>
+			</li>
+		</ul>
+	</div><!-- /cssmenu -->
+</div><!-- /manager -->	
+
+<!-- STAFF -->	
 <div id="staff" style="display: none;">	
 	<div class='cssmenu'>		
 		<ul>	
@@ -241,4 +244,4 @@ $(document).ready(function(){
 			</li>
 		</ul>
 	</div><!-- /cssmenu -->
-</div>
+</div><!-- /staff -->
