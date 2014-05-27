@@ -124,14 +124,14 @@ $(document).ready(function(){
 <div id="system_admin" style="display: none;">
 	<div class='cssmenu'>
 		<ul>
-			<li class='has-sub' style=""><a><span>USER MNGMT</span></a>
+			<li class='has-sub' style=""><a><span>USER MGMT</span></a>
 				<ul>
 					<li><a href='#' id="restaurants"><span>Restaurants</span></a></li>
 					<li><a href='#'><span>Add Restaurant</span></a></li>
 					<li><a href='#' id='sysad_report'><span>Report</span></a></li>
 				</ul>
 			</li>
-			<li class='has-sub' style=""><a><span>CATEGORY MNGMT</span></a>
+			<li class='has-sub' style=""><a><span>CATEGORY MGMT</span></a>
 				<ul>
 					<li><a href='#' id="class" ><span>Class</span></a></li>
 					<li><a href='#'><span>Add Class</span></a></li>
@@ -169,7 +169,7 @@ $(document).ready(function(){
 <div id="resto_admin" style="display: none;">
 	<div class='cssmenu'>	
 		<ul>
-			<li class='has-sub' style=""><a><span>USER MNGMT</span></a>
+			<li class='has-sub' style=""><a><span>USER MGMT</span></a>
 				<ul>
 					<li><a href='#' id='product'><span>Products</span></a></li>
 					<li><a href='#' id='manager'><span>Manager</span></a></li>
@@ -202,12 +202,12 @@ $(document).ready(function(){
 <div id="manager" style="display: none;">
 	<div class='cssmenu'>		
 		<ul>	
-			<li class='has-sub'><a><span>USER MNGMT</span></a>
+			<li class='has-sub'><a><span>USER MGMT</span></a>
 				<ul>
 					<li><a href='#'  id = 'staff'><span>Staff</span></a></li>
 				</ul>
 			</li>
-			<li class='has-sub'><a><span>FOOD MNGMT</span></a>
+			<li class='has-sub'><a><span>FOOD MGMT</span></a>
 				<ul>
 					<li><a href='#' id= 'product'><span>Foods</span></a></li>
 					<li><a href='#' id= 'add_product'><span>Add Foods</span></a></li>
@@ -223,13 +223,13 @@ $(document).ready(function(){
 			</li>
 		</ul>
 	</div><!-- /cssmenu -->
-</div><!-- /manager -->	
-	
+</div><!-- /manager -->
+
 <!-- STAFF -->
 <div id="staff" style="display: none;">	
 	<div class='cssmenu'>		
 		<ul>	
-			<li class='has-sub'><a><span>FOOD MNGMT</span></a>
+			<li class='has-sub'><a><span>FOOD MGMT</span></a>
 				<ul>
 					<li><a href='#'><span>Foods</span></a></li>
 					<li><a href='#'><span>Add Foods</span></a></li>

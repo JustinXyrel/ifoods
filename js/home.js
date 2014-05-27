@@ -499,8 +499,8 @@
 	
 		$('div#dialog_class').dialog({
 			autoOpen: false,
-			height: win_height,	 
-			width: win_width,
+			height: 'auto',	 
+			width: 'auto',
 			position: ['center',20],
 			modal: true,
 			
