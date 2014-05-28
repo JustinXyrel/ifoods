@@ -246,11 +246,6 @@
 			}
 		}
 	
-	
-	    $('#update_stat').on('click',function(event){
-		
-		});
-	  
 	      /*View menus or products*/
 		$('a#product').one('click',function(event){
 			event.stopImmediatePropagation(); 
@@ -272,6 +267,7 @@
 		$('a#sysad_report').unbind().one('click',function(event){
 			event.stopImmediatePropagation(); 
 			event.preventDefault(); 
+			$.isLoading("hide");
 			$.isLoading({text:"Loading.. "});
 			$.ajax({
 				type: 'POST',
@@ -475,7 +471,9 @@
 		$('a#class').unbind().on('click',function(event){
 			event.stopImmediatePropagation(); 
 			event.preventDefault(); 
+			$.isLoading("hide");
 			$.isLoading({text:"Loading.. "});
+
 			$.ajax({
 				type: 'POST',
 				url:'controller.php',

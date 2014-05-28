@@ -134,7 +134,6 @@ $(document).ready(function(){
 			<li class='has-sub' style=""><a><span>CATEGORY MGMT</span></a>
 				<ul>
 					<li><a href='#' id="class" ><span>Class</span></a></li>
-					<li><a href='#'><span>Add Class</span></a></li>
 					<li><a href='#' id='product' ><span>Menus</span></a></li>
 					<li><a href='#'><span>Add Menu</span></a></li>
 					<li><a href='#'><span>Payment Method</span></a></li>
