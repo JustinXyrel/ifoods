@@ -475,6 +475,7 @@
 		$('a#class').unbind().on('click',function(event){
 			event.stopImmediatePropagation(); 
 			event.preventDefault(); 
+			$.isLoading({text:"Loading.. "});
 			$.ajax({
 				type: 'POST',
 				url:'controller.php',
