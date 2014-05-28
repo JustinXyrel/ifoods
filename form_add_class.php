@@ -1,6 +1,6 @@
 
 
-<html>
+
 
 	<style>
 	radioset span, #radioset_status span {
@@ -22,7 +22,6 @@
 	});
 	</script>
 
-<body>
 
 	<form id='manage_product' style='width: 80%; margin: 0 auto;' class="form-horizontal">
 		<div class="form-group">
@@ -59,7 +58,5 @@
 </table>
 -->
 
-</body>
 
-</html>
 

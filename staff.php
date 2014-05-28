@@ -69,10 +69,9 @@
 
        <tbody>
 
-<?php 	foreach($data as $info){
+	<?php 	foreach($data as $info){
 			$user_type= ucwords(str_replace("_"," ",$info['user_type']));
-
- ?>
+	?>
 			<tr id = "<?php echo $info['user_id'];?>">
 				<td>
 				 <?php 
@@ -114,12 +113,8 @@
 
      </table><!-- /staff -->
 
-
-   
-
-</div>
-<div id='dialog_staff'>
-
-</div>
-</body></html>
+	<div id='dialog_staff'></div>
+	
+</body>
+</html>
  

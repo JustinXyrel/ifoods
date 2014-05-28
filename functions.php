@@ -301,6 +301,7 @@
   		    echo $json_data;
 		}
 		
+		/********** CLASS **********/
 		/*
 		  Author : Mark Lopez 
 		  Date: 05/19/14
@@ -314,7 +315,7 @@
 			if(!isset($_SESSION)){
 				session_start();
 			}		
-			//echo "<pre>",print_r($_SESSION['auth']),"</pre>";
+			
 			$fields = array('fname','lname','middle');
 			$res_id = $_SESSION['auth'][0]['res_id'];
 
@@ -328,7 +329,9 @@
             $json_data = json_encode($results);
   		    echo $json_data;
 		}
-
+		/********** END: CLASS **********/
+		
+		
 		/*
 		  Author : Justin Xyrel 
 		  Date: 05/08/14
