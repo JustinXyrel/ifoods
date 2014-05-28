@@ -135,7 +135,7 @@ $(document).ready(function(){
 				<ul>
 					<li><a href='#' ><span>Class</span></a></li>
 					<li><a href='#'><span>Add Class</span></a></li>
-					<li><a href='#' ><span>Menus</span></a></li>
+					<li><a href='#' id='product' ><span>Menus</span></a></li>
 					<li><a href='#'><span>Add Menu</span></a></li>
 					<li><a href='#'><span>Payment Method</span></a></li>
 					<li><a href='#'><span>Add Payment Method</span></a></li>

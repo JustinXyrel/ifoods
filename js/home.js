@@ -243,26 +243,19 @@
 	  }
 	}
 	
-	
-	
-	  
-	    $('#update_stat').on('click',function(event){
-		
-		
-		});
-	  
-
-
-		
+    /*View menus or products*/
 	$('a#product').one('click',function(event){
 		event.stopImmediatePropagation(); 
 		event.preventDefault(); 
-				
+		
+		$.isLoading({text:"Loading.. "});	
+		
 		$.ajax({
 			url:'search.php',
 			success: function (response){ 
 					$('div#content_bottom').html("");
 					$('div#content_bottom').append(response);
+					$.isLoading("hide");
 			}
 		});										
 	});
