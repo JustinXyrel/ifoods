@@ -300,10 +300,39 @@
             $json_data = json_encode($results);
   		    echo $json_data;
 		}
-
-
 		
-		 /*
+		/********** CLASS **********/
+		/*
+		  Author : Mark Lopez 
+		  Date: 05/19/14
+		  Function: get_class
+		  Desc: Select all restaurant class
+		  Params:
+		*/
+		public function get_class(){	
+			global $conn;
+		  
+			if(!isset($_SESSION)){
+				session_start();
+			}		
+			
+			$fields = array('fname','lname','middle');
+			$res_id = $_SESSION['auth'][0]['res_id'];
+
+			$sql_que = 	"
+						SELECT rest_class_id, res_class_desc, insert_date, update_date, au_user_id
+						FROM tbl_restaurant_class
+						";	   
+			
+			$query = $conn->query($sql_que);
+            $results = $query->fetchAll(PDO::FETCH_ASSOC);
+            $json_data = json_encode($results);
+  		    echo $json_data;
+		}
+		/********** END: CLASS **********/
+		
+		
+		/*
 		  Author : Justin Xyrel 
 		  Date: 05/08/14
 		  Function: add_staff

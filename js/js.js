@@ -289,6 +289,9 @@ $('html').find("#inp_menu_image").change(function()	{	readImage( this );	});
 					});
 	});
 	
+	
+	
+	
 });
 
 

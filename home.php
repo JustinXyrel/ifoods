@@ -43,7 +43,7 @@
 			</div><!-- /content_top -->
 			
 			<div id="content_bottom">
-				
+			
 			</div><!-- /content_bottom -->
 			
 		</div><!-- /content_display -->

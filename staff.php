@@ -31,28 +31,9 @@
 	});
 </script>
 
-<!--<link href="css/style.css" rel="stylesheet" type="text/css" />-->
+	<!--<link href="css/style.css" rel="stylesheet" type="text/css" />-->
 
-<link href="css/advancedtable.css" rel="stylesheet" type="text/css" />
-
-<style>
-
-#searchtable td select, input#search {
-	padding: 6px 12px;
-	font-size: 14px;
-	line-height: 1.428571429;
-	color: #555555;
-	background-color: #ffffff;
-	background-image: none;
-	border: 1px solid #cccccc;
-	border-radius: 4px;
-	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-	-webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-	transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-}
-
-</style>
+	<link href="css/advancedtable.css" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -88,10 +69,9 @@
 
        <tbody>
 
-<?php 	foreach($data as $info){
+	<?php 	foreach($data as $info){
 			$user_type= ucwords(str_replace("_"," ",$info['user_type']));
-
- ?>
+	?>
 			<tr id = "<?php echo $info['user_id'];?>">
 				<td>
 				 <?php 
@@ -133,12 +113,8 @@
 
      </table><!-- /staff -->
 
-
-   
-
-</div>
-<div id='dialog_staff'>
-
-</div>
-</body></html>
+	<div id='dialog_staff'></div>
+	
+</body>
+</html>
  

@@ -1,5 +1,7 @@
 
-	$(document).ready(function() {
+	$(document).unbind().on('ready',function(event) {
+	    // event.stopImmediatePropagation();
+
         /*STAFF*/
 		
 		$('a#manager').on('click',function(event){
@@ -29,7 +31,6 @@
 			event.stopImmediatePropagation(); 
 			event.preventDefault();
 			
-			
 		    if($('table#staff').length == 0){
 				get_staff();			
 			}
@@ -41,6 +42,10 @@
 		});		
 		
 		
+		
+		
+			
+		
 		$('a#staff').one('click',function(event){
 			event.stopImmediatePropagation(); 
 			event.preventDefault(); 
@@ -49,7 +54,7 @@
 	
 		});
 		
-	/*	$('a#a_add_staff').one('click',function(event){
+		/*$('a#a_add_staff').one('click',function(event){
 			event.stopImmediatePropagation(); 
 			event.preventDefault();
 			if($('table#staff').length == 0){
@@ -212,79 +217,81 @@
 					}
 		  });	
 		}
-		/*
-      to be revised.. temporary code - JX
-	
-	
-	*/
-	if($('#homeMainContainer').length > 0){
-	  if($('input#ut_id').val() == '3'){
-		$('div#system_admin').show();
-	  	$('a#sysad_report').click();
-		$.isLoading("hide");		
-	  //  activate_menu(0);
-	  }
-	  if($('input#ut_id').val() == '2'){
-	   $('div#resto_admin').show();
-	   	$('a#resadmin_report').click();
-		$.isLoading("hide");
-		//activate_menu(1);
-	  }
-	  if($('input#ut_id').val() == '4'){
-	   $('div#manager').show();
-	   $.isLoading("hide");
-	  // get_transactions();
-		//activate_menu(1);
-	  }
-	  if($('input#ut_id').val() > 4 ){
-		$('div#staff').show();
-		$.isLoading("hide");
-		//activate_menu(2);
-	  }
-	}
-	
-    /*View menus or products*/
-	$('a#product').one('click',function(event){
-		event.stopImmediatePropagation(); 
-		event.preventDefault(); 
+
 		
-		$.isLoading({text:"Loading.. "});	
+		/* to be revised.. temporary code - JX */
 		
-		$.ajax({
-			url:'search.php',
-			success: function (response){ 
-					$('div#content_bottom').html("");
-					$('div#content_bottom').append(response);
-					$.isLoading("hide");
+		
+		if($('#homeMainContainer').length > 0){
+			if($('input#ut_id').val() == '3'){
+				$('div#system_admin').unbind().show();
+				do_show_home('a#sysad_report');
+				$.isLoading("hide");
 			}
-		});										
-	});
+			
+			if($('input#ut_id').val() == '2'){
+				$('div#resto_admin').show();
+				do_show_home('a#resadmin_report');
+				$.isLoading("hide");
+			}
+			
+			if($('input#ut_id').val() == '4'){
+				$('div#manager').show();
+				$.isLoading("hide");
+			}
+			
+			if($('input#ut_id').val() > 4 ){
+				$('div#staff').show();
+				$.isLoading("hide");
+			}
+		}
+	
+	
+	    $('#update_stat').on('click',function(event){
+		
+		});
+	  
+	      /*View menus or products*/
+		$('a#product').one('click',function(event){
+			event.stopImmediatePropagation(); 
+			event.preventDefault(); 
+					
+			$.ajax({
+				url:'search.php',
+				success: function (response){ 
+						$('div#content_bottom').html("");
+						$('div#content_bottom').append(response);
+				}
+			});										
+		});
+	
+
 	
 	    /*For displaying system admin restaurant name report - JX*/
 	
-	  $('a#sysad_report').one('click',function(event){
-		event.stopImmediatePropagation(); 
-		event.preventDefault(); 
-		$.isLoading({text:"Loading.. "});
-		$.ajax({
-			type: 'POST',
-			url:'controller.php',
-			data: {'function_name':'sysad_report'},
-			success: function (response){ 
-				$.ajax({
-					type: 'POST',
-					url:'sysad_report.php',
-					data: {'data':response},
-					success: function (response){ 
-						$('div#content_bottom').html("");
-						$('div#content_bottom').append(response);
-						$.isLoading("hide");
-					}
-				});					
-			}
+		$('a#sysad_report').unbind().one('click',function(event){
+			event.stopImmediatePropagation(); 
+			event.preventDefault(); 
+			$.isLoading({text:"Loading.. "});
+			$.ajax({
+				type: 'POST',
+				url:'controller.php',
+				data: {'function_name':'sysad_report'},
+				success: function (response){ 
+					$.ajax({
+						type: 'POST',
+						url:'sysad_report.php',
+						data: {'data':response},
+						success: function (response){ 
+							$('div#content_bottom').html("");
+							$('div#content_bottom').append(response);
+							$.isLoading("hide");
+						}
+					});					
+				}
+			});
+			//alert('you clicked me');
 		});
-		//alert('you clicked me');
-	  });
 		
 		/*For displaying system admin restaurant name report - JX*/
 	
@@ -320,14 +327,15 @@
 						}
 					});	
                 }				
-				});
 			});
+		});
 		
 		$('a#all_trans').one('click',function(event){
 			get_transactions();
 		});	
 		
 		/*Checks all and unchecks all checkboxes element in view transaction*/
+		
 		$('a#chkbox').bind('click',function(event){
 		    if($('input[type=checkbox]').length == $('input[type=checkbox]:checked').length){
 				$('input[type=checkbox]').prop('checked',false);			
@@ -391,8 +399,8 @@
 		});
 	
 	 	
-	 function get_transactions(){
-		$.ajax({
+		function get_transactions(){
+			$.ajax({
 				type: 'POST',
 				url:'controller.php',
 				data: {'function_name':'get_profile'},
@@ -418,50 +426,126 @@
 					});
 				}
 			});
-	 }
+		}
 	 
-	 function get_transaction_bstatus(status){
-	   if($('#trans_report').length == 0){
-		 get_transactions();
-	   }
-		$('select option[value="8"]').prop('selected',true);
-		$('#search').val(status);
-		$('#search').change();
-	 }
+		function get_transaction_bstatus(status){
+			if($('#trans_report').length == 0){
+				get_transactions();
+			}
+				$('select option[value="8"]').prop('selected',true);
+				$('#search').val(status);
+				$('#search').change();
+		}
 	 
-	 function get_products(){
+		function get_products(){
 	 
+		}
 	 
-	 }
+		function get_staff(){
+			$.isLoading({text:"Loading.. "});
+			$.ajax({
+				type: 'POST',
+				url:'controller.php',
+				data: {'function_name':'get_staff'},
+				success: function (response){ 
+						$.ajax({
+							type: 'POST',
+							url:'staff.php',
+							data: {'data':response},
+							success: function (response){ 					
+								$('div#content_bottom').html("");
+								$('div#content_bottom').append(response);
+								$('a#add_staff').text('Add New Staff');
+								$.isLoading("hide");
+							}
+						});					
+				}
+			});
+			
+			$.isLoading("hide");
+		}
 	 
-	 function get_staff(){
-	 	$.isLoading({text:"Loading.. "});
-	 	$.ajax({
-			type: 'POST',
-			url:'controller.php',
-			data: {'function_name':'get_staff'},
-			success: function (response){ 
+		function call_table_plugin(table_id){
+			$('select').children().remove();
+			$("#searchtable").show();
+			$("table#"+table_id).advancedtable({searchField: "#search", loadElement: "#loader", searchCaseSensitive: false, ascImage: "css/images/up.png", descImage: "css/images/down.png", searchOnField: "#searchOn"});
+		}
+	
+		
+		$('a#class').unbind().on('click',function(event){
+			event.stopImmediatePropagation(); 
+			event.preventDefault(); 
+			$.ajax({
+				type: 'POST',
+				url:'controller.php',
+						data: {'function_name':'get_class'},
+				success: function (response){ 
 					$.ajax({
 						type: 'POST',
-						url:'staff.php',
+						url:'class.php',
 						data: {'data':response},
-						success: function (response){ 					
+						success: function (response){ 
 							$('div#content_bottom').html("");
 							$('div#content_bottom').append(response);
-							$('a#add_staff').text('Add New Staff');
+							
 							$.isLoading("hide");
+							
 						}
 					});					
-			}
-		}); 
-		$.isLoading("hide");
-	 }
-	 
-	 function call_table_plugin(table_id){
-		$('select').children().remove();
-		$("#searchtable").show();
-		$("table#"+table_id).advancedtable({searchField: "#search", loadElement: "#loader", searchCaseSensitive: false, ascImage: "css/images/up.png", descImage: "css/images/down.png", searchOnField: "#searchOn"});
-
-	 }
-	
+				}
+			});
+		});
+		
+		
+		/********** ADD NEW CLASS **********/
+		$('a#add_class').on('click',function(event){
+			event.stopImmediatePropagation(); 
+			event.preventDefault();
+			
+			dialog_add_class();
+		    $( "#dialog_add_class" ).dialog('open');
+		});	
+		
+		
+		function dialog_add_class(){
+			//var win_width = window.innerWidth/1.3;
+			//var win_height = window.innerHeight/1.05;
+			
+			$( "#dialog_add_class" ).dialog({
+				autoOpen: false,	 
+				width: 400,
+				modal: true,
+				
+				open: function() {
+					$.ajax({
+						url:'form_add_class.php',
+						success: function (response){ 
+							$("#dialog_add_class").html("");
+							$("#dialog_add_class").append(response);
+						}
+					});
+				},
+				
+				buttons: {
+					Save: function() {
+					
+					},
+					Cancel: function() {
+						$( this ).dialog( "close" );
+					}
+				}
+				
+			});
+		};
+		/********** END: ADD NEW CLASS **********/
+		
+		/********** function whether to show or not to show home page **********/
+		function do_show_home(element){
+		  if($('div#content_bottom').text().trim().length == 0){
+			$(element).click();
+			console.log($(element));
+			
+		  }
+        }		
+		
 	});
